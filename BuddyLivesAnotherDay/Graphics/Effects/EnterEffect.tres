@@ -1,8 +1,9 @@
 [gd_resource type="Animation" format=2]
 
 [resource]
-resource_name = "Enter"
+resource_name = "Transition"
 length = 1.7
+step = 0.0
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("EnterExitEffect:material:shader_param/radius")
 tracks/0/interp = 1
@@ -10,6 +11,6 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 0, -0.4, -0.00309676, 0.21, 0.000694279, 0.25, -0.17, -0.0375611, 1.62, 0, 0.25, -0.25, 0, 0.25, 0, 2.10455, -0.11, -1.52886, 0.25, 0 ),
-"times": PoolRealArray( 0.2, 0.4, 1.3, 1.7 )
+"points": PoolRealArray( 0.46509, -0.4, -0.00309676, 0.17, 0.0336692, 0.509836, 0, -0.005, 0.58, 0, 0.51, -0.25, 0, 0.25, 0, 1, -0.0146693, -0.414539, 0.25, 0 ),
+"times": PoolRealArray( -0.0857436, 0.814564, 1.27923, 1.7 )
 }
