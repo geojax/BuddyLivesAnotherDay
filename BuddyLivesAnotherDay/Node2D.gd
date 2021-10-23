@@ -1,21 +1,57 @@
 extends Node2D
 
+enum FightState {
+	NORMAL,
+	EXPOSED,
+	STUNNED
+}
+var state = FightState.NORMAL
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+const STUNTIME = 1
+const MIN_EXPOSE_DELAY_TIME = 5
+const MAX_EXPOSE_DELAY_TIME = 15
 
-
-# Called when the node enters the scene tree for the first time.
+onready var exposeDelayTimer = get_node("ExposeDelayTimer")
+onready var exposeTimer = get_node("ExposeTimer")
+onready var stunTimer = get_node("StunTimer")
+onready var fightProgressBar = get_node("FightProgressBar")
 func _ready():
-	$ProgressBar.value = 50
+	fightProgressBar.value = 50
+	exposeDelayTimer.start(floor(rand_range(MIN_EXPOSE_DELAY_TIME, MAX_EXPOSE_DELAY_TIME)))
+	pass
+
+func _process(delta):
+	match state:
+		FightState.NORMAL:
+			fightProgressBar.value -= .5
+			if Input.is_action_just_pressed("armWrestlePush"):
+				fightProgressBar.value += 5
+		FightState.EXPOSED:
+			if Input.is_action_just_pressed("armWrestleStun"):
+				exposeTimer.stop()
+				state = FightState.STUNNED
+				print("Stunned!")
+				stunTimer.start(1)
+		FightState.STUNNED:
+			if Input.is_action_just_pressed("armWrestlePush"):
+				fightProgressBar.value += 3
+
+	pass
+
+func _on_ExposeDelayTimer_timeout():
+	print("PRESS RIGHT!")
+	state = FightState.EXPOSED
+	exposeTimer.start(1)
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	$ProgressBar.value -= .5
-	if Input.is_action_just_pressed("arm_wrestle_push"):
-		$ProgressBar.value += 5
-		pass
-	pass
+func _on_ExposeTimer_timeout():
+	print("Expose timer end!")
+	state = FightState.NORMAL
+	exposeDelayTimer.start(randi() % 10 + 10)
+	pass # Replace with function body.
+
+
+func _on_StunTimer_timeout():
+	state = FightState.NORMAL
+	pass # Replace with function body.
