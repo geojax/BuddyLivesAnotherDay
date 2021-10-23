@@ -13,6 +13,7 @@ var state = MovementState.IDLE
 var velocity := Vector2()
 const MOVE_SPEED := 100
 
+
 func _ready() -> void:
 	$AnimatedSprite.play("Idle");
 

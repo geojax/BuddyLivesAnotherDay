@@ -1,14 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/Effects/StaticShader.tres" type="Material" id=3]
+[ext_resource path="res://Scripts/ScreenEffects.gd" type="Script" id=4]
+[ext_resource path="res://Graphics/Effects/EnterExitShader.tres" type="Material" id=5]
+[ext_resource path="res://Graphics/Effects/EnterEffect.tres" type="Animation" id=6]
+[ext_resource path="res://Graphics/Effects/ExitEffect.tres" type="Animation" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
-[node name="Node2D" type="Node2D"]
+[node name="Overworld" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 76.1718, 64.1447 )
+position = Vector2( 256.66, 29.4023 )
 collision/safe_margin = 1.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -21,3 +26,41 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="StaticBody2D"]
 scale = Vector2( 0.320001, 0.32 )
 texture = ExtResource( 2 )
+
+[node name="ScreenEffects" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+input_pass_on_modal_close_click = false
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+useEnterExit = true
+noiseScale = 0.125
+
+[node name="EffectAnimator" type="AnimationPlayer" parent="ScreenEffects"]
+anims/Enter = ExtResource( 6 )
+anims/Exit = ExtResource( 7 )
+
+[node name="StaticEffect" type="ColorRect" parent="ScreenEffects"]
+material = ExtResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnterExitEffect" type="ColorRect" parent="ScreenEffects"]
+material = ExtResource( 5 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

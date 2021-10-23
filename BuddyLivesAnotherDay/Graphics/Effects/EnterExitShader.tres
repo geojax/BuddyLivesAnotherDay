@@ -1,0 +1,170 @@
+[gd_resource type="ShaderMaterial" load_steps=16 format=2]
+
+[sub_resource type="VisualShaderNodeScalarSmoothStep" id=1]
+output_port_for_preview = 0
+default_input_values = [ 0, 0.45, 1, 0.55, 2, 0.0 ]
+
+[sub_resource type="VisualShaderNodeScalarOp" id=2]
+
+[sub_resource type="VisualShaderNodeScalarOp" id=3]
+operator = 1
+
+[sub_resource type="VisualShaderNodeColorConstant" id=4]
+constant = Color( 0, 0, 0, 1 )
+
+[sub_resource type="VisualShaderNodeInput" id=5]
+output_port_for_preview = 0
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVectorCompose" id=6]
+default_input_values = [ 0, 0.0, 1, 1.0, 2, 1.0 ]
+
+[sub_resource type="VisualShaderNodeVectorOp" id=7]
+operator = 2
+
+[sub_resource type="VisualShaderNodeVectorOp" id=8]
+operator = 2
+
+[sub_resource type="VisualShaderNodeIf" id=9]
+
+[sub_resource type="VisualShaderNodeScalarUniform" id=10]
+uniform_name = "screenRatio"
+
+[sub_resource type="VisualShaderNodeVec3Uniform" id=11]
+uniform_name = "focusPoint"
+
+[sub_resource type="VisualShaderNodeScalarUniform" id=12]
+uniform_name = "radius"
+
+[sub_resource type="VisualShaderNodeScalarUniform" id=13]
+uniform_name = "blurRadius"
+
+[sub_resource type="VisualShaderNodeVectorDistance" id=14]
+output_port_for_preview = 0
+
+[sub_resource type="VisualShader" id=15]
+code = "shader_type canvas_item;
+uniform float radius;
+uniform float blurRadius;
+uniform float screenRatio;
+uniform vec3 focusPoint;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Color:16
+	vec3 n_out16p0 = vec3(0.000000, 0.000000, 0.000000);
+	float n_out16p1 = 1.000000;
+
+// ScalarUniform:29
+	float n_out29p0 = radius;
+
+// ScalarUniform:30
+	float n_out30p0 = blurRadius;
+
+// ScalarOp:15
+	float n_out15p0 = n_out29p0 - n_out30p0;
+
+// ScalarOp:14
+	float n_out14p0 = n_out29p0 + n_out30p0;
+
+// If:26
+	float n_in26p1 = 0.00000;
+	float n_in26p2 = 0.00001;
+	vec3 n_in26p3 = vec3(0.00000, 0.00000, 0.00000);
+	vec3 n_in26p5 = vec3(0.00000, 0.00000, 0.00000);
+	vec3 n_out26p0;
+	if(abs(n_out29p0 - n_in26p1) < n_in26p2)
+	{
+		n_out26p0 = n_in26p3;
+	}
+	else if(n_out29p0 < n_in26p1)
+	{
+		n_out26p0 = n_in26p5;
+	}
+	else
+	{
+		n_out26p0 = vec3(n_out14p0);
+	}
+
+// ScalarUniform:27
+	float n_out27p0 = screenRatio;
+
+// VectorCompose:21
+	float n_in21p1 = 1.00000;
+	float n_in21p2 = 1.00000;
+	vec3 n_out21p0 = vec3(n_out27p0, n_in21p1, n_in21p2);
+
+// VectorUniform:28
+	vec3 n_out28p0 = focusPoint;
+
+// VectorOp:23
+	vec3 n_out23p0 = n_out21p0 * n_out28p0;
+
+// Input:18
+	vec3 n_out18p0 = vec3(UV, 0.0);
+
+// VectorOp:22
+	vec3 n_out22p0 = n_out18p0 * n_out21p0;
+
+// Distance:6
+	float n_out6p0 = distance(n_out23p0, n_out22p0);
+
+// ScalarSmoothStep:11
+	float n_out11p0 = smoothstep(n_out15p0, dot(n_out26p0, vec3(0.333333, 0.333333, 0.333333)), n_out6p0);
+
+// Output:0
+	COLOR.rgb = n_out16p0;
+	COLOR.a = n_out11p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2( 1320, 220 )
+nodes/fragment/6/node = SubResource( 14 )
+nodes/fragment/6/position = Vector2( 500, 220 )
+nodes/fragment/11/node = SubResource( 1 )
+nodes/fragment/11/position = Vector2( 1040, 180 )
+nodes/fragment/14/node = SubResource( 2 )
+nodes/fragment/14/position = Vector2( 680, 480 )
+nodes/fragment/15/node = SubResource( 3 )
+nodes/fragment/15/position = Vector2( 680, 360 )
+nodes/fragment/16/node = SubResource( 4 )
+nodes/fragment/16/position = Vector2( 1040, 40 )
+nodes/fragment/18/node = SubResource( 5 )
+nodes/fragment/18/position = Vector2( 80, 300 )
+nodes/fragment/21/node = SubResource( 6 )
+nodes/fragment/21/position = Vector2( 80, 180 )
+nodes/fragment/22/node = SubResource( 7 )
+nodes/fragment/22/position = Vector2( 320, 300 )
+nodes/fragment/23/node = SubResource( 8 )
+nodes/fragment/23/position = Vector2( 320, 180 )
+nodes/fragment/26/node = SubResource( 9 )
+nodes/fragment/26/position = Vector2( 840, 480 )
+nodes/fragment/27/node = SubResource( 10 )
+nodes/fragment/27/position = Vector2( -620, 320 )
+nodes/fragment/28/node = SubResource( 11 )
+nodes/fragment/28/position = Vector2( -620, 380 )
+nodes/fragment/29/node = SubResource( 12 )
+nodes/fragment/29/position = Vector2( -620, 440 )
+nodes/fragment/30/node = SubResource( 13 )
+nodes/fragment/30/position = Vector2( -620, 500 )
+nodes/fragment/connections = PoolIntArray( 11, 0, 0, 1, 16, 0, 0, 0, 6, 0, 11, 2, 21, 0, 22, 1, 18, 0, 22, 0, 22, 0, 6, 1, 21, 0, 23, 0, 23, 0, 6, 0, 14, 0, 26, 4, 26, 0, 11, 1, 15, 0, 11, 0, 27, 0, 21, 0, 28, 0, 23, 1, 29, 0, 15, 0, 29, 0, 14, 0, 29, 0, 26, 0, 30, 0, 15, 1, 30, 0, 14, 1 )
+
+[resource]
+shader = SubResource( 15 )
+shader_param/radius = 1.0
+shader_param/blurRadius = 0.05
+shader_param/screenRatio = 1.707
+shader_param/focusPoint = Vector3( 0.5, 0.5, 0 )

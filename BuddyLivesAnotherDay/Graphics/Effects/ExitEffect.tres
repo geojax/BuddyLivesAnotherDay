@@ -1,0 +1,15 @@
+[gd_resource type="Animation" format=2]
+
+[resource]
+resource_name = "Exit"
+length = 1.7
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("EnterExitEffect:material:shader_param/radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 2.10455, -0.11, -1.52886, 0.25, 0, 0.25, -0.17, -0.0375611, 1.62, 0, 0.25, -0.25, 0, 0.25, 0, 0, -0.27, -0.0968093, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4, 1.3, 1.8 )
+}
