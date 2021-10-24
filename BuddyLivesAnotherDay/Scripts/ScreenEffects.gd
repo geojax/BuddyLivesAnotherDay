@@ -11,7 +11,10 @@ export var vignetteBlur := 0.293
 onready var viewport = get_viewport()
 onready var player = get_node("/root/Overworld/Player")
 
-func UpdateFocus(visibleRect: Rect2):
+func UpdateFocus(visibleRect: Rect2) -> void:
+	if player == null:
+		$EnterExitEffect.get_material().set_shader_param("focusPoint", Vector3(0.5, 0.5, 1))
+		return
 	var viewportWidth = visibleRect.size.x
 	var viewportHeight = visibleRect.size.y
 	var viewportPos = viewport.get_visible_rect().position

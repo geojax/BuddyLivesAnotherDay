@@ -21,6 +21,7 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+useEnterExit = true
 noiseScale = 0.125
 
 [node name="EffectAnimator" type="AnimationPlayer" parent="."]
