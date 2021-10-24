@@ -16,11 +16,15 @@ func UpdateFocus():
 
 func PlayEnter():
 	UpdateFocus()
+	$EnterExitEffect.visible = true
 	$EffectAnimator.set_speed_scale(1)
 	$EffectAnimator.play("Transition")
+	yield(get_tree().create_timer(1.7), "timeout")
+	$EnterExitEffect.visible = false
 
 func PlayExit():
 	UpdateFocus()
+	$EnterExitEffect.visible = true
 	$EffectAnimator.set_speed_scale(-1)
 	$EffectAnimator.play("Transition")
 
