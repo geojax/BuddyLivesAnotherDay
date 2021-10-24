@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=20 format=2]
 
-[sub_resource type="VisualShaderNodeScalarSmoothStep" id=19]
+[sub_resource type="VisualShaderNodeScalarSmoothStep" id=1]
 output_port_for_preview = 0
 default_input_values = [ 0, 0.45, 1, 0.55, 2, 0.0 ]
 
@@ -31,31 +31,31 @@ default_input_values = [ 0, 0.0, 1, 0.0, 2, 0.0, 3, Vector3( 0, 0, 0 ), 4, Vecto
 [sub_resource type="VisualShaderNodeScalarUniform" id=10]
 uniform_name = "screenRatio"
 
-[sub_resource type="VisualShaderNodeScalarUniform" id=12]
+[sub_resource type="VisualShaderNodeScalarUniform" id=11]
 uniform_name = "radius"
 
-[sub_resource type="VisualShaderNodeScalarUniform" id=13]
+[sub_resource type="VisualShaderNodeScalarUniform" id=12]
 uniform_name = "blurRadius"
 
-[sub_resource type="VisualShaderNodeScalarOp" id=14]
+[sub_resource type="VisualShaderNodeScalarOp" id=13]
 operator = 2
 
-[sub_resource type="VisualShaderNodeVectorDistance" id=15]
+[sub_resource type="VisualShaderNodeVectorDistance" id=14]
 
-[sub_resource type="VisualShaderNodeVectorCompose" id=16]
+[sub_resource type="VisualShaderNodeVectorCompose" id=15]
 output_port_for_preview = 0
 default_input_values = [ 0, 0.0, 1, 1.0, 2, 0.0 ]
 
-[sub_resource type="VisualShaderNodeScalarFunc" id=20]
+[sub_resource type="VisualShaderNodeScalarFunc" id=16]
 function = 31
 
-[sub_resource type="VisualShaderNodeVec3Constant" id=23]
+[sub_resource type="VisualShaderNodeVec3Constant" id=17]
 constant = Vector3( 0.5, 0.5, 0 )
 
-[sub_resource type="VisualShaderNodeVectorDistance" id=17]
+[sub_resource type="VisualShaderNodeVectorDistance" id=18]
 output_port_for_preview = 0
 
-[sub_resource type="VisualShader" id=21]
+[sub_resource type="VisualShader" id=19]
 code = "shader_type canvas_item;
 render_mode blend_mul;
 
@@ -153,14 +153,14 @@ void light() {
 
 }
 "
-graph_offset = Vector2( -2132.8, 386.967 )
+graph_offset = Vector2( 604, 232 )
 mode = 1
 modes/blend = 3
 flags/light_only = false
 nodes/fragment/0/position = Vector2( 640, 240 )
-nodes/fragment/6/node = SubResource( 17 )
+nodes/fragment/6/node = SubResource( 18 )
 nodes/fragment/6/position = Vector2( -320, 220 )
-nodes/fragment/11/node = SubResource( 19 )
+nodes/fragment/11/node = SubResource( 1 )
 nodes/fragment/11/position = Vector2( 240, 220 )
 nodes/fragment/14/node = SubResource( 2 )
 nodes/fragment/14/position = Vector2( -140, 480 )
@@ -180,24 +180,24 @@ nodes/fragment/26/node = SubResource( 9 )
 nodes/fragment/26/position = Vector2( 60, 480 )
 nodes/fragment/27/node = SubResource( 10 )
 nodes/fragment/27/position = Vector2( -1040, 320 )
-nodes/fragment/29/node = SubResource( 12 )
+nodes/fragment/29/node = SubResource( 11 )
 nodes/fragment/29/position = Vector2( -1040, 440 )
-nodes/fragment/30/node = SubResource( 13 )
+nodes/fragment/30/node = SubResource( 12 )
 nodes/fragment/30/position = Vector2( -1040, 500 )
-nodes/fragment/35/node = SubResource( 14 )
+nodes/fragment/35/node = SubResource( 13 )
 nodes/fragment/35/position = Vector2( -340, 420 )
-nodes/fragment/36/node = SubResource( 15 )
+nodes/fragment/36/node = SubResource( 14 )
 nodes/fragment/36/position = Vector2( -560, 580 )
-nodes/fragment/37/node = SubResource( 16 )
+nodes/fragment/37/node = SubResource( 15 )
 nodes/fragment/37/position = Vector2( -760, 560 )
-nodes/fragment/38/node = SubResource( 20 )
+nodes/fragment/38/node = SubResource( 16 )
 nodes/fragment/38/position = Vector2( 540, 160 )
-nodes/fragment/39/node = SubResource( 23 )
+nodes/fragment/39/node = SubResource( 17 )
 nodes/fragment/39/position = Vector2( -1420, 360 )
 nodes/fragment/connections = PoolIntArray( 6, 0, 11, 2, 21, 0, 22, 1, 18, 0, 22, 0, 22, 0, 6, 1, 21, 0, 23, 0, 23, 0, 6, 0, 14, 0, 26, 4, 26, 0, 11, 1, 15, 0, 11, 0, 27, 0, 21, 0, 30, 0, 15, 1, 30, 0, 14, 1, 29, 0, 35, 1, 35, 0, 15, 0, 35, 0, 26, 0, 35, 0, 14, 0, 27, 0, 37, 0, 36, 0, 35, 0, 37, 0, 36, 0, 11, 0, 38, 0, 38, 0, 0, 0, 39, 0, 23, 1 )
 
 [resource]
-shader = SubResource( 21 )
+shader = SubResource( 19 )
 shader_param/screenRatio = 1.707
 shader_param/radius = 0.608
-shader_param/blurRadius = 0.585
+shader_param/blurRadius = 0.293

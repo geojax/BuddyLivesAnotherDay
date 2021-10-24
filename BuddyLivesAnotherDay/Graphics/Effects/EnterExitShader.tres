@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=19 format=2]
 
-[sub_resource type="VisualShaderNodeScalarSmoothStep" id=19]
+[sub_resource type="VisualShaderNodeScalarSmoothStep" id=1]
 output_port_for_preview = 0
 default_input_values = [ 0, 0.45, 1, 0.55, 2, 0.0 ]
 
@@ -157,7 +157,7 @@ flags/light_only = false
 nodes/fragment/0/position = Vector2( 560, 220 )
 nodes/fragment/6/node = SubResource( 17 )
 nodes/fragment/6/position = Vector2( -320, 220 )
-nodes/fragment/11/node = SubResource( 19 )
+nodes/fragment/11/node = SubResource( 1 )
 nodes/fragment/11/position = Vector2( 240, 220 )
 nodes/fragment/14/node = SubResource( 2 )
 nodes/fragment/14/position = Vector2( -140, 480 )

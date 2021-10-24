@@ -21,10 +21,10 @@ constant = 0.5
 [sub_resource type="VisualShaderNodeVectorOp" id=7]
 
 [sub_resource type="VisualShaderNodeScalarUniform" id=8]
-uniform_name = "Contrast"
+uniform_name = "contrast"
 
 [sub_resource type="VisualShaderNodeScalarUniform" id=9]
-uniform_name = "Saturation"
+uniform_name = "saturation"
 
 [sub_resource type="VisualShaderNodeInput" id=10]
 input_name = "screen_uv"
@@ -52,8 +52,8 @@ constant = 0.25
 
 [sub_resource type="VisualShader" id=17]
 code = "shader_type canvas_item;
-uniform float Saturation;
-uniform float Contrast;
+uniform float saturation;
+uniform float contrast;
 
 
 
@@ -95,7 +95,7 @@ void fragment() {
 	float n_out8p2 = n_out6p0.z;
 
 // ScalarUniform:19
-	float n_out19p0 = Saturation;
+	float n_out19p0 = saturation;
 
 // ScalarOp:10
 	float n_out10p0 = n_out8p1 * n_out19p0;
@@ -119,7 +119,7 @@ void fragment() {
 	vec3 n_out15p0 = n_out7p0 - vec3(n_out16p0);
 
 // ScalarUniform:18
-	float n_out18p0 = Contrast;
+	float n_out18p0 = contrast;
 
 // ScalarOp:13
 	float n_in13p1 = 0.00000;
@@ -142,7 +142,7 @@ void light() {
 
 }
 "
-graph_offset = Vector2( 438.4, -5.06084 )
+graph_offset = Vector2( 604, 232 )
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2( 2620, 360 )
@@ -182,5 +182,5 @@ nodes/fragment/connections = PoolIntArray( 3, 0, 5, 0, 4, 0, 5, 2, 5, 1, 0, 1, 5
 
 [resource]
 shader = SubResource( 17 )
-shader_param/Saturation = 1.0
-shader_param/Contrast = 1.0
+shader_param/saturation = 1.0
+shader_param/contrast = 1.0
