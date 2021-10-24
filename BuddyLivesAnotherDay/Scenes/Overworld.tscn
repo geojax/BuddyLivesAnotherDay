@@ -30,5 +30,5 @@ scale = Vector2( 0.320001, 0.32 )
 texture = ExtResource( 2 )
 
 [node name="ScreenEffects" parent="." instance=ExtResource( 3 )]
-useEnterExit = true
 noiseScale = 0.15
+vignetteRadius = 0.5
