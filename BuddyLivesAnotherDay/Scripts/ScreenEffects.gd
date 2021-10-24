@@ -8,8 +8,8 @@ export var contrast := 1.0
 export var vignetteRadius := 0.608
 export var vignetteBlur := 0.293
 
-onready var viewport = get_viewport()
-onready var player = get_node("/root/Overworld/Player")
+onready var viewport := get_viewport()
+onready var player := get_node("/root/Overworld/Player")
 
 func UpdateFocus(visibleRect: Rect2) -> void:
 	if player == null:
@@ -21,7 +21,7 @@ func UpdateFocus(visibleRect: Rect2) -> void:
 	var focus = Vector3((player.position.x - viewportPos.x)/viewportWidth, (player.position.y - viewportPos.y)/viewportHeight, 1)
 	$EnterExitEffect.get_material().set_shader_param("focusPoint", focus)
 
-func PlayEnter():
+func PlayEnter() -> void:
 	var visibleRect = get_viewport().get_visible_rect()
 	UpdateFocus(visibleRect)
 	$EnterExitEffect.visible = true
@@ -30,14 +30,14 @@ func PlayEnter():
 	yield(get_tree().create_timer(1.7), "timeout")
 	$EnterExitEffect.visible = false
 
-func PlayExit():
+func PlayExit() -> void:
 	var visibleRect = get_viewport().get_visible_rect()
 	UpdateFocus(visibleRect)
 	$EnterExitEffect.visible = true
 	$EffectAnimator.set_speed_scale(-1)
 	$EffectAnimator.play("Transition")
 
-func _ready():
+func _ready() -> void:
 	$StaticEffect.get_material().set_shader_param("noiseScale", noiseScale)
 	$NoireEffect.get_material().set_shader_param("contrast", contrast)
 	$NoireEffect.get_material().set_shader_param("saturation", saturation)

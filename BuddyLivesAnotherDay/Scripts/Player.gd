@@ -11,6 +11,7 @@ enum MovementState{
 var oldState = MovementState.IDLE
 var state = MovementState.IDLE
 var velocity := Vector2()
+
 const MOVE_SPEED := 100
 
 
