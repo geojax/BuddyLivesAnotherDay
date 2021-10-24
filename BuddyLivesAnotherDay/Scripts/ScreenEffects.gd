@@ -38,4 +38,5 @@ func _ready():
 func _process(delta: float) -> void:
 	var visibleRect = get_viewport().get_visible_rect()
 	if useEnterExit: UpdateFocus()
+	#$VignetteEffect.get_material().set_shader_param("screenRatio", visibleRect.size.x / visibleRect.size.y)
 	if useEnterExit: $EnterExitEffect.get_material().set_shader_param("screenRatio", visibleRect.size.x / visibleRect.size.y)
