@@ -14,7 +14,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ProgressBar2" type="ProgressBar" parent="."]
+[node name="StaminaProgressBar" type="ProgressBar" parent="."]
 margin_left = 293.646
 margin_top = 407.597
 margin_right = 795.646
