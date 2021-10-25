@@ -8,7 +8,6 @@ enum MovementState{
 	RIGHT
 }
 
-var oldState = MovementState.IDLE
 var state = MovementState.IDLE
 var velocity := Vector2()
 
@@ -31,7 +30,6 @@ func GetVelocity() -> Vector2:
 	return moveDirection.normalized() * MOVE_SPEED
 
 func UpdateDirection() -> void:
-	oldState = state
 	state = MovementState.IDLE
 	if Input.is_action_pressed("worldRight"):
 		state = MovementState.RIGHT
@@ -43,8 +41,6 @@ func UpdateDirection() -> void:
 		state = MovementState.DOWN
 
 func UpdateAnimation() -> void:
-	if oldState == state:
-		pass
 	var animation := "Idle"
 	match state:
 		MovementState.IDLE:
