@@ -7,7 +7,7 @@
 [ext_resource path="res://Graphics/Effects/VignetteShader.tres" type="Material" id=5]
 [ext_resource path="res://Scripts/ScreenEffects.gd" type="Script" id=6]
 
-[node name="ScreenEffects" type="Control"]
+[node name="ScreenEffects" type="Container"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -18,8 +18,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 6 )
 __meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
+"_edit_lock_": true
 }
 useEnterExit = true
 noiseScale = 0.125
