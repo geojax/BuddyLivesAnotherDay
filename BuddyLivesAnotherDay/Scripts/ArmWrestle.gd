@@ -12,13 +12,17 @@ const MIN_EXPOSE_DELAY_TIME = 5
 const MAX_EXPOSE_DELAY_TIME = 15
 
 # how fast progress/stamina increase or decrease.
-var fightProgressDecay = .4
-var pushEffectiveness = .4
-var pushStaminaCost = .4
-var staminaRegen = 2
+var fightProgressDecay = .2
+var pushEffectiveness = .6
+var pushStaminaCost = .3
+var staminaRegen = .4
 
-var fightProgress = 50
-var stamina := 100
+var enemyStrength = 1.0;
+
+var fightProgress = 50.0
+var stamina = 100.0
+
+var timeElapsed = 0;
 
 onready var exposeDelayTimer := get_node("ExposeDelayTimer")
 onready var exposeTimer := get_node("ExposeTimer")
@@ -27,17 +31,15 @@ onready var fightProgressBar := get_node("FightProgressBar")
 onready var staminaProgressBar := get_node("StaminaProgressBar")
 	
 func UpdateProgressBars() -> void:
-	fightProgress = clamp(fightProgress, 0, 100)
 	fightProgressBar.value = fightProgress
-	
-	stamina = clamp(stamina, 0, 100)
 	staminaProgressBar.value = stamina
+	$EnemyStrengthBar.value = abs(sin(timeElapsed))*100.0;
 	
 func UpdateFightNormal() -> void:
 	fightProgress -= fightProgressDecay
 	if Input.is_action_pressed("armWrestlePush"):
 		fightProgress += pushEffectiveness
-		stamina -= pushStaminaCost
+		stamina -= pushStaminaCost * enemyStrength * 2;
 	else:
 		stamina += staminaRegen
 	
@@ -51,12 +53,16 @@ func UpdateFightExposed() -> void:
 func UpdateFightStunned() -> void:
 	if Input.is_action_just_pressed("armWrestlePush"):
 		fightProgress += 3
+	else:
+		stamina += staminaRegen
 	
 func _ready():
 	fightProgressBar.value = 50
 	exposeDelayTimer.start(floor(rand_range(MIN_EXPOSE_DELAY_TIME, MAX_EXPOSE_DELAY_TIME)))
 
 func _process(delta):
+	enemyStrength = abs(sin(timeElapsed));
+	timeElapsed += delta;
 	match state:
 		FightState.NORMAL:
 			UpdateFightNormal()
@@ -64,20 +70,20 @@ func _process(delta):
 			UpdateFightExposed()
 		FightState.STUNNED:
 			UpdateFightStunned()
+			
+	fightProgress = clamp(fightProgress, 0, 100)
+	stamina = clamp(stamina, 0, 100)	
 	UpdateProgressBars()
 		
 func _on_ExposeDelayTimer_timeout():
 	print("PRESS RIGHT!")
 	state = FightState.EXPOSED
 	exposeTimer.start(1)
-	pass # Replace with function body.
 
 func _on_ExposeTimer_timeout():
 	print("Expose timer end!")
 	state = FightState.NORMAL
 	exposeDelayTimer.start(randi() % 10 + 10)
-	pass # Replace with function body.
 
 func _on_StunTimer_timeout():
 	state = FightState.NORMAL
-	pass # Replace with function body.

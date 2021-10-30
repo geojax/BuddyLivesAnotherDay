@@ -1,0 +1,13 @@
+Mechanics:
+Iteration 1:
+-Hold left to push, stamina decreases linearly
+-Press right at a random interval to stun buss, then spam
+-repeat
+-NOT ENOUGH VARIETY, NO INTENT AS TO WHEN TO PUSH OR NOT
+
+Iteration 2
+Added:
+-Boss has fluctuating strength meter
+-stamina cost for Push is proportional to boss strength
+Want to add:
+-Special attack for both player and boss
