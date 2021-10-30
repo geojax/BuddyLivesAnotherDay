@@ -31,4 +31,5 @@ texture = ExtResource( 2 )
 
 [node name="ScreenEffects" parent="." instance=ExtResource( 3 )]
 noiseScale = 0.15
-vignetteRadius = 0.5
+vignetteRadius = 0.585
+vignetteBlur = 0.33

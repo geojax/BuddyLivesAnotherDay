@@ -153,7 +153,6 @@ void light() {
 
 }
 "
-graph_offset = Vector2( 604, 232 )
 mode = 1
 modes/blend = 3
 flags/light_only = false
@@ -200,4 +199,4 @@ nodes/fragment/connections = PoolIntArray( 6, 0, 11, 2, 21, 0, 22, 1, 18, 0, 22,
 shader = SubResource( 19 )
 shader_param/screenRatio = 1.707
 shader_param/radius = 0.608
-shader_param/blurRadius = 0.293
+shader_param/blurRadius = 0.336
