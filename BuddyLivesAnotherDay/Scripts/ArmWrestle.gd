@@ -3,7 +3,9 @@ extends Node2D
 enum FightState {
 	NORMAL,
 	EXPOSED,
-	STUNNED
+	STUNNED,
+	WIN,
+	LOSE
 }
 var state = FightState.NORMAL
 
@@ -12,8 +14,8 @@ const MIN_EXPOSE_DELAY_TIME = 5
 const MAX_EXPOSE_DELAY_TIME = 15
 
 # how fast progress/stamina increase or decrease.
-var fightProgressDecay = .2
-var pushEffectiveness = .6
+var fightProgressDecay = .1
+var pushEffectiveness = .5
 var pushStaminaCost = .3
 var staminaRegen = .4
 
@@ -27,19 +29,29 @@ var timeElapsed = 0;
 onready var exposeDelayTimer := get_node("ExposeDelayTimer")
 onready var exposeTimer := get_node("ExposeTimer")
 onready var stunTimer := get_node("StunTimer")
-onready var fightProgressBar := get_node("FightProgressBar")
-onready var staminaProgressBar := get_node("StaminaProgressBar")
+onready var fightProgressBar := get_node("ColorRect/FightProgressBar")
+onready var staminaProgressBar := get_node("ColorRect/StaminaProgressBar")
+onready var enemyStrengthBar := get_node("ColorRect/EnemyStrengthBar")
+	
+signal victory
+signal defeat
+	
+func EnterScreen():
+	$AnimationPlayer.play("EnterScreen")
+	
+func ExitScreen():
+	$AnimationPlayer.play_backwards("EnterScreen")	
 	
 func UpdateProgressBars() -> void:
 	fightProgressBar.value = fightProgress
 	staminaProgressBar.value = stamina
-	$EnemyStrengthBar.value = abs(sin(timeElapsed))*100.0;
+	enemyStrengthBar.value = enemyStrength*100.0;
 	
 func UpdateFightNormal() -> void:
 	fightProgress -= fightProgressDecay
 	if Input.is_action_pressed("armWrestlePush"):
 		fightProgress += pushEffectiveness
-		stamina -= pushStaminaCost * enemyStrength * 2;
+		stamina -= pushStaminaCost * abs(enemyStrength)* 2;
 	else:
 		stamina += staminaRegen
 	
@@ -57,6 +69,7 @@ func UpdateFightStunned() -> void:
 		stamina += staminaRegen
 	
 func _ready():
+	EnterScreen()
 	fightProgressBar.value = 50
 	exposeDelayTimer.start(floor(rand_range(MIN_EXPOSE_DELAY_TIME, MAX_EXPOSE_DELAY_TIME)))
 
@@ -73,6 +86,11 @@ func _process(delta):
 			
 	fightProgress = clamp(fightProgress, 0, 100)
 	stamina = clamp(stamina, 0, 100)	
+	
+	if fightProgress == 0:
+		state = FightState.LOSE
+	elif fightProgress == 100:
+		state = FightState.WIN
 	UpdateProgressBars()
 		
 func _on_ExposeDelayTimer_timeout():
