@@ -1,0 +1,24 @@
+{
+	"color": "#ff6528c7",
+	"description": "A weird yet wonderful person.",
+	"display_name": "Test Character",
+	"display_name_bool": true,
+	"id": "character-1635615861.json",
+	"mirror_portraits": false,
+	"name": "test-character",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		},
+		{
+			"name": "df-2",
+			"path": "res://addons/dialogic/Example Assets/portraits/df-2.png"
+		}
+	],
+	"scale": 67
+}

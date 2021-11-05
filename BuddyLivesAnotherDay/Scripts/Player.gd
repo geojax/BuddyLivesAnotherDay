@@ -15,6 +15,8 @@ const MOVE_SPEED := 100
 
 
 func _ready() -> void:
+	# var new_dialog = Dialogic.start('test-timeline')
+	# add_child(new_dialog)
 	$AnimatedSprite.play("Idle");
 
 func GetVelocity() -> Vector2:
