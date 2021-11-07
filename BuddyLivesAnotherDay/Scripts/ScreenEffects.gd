@@ -11,15 +11,16 @@ export var vignetteBlur := 0.293
 
 onready var viewport := get_viewport()
 onready var player := get_node("/root/Overworld/Player")
+onready var camera := get_node("/root/Overworld/Player/Camera2D")
 
 func UpdateFocus(visibleRect: Rect2) -> void:
-	if player == null:
+	if camera == null:
 		$EnterExitEffect.get_material().set_shader_param("focusPoint", Vector3(0.5, 0.5, 1))
 		return
 	var viewportWidth = visibleRect.size.x
 	var viewportHeight = visibleRect.size.y
 	var viewportPos
-	if cameraActive: viewportPos = Vector2(player.position.x - visibleRect.size.x/2, player.position.y - visibleRect.size.y/2)
+	if cameraActive: viewportPos = Vector2(camera.get_camera_screen_center().x - visibleRect.size.x/2, camera.get_camera_screen_center().y - visibleRect.size.y/2)
 	else: viewportPos = visibleRect.position
 	var focus = Vector3((player.position.x - viewportPos.x)/viewportWidth, (player.position.y - viewportPos.y)/viewportHeight, 1)
 	$EnterExitEffect.get_material().set_shader_param("focusPoint", focus)
@@ -54,8 +55,8 @@ func _process(delta: float) -> void:
 	var visibleRect = get_viewport().get_visible_rect()
 	var screenRatio = visibleRect.size.x / visibleRect.size.y
 	$VignetteEffect.get_material().set_shader_param("screenRatio", screenRatio)
-	if cameraActive:
-		rect_position = Vector2(player.position.x - visibleRect.size.x/2, player.position.y - visibleRect.size.y/2)
+	if cameraActive && camera != null:
+		rect_position = Vector2(camera.get_camera_screen_center().x - visibleRect.size.x/2, camera.get_camera_screen_center().y - visibleRect.size.y/2)
 	if useEnterExit: 
 		UpdateFocus(visibleRect)
 		$EnterExitEffect.get_material().set_shader_param("screenRatio", screenRatio)
