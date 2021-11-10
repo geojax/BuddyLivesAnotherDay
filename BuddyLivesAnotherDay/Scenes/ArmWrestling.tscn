@@ -33,15 +33,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="EnemyStrengthBar" type="ProgressBar" parent="ColorRect"]
-margin_left = 480.931
-margin_top = 130.85
-margin_right = 601.931
-margin_bottom = 144.85
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="FightProgressBar" type="ProgressBar" parent="ColorRect"]
 margin_left = 292.0
 margin_top = 177.0
