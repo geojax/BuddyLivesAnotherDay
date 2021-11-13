@@ -1,5 +1,4 @@
 extends Node2D
-
 # TODO: These timers are an issue.
 # Since the timers affect state, changing state
 # Must reset the timers somehow,
@@ -8,21 +7,22 @@ extends Node2D
 enum FightState {
 	NORMAL,
 	EXPOSED,
-	STUNNED,
+	BOSS_STUNNED,
+	PLAYER_STUNNED,
 	WIN,
 	LOSE,
 	IDLE
 }
-var state = FightState.NORMAL
+var state = FightState.NORMAL setget changeState
 
-const STUN_TIME = 5
+const STUN_TIME = 2
 const MIN_EXPOSE_DELAY_TIME = 5
 const MAX_EXPOSE_DELAY_TIME = 15
 
 # how fast progress/stamina increase or decrease.
 const BOSSPUSH = .1
 const BOSSHEAVYPUSH = .4
-const PLAYERPUSH = .1
+const PLAYERPUSH = .2
 var pushStaminaCost = .3
 var staminaRegen = .4
 
@@ -32,7 +32,6 @@ var stamina = 100.0
 var timeElapsed = 0
 
 var fakeoutChance = 20
-var isFakeout = false
 onready var exposeDelayTimer := get_node("ExposeDelayTimer")
 onready var exposeTimer := get_node("ExposeTimer")
 onready var stunTimer := get_node("StunTimer")
@@ -48,9 +47,15 @@ func EnterScreen():
 func ExitScreen():
 	$AnimationPlayer.play_backwards("EnterScreen")	
 	state = FightState.IDLE
-	
+
+func changeState(newState):
+	state = newState
+	print(state)
+
 func _ready():
 	#EnterScreen()
+	randomize()
+		
 	fightProgressBar.value = 50
 	exposeDelayTimer.start(floor(rand_range(MIN_EXPOSE_DELAY_TIME, MAX_EXPOSE_DELAY_TIME)))
 
@@ -58,37 +63,38 @@ func _process(delta):
 	match state:
 		FightState.NORMAL:
 			fightProgress -= BOSSPUSH
-			if Input.is_action_pressed("armWrestlePush"):
+			if Input.is_action_pressed("armWrestlePush") and stamina > 0:
 				fightProgress += float(PLAYERPUSH)
-				stamina -= pushStaminaCost
+				stamina -= pushStaminaCost 
 			elif Input.is_action_just_pressed("armWrestleStun"):
-				isFakeout = true
-				state = FightState.STUNNED
+				state = FightState.PLAYER_STUNNED
 				exposeDelayTimer.stop()
-				exposeDelayTimer.emit_signal("timeout")
+				exposeTimer.stop()
+				stunTimer.start()
+#				exposeDelayTimer.emit_signal("timeout")
 			else:
 				stamina += staminaRegen
 				
-		# during this state, boss is exposed and attacking.		
+		# during this state, boss is exposed and attacking.	
+		# definitely not a fakeout.	
 		FightState.EXPOSED:
 			fightProgress -= BOSSPUSH
 			if Input.is_action_just_pressed("armWrestleStun"):
 				exposeTimer.stop()
 				stunTimer.start(STUN_TIME)
-				state = FightState.STUNNED
-				if (!isFakeout):
-					print("Enemy stunned!")
-				else:
-					print("Player stunned!")
+				state = FightState.BOSS_STUNNED
+				print ("Enemy BOSS_STUNNED!")
 				
-		FightState.STUNNED:
+		FightState.BOSS_STUNNED:
 			# if it wasn't a fakeout, then the player pressed right correctly
-			if (!isFakeout):
-				if Input.is_action_just_pressed("armWrestlePush"):
-					fightProgress += 3
-					fightProgress -= BOSSHEAVYPUSH		
-				else:
-					stamina += staminaRegen
+			if Input.is_action_just_pressed("armWrestlePush"):
+				fightProgress += 3
+			else:
+				stamina += staminaRegen
+				
+		FightState.PLAYER_STUNNED:
+			fightProgress -= BOSSPUSH
+		
 		FightState.WIN:
 			emit_signal("victory")
 			exposeDelayTimer.stop()
@@ -110,15 +116,18 @@ func _process(delta):
 		state = FightState.WIN
 	fightProgressBar.value = fightProgress
 	staminaProgressBar.value = stamina
-		
+	
+	$hands.position.x = 7 * fightProgress + 200
+	
 # Set state to EXPOSED.
 # The enemy's special attack begins.
 # The player has a chance to counter during this window.
 func _on_ExposeDelayTimer_timeout():
 	var f = randi() % 100
-	isFakeout = f > fakeoutChance
-	if isFakeout:
+	if f < fakeoutChance:
 		print("FAKE!")
+		state = FightState.NORMAL
+		return
 	else:
 		print("REAL! PRESS RIGHT!")
 	state = FightState.EXPOSED
@@ -135,3 +144,4 @@ func _on_ExposeTimer_timeout():
 
 func _on_StunTimer_timeout():
 	state = FightState.NORMAL
+	exposeDelayTimer.start()

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/ArmWrestle.gd" type="Script" id=1]
+[ext_resource path="res://Art/hands.png" type="Texture" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 0, 0, 1 )
@@ -63,6 +64,11 @@ one_shot = true
 
 [node name="StunTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="hands" type="Sprite" parent="."]
+position = Vector2( 548.422, 373.266 )
+scale = Vector2( 0.333019, 0.333019 )
+texture = ExtResource( 2 )
 
 [connection signal="timeout" from="ExposeDelayTimer" to="." method="_on_ExposeDelayTimer_timeout"]
 [connection signal="timeout" from="ExposeTimer" to="." method="_on_ExposeTimer_timeout"]
