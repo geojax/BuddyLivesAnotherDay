@@ -6,14 +6,13 @@ export var right_limit := 600 setget set_right
 export var top_limit := 0 setget set_top
 export var bottom_limit := 300 setget set_bottom
 
-onready var camera = get_viewport().get_camera()
+#onready var camera = get_parent().get_parent().get_node("Player").get_node("Camera2D")
 
 func _ready():
 	UpdateLines()
 	
 func UpdateLines():
 	if has_node("Debug"):
-		print("hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii")
 		var debug = get_node("Debug")
 		debug.EraseLines()
 		debug.DrawLine(Vector2(left_limit, top_limit), Vector2(left_limit, bottom_limit), Color.red)

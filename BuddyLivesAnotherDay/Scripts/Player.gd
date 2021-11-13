@@ -8,10 +8,12 @@ enum MovementState{
 	RIGHT
 }
 
+export var canMove = true
+
 var state = MovementState.IDLE
 var velocity := Vector2()
 
-const MOVE_SPEED := 100
+const MOVE_SPEED := 200
 
 
 func _ready() -> void:
@@ -62,4 +64,5 @@ func _process(delta: float) -> void:
 	UpdateAnimation()
 
 func _physics_process(delta: float) -> void:
-	velocity = move_and_slide(GetVelocity())
+	if canMove:
+		velocity = move_and_slide(GetVelocity())

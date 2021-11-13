@@ -1,17 +1,17 @@
 extends Container
 
-export var cameraActive := false
-export var useEnterExit := false
-export var enterExitFade := 0.001
-export var noiseScale := 0.2
+export var camera_active := false
+export var use_enter_exit := false
+export var enter_exit_fade := 0.001
+export var noise_scale := 0.2
 export var saturation := 1.0
 export var contrast := 1.0
-export var vignetteRadius := 0.608
-export var vignetteBlur := 0.293
+export var vignette_radius := 0.608
+export var vignette_blur := 0.293
 
 onready var viewport := get_viewport()
-onready var player := get_node("/root/Overworld/Player")
-onready var camera := get_node("/root/Overworld/Player/Camera2D")
+onready var player := get_parent().get_node("Player")
+onready var camera := player.get_node("Camera2D")
 
 func UpdateFocus(visibleRect: Rect2) -> void:
 	if camera == null:
@@ -20,7 +20,7 @@ func UpdateFocus(visibleRect: Rect2) -> void:
 	var viewportWidth = visibleRect.size.x
 	var viewportHeight = visibleRect.size.y
 	var viewportPos
-	if cameraActive: viewportPos = Vector2(camera.get_camera_screen_center().x - visibleRect.size.x/2, camera.get_camera_screen_center().y - visibleRect.size.y/2)
+	if camera_active: viewportPos = Vector2(camera.get_camera_screen_center().x - visibleRect.size.x/2, camera.get_camera_screen_center().y - visibleRect.size.y/2)
 	else: viewportPos = visibleRect.position
 	var focus = Vector3((player.position.x - viewportPos.x)/viewportWidth, (player.position.y - viewportPos.y)/viewportHeight, 1)
 	$EnterExitEffect.get_material().set_shader_param("focusPoint", focus)
@@ -38,25 +38,23 @@ func PlayExit() -> void:
 	var visibleRect = get_viewport().get_visible_rect()
 	UpdateFocus(visibleRect)
 	$EnterExitEffect.visible = true
-	$EffectAnimator.set_speed_scale(-1)
-	$EffectAnimator.play("Transition")
+	$EffectAnimator.play_backwards("Transition")
 
 func _ready() -> void:
-	$StaticEffect.get_material().set_shader_param("noiseScale", noiseScale)
+	$StaticEffect.get_material().set_shader_param("noiseScale", noise_scale)
 	$NoireEffect.get_material().set_shader_param("contrast", contrast)
 	$NoireEffect.get_material().set_shader_param("saturation", saturation)
-	$VignetteEffect.get_material().set_shader_param("blurRadius", vignetteBlur)
-	$VignetteEffect.get_material().set_shader_param("radius", vignetteRadius)
-	if useEnterExit == true:
-		$EnterExitEffect.get_material().set_shader_param("blurRadius", enterExitFade)
-		PlayEnter()
+	$VignetteEffect.get_material().set_shader_param("blurRadius", vignette_blur)
+	$VignetteEffect.get_material().set_shader_param("radius", vignette_radius)
+	if use_enter_exit == true:
+		$EnterExitEffect.get_material().set_shader_param("blurRadius", enter_exit_fade)
 
 func _process(delta: float) -> void:
 	var visibleRect = get_viewport().get_visible_rect()
 	var screenRatio = visibleRect.size.x / visibleRect.size.y
 	$VignetteEffect.get_material().set_shader_param("screenRatio", screenRatio)
-	if cameraActive && camera != null:
+	if camera_active && camera != null:
 		rect_position = Vector2(camera.get_camera_screen_center().x - visibleRect.size.x/2, camera.get_camera_screen_center().y - visibleRect.size.y/2)
-	if useEnterExit: 
+	if use_enter_exit: 
 		UpdateFocus(visibleRect)
 		$EnterExitEffect.get_material().set_shader_param("screenRatio", screenRatio)

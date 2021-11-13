@@ -10,12 +10,20 @@ func _ready():
 	connect("body_entered", self, "_on_NearCheck_body_enter")
 	connect("body_exited", self, "_on_NearCheck_body_exit")
 
-func _on_NearCheck_body_enter(body):
-	if body.name == "Player" && !in_dialog:
+func body_enter(name):
+	if name == "Player":
 		entered = true
 		animator.play("Enter")
-
-func _on_NearCheck_body_exit(body):
-	if body.name == "Player" && !in_dialog:
+		
+func body_exit(name):
+	if name == "Player":
 		entered = false
 		animator.play("Exit")
+		
+func _on_NearCheck_body_enter(body):
+	if body && body.name && !in_dialog:
+		body_enter(body.name)
+
+func _on_NearCheck_body_exit(body):
+	if body && body.name && !in_dialog:
+		body_exit(body.name)

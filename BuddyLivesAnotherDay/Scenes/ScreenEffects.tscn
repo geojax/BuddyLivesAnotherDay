@@ -20,8 +20,6 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_lock_": true
 }
-useEnterExit = true
-noiseScale = 0.125
 
 [node name="EffectAnimator" type="AnimationPlayer" parent="."]
 anims/Transition = ExtResource( 1 )
