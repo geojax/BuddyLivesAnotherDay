@@ -93,7 +93,7 @@ func _process(delta):
 				stamina += staminaRegen
 				
 		FightState.PLAYER_STUNNED:
-			fightProgress -= BOSSPUSH
+			fightProgress -= BOSSHEAVYPUSH
 		
 		FightState.WIN:
 			emit_signal("victory")
