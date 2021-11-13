@@ -9,7 +9,6 @@
 script = ExtResource( 5 )
 
 [node name="just-a-test-backdrop" type="Sprite" parent="."]
-visible = false
 position = Vector2( 550.01, 298.72 )
 texture = ExtResource( 7 )
 
