@@ -6,7 +6,7 @@ extends Node2D
 
 enum FightState {
 	NORMAL,
-	EXPOSED,
+	SPECIAL_ATTACK,
 	BOSS_STUNNED,
 	PLAYER_STUNNED,
 	WIN,
@@ -20,11 +20,11 @@ const MIN_EXPOSE_DELAY_TIME = 5
 const MAX_EXPOSE_DELAY_TIME = 15
 
 # how fast progress/stamina increase or decrease.
-const BOSSPUSH = .1
-const BOSSHEAVYPUSH = .4
-const PLAYERPUSH = .2
-var pushStaminaCost = .3
-var staminaRegen = .4
+const BOSSPUSH = .05
+const BOSSHEAVYPUSH = .8
+const PLAYERPUSH = .1
+var pushStaminaCost = .15
+var staminaRegen = .08
 
 var fightProgress = 50.0
 var stamina = 100.0
@@ -32,8 +32,8 @@ var stamina = 100.0
 var timeElapsed = 0
 
 var fakeoutChance = 20
-onready var exposeDelayTimer := get_node("ExposeDelayTimer")
-onready var exposeTimer := get_node("ExposeTimer")
+onready var specialAttackDelayTimer := get_node("ExposeDelayTimer")
+onready var specialAttackTimer := get_node("ExposeTimer")
 onready var stunTimer := get_node("StunTimer")
 onready var fightProgressBar := get_node("ColorRect/FightProgressBar")
 onready var staminaProgressBar := get_node("ColorRect/StaminaProgressBar")
@@ -57,38 +57,41 @@ func _ready():
 	randomize()
 		
 	fightProgressBar.value = 50
-	exposeDelayTimer.start(floor(rand_range(MIN_EXPOSE_DELAY_TIME, MAX_EXPOSE_DELAY_TIME)))
+	specialAttackDelayTimer.start(floor(rand_range(MIN_EXPOSE_DELAY_TIME, MAX_EXPOSE_DELAY_TIME)))
 
 func _process(delta):
 	match state:
 		FightState.NORMAL:
 			fightProgress -= BOSSPUSH
-			if Input.is_action_pressed("armWrestlePush") and stamina > 0:
-				fightProgress += float(PLAYERPUSH)
-				stamina -= pushStaminaCost 
+			
+			if Input.is_action_pressed("armWrestlePush"):
+				if stamina > 0:
+					fightProgress += PLAYERPUSH
+					stamina -= pushStaminaCost 
+				
 			elif Input.is_action_just_pressed("armWrestleStun"):
 				state = FightState.PLAYER_STUNNED
-				exposeDelayTimer.stop()
-				exposeTimer.stop()
+				specialAttackDelayTimer.stop()
+				specialAttackTimer.stop()
 				stunTimer.start()
-#				exposeDelayTimer.emit_signal("timeout")
+
 			else:
 				stamina += staminaRegen
 				
 		# during this state, boss is exposed and attacking.	
 		# definitely not a fakeout.	
-		FightState.EXPOSED:
-			fightProgress -= BOSSPUSH
+		FightState.SPECIAL_ATTACK:
+			fightProgress -= BOSSHEAVYPUSH
 			if Input.is_action_just_pressed("armWrestleStun"):
-				exposeTimer.stop()
+				specialAttackTimer.stop()
 				stunTimer.start(STUN_TIME)
 				state = FightState.BOSS_STUNNED
-				print ("Enemy BOSS_STUNNED!")
+				print ("Enemy Stunned!")
 				
 		FightState.BOSS_STUNNED:
 			# if it wasn't a fakeout, then the player pressed right correctly
 			if Input.is_action_just_pressed("armWrestlePush"):
-				fightProgress += 3
+				fightProgress += 2
 			else:
 				stamina += staminaRegen
 				
@@ -97,14 +100,14 @@ func _process(delta):
 		
 		FightState.WIN:
 			emit_signal("victory")
-			exposeDelayTimer.stop()
-			exposeTimer.stop()
+			specialAttackDelayTimer.stop()
+			specialAttackTimer.stop()
 			stunTimer.stop()
 			
 		FightState.LOSE:
 			emit_signal("defeat")
-			exposeDelayTimer.stop()
-			exposeTimer.stop()
+			specialAttackDelayTimer.stop()
+			specialAttackTimer.stop()
 			stunTimer.stop()
 			
 	fightProgress = clamp(fightProgress, 0, 100)
@@ -119,7 +122,7 @@ func _process(delta):
 	
 	$hands.position.x = 7 * fightProgress + 200
 	
-# Set state to EXPOSED.
+# Set state to SPECIAL_ATTACK.
 # The enemy's special attack begins.
 # The player has a chance to counter during this window.
 func _on_ExposeDelayTimer_timeout():
@@ -130,8 +133,8 @@ func _on_ExposeDelayTimer_timeout():
 		return
 	else:
 		print("REAL! PRESS RIGHT!")
-	state = FightState.EXPOSED
-	exposeTimer.start(3)
+	state = FightState.SPECIAL_ATTACK
+	specialAttackTimer.start(3)
 
 # Set state to NORMAL.
 # Enemy's special attack ends.
@@ -140,8 +143,8 @@ func _on_ExposeTimer_timeout():
 	print("Expose timer end!")
 	
 	state = FightState.NORMAL
-	exposeDelayTimer.start(randi() % 10 + 10)
+	specialAttackDelayTimer.start(randi() % 4 + 5)
 
 func _on_StunTimer_timeout():
 	state = FightState.NORMAL
-	exposeDelayTimer.start()
+	specialAttackDelayTimer.start(randi() % 4 + 5)

@@ -35,6 +35,7 @@ __meta__ = {
 }
 
 [node name="FightProgressBar" type="ProgressBar" parent="ColorRect"]
+visible = false
 margin_left = 292.0
 margin_top = 177.0
 margin_right = 794.0
