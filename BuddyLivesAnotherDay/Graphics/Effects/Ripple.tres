@@ -1,0 +1,74 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+uniform float time;
+uniform float width;
+uniform vec4 color: hint_color;
+
+float ring(vec3 u, float rad, float wth) {
+	float circle = distance(u, vec3(0.5, 0.5, 0.0)) / 0.5;
+
+	float minVal = rad - (wth / 2.0);
+	float maxVal = rad + (wth / 2.0);
+
+	vec3 y = vec3(0.0, 0.0, 0.0);
+	if(abs(circle - maxVal) < 0.0)
+	{
+		y = vec3(1.0, 1.0, 1.0);
+	}
+	else if(circle < maxVal)
+	{
+		y = vec3(1.0, 1.0, 1.0);
+	}
+
+	vec3 x = vec3(0.0, 0.0, 0.0);
+	if(abs(circle - rad) < (wth /  2.0))
+	{
+		x =  vec3(1.0, 1.0, 1.0);
+	}
+	
+	vec3 third = vec3(0.333333, 0.333333, 0.333333);
+	float z = dot(x, third) * circle;
+	float w = smoothstep(minVal, rad, z) * (1.0 - smoothstep(rad, maxVal, z));
+	return dot(y, third) * w;	
+}
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+	// x = speed; y = time; z = width; a = alpha
+	vec4 rings[4] = vec4[4] (
+		vec4(0.7, 0.0, width * 2.3, 1.0),
+		vec4(0.8, 0.3, width, 0.7),
+		vec4(0.9, 0.4, width * 0.7, 0.5),
+		vec4(1.0, 0.5, width * 0.4, 0.3)
+	);
+	
+	vec3 uv = vec3(UV, 0.0);
+	float circle = distance(uv, vec3(0.5, 0.5, 0.0)) / 0.5;
+	float alpha = 0.0;
+	for (int i = 0; i < rings.length(); i++) {
+		if (time >= rings[i].y) {
+			alpha += ring(uv, rings[i].x * (time - rings[i].y), rings[i].z) * rings[i].a;
+		}
+	}
+	alpha *= color.a;
+	alpha *= max(1.0-circle, 0.0);
+	COLOR = vec4(color.xyz, alpha);
+
+}
+
+void light() {
+// Output:0
+
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/time = 0.751856
+shader_param/width = 0.074
+shader_param/color = Color( 0.72549, 0.835294, 0.952941, 1 )
