@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Art/Screen_Shot_2021-11-12_at_2.18.30_PM.png" type="Texture" id=2]
@@ -7,6 +7,117 @@
 [ext_resource path="res://Scripts/Overworld.gd" type="Script" id=5]
 [ext_resource path="res://Graphics/Effects/RippleAnimation.tres" type="Animation" id=6]
 [ext_resource path="res://Graphics/just-a-test-backdrop.jpg" type="Texture" id=7]
+
+[sub_resource type="VisualShaderNodeScalarOp" id=4]
+output_port_for_preview = 0
+
+[sub_resource type="VisualShaderNodeScalarOp" id=5]
+output_port_for_preview = 0
+default_input_values = [ 0, 0.0, 1, 2.0 ]
+operator = 3
+
+[sub_resource type="VisualShaderNodeInput" id=6]
+output_port_for_preview = 0
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeCompare" id=7]
+output_port_for_preview = 0
+default_input_values = [ 0, 0.0, 1, 0.0, 2, 0.1 ]
+
+[sub_resource type="VisualShaderNodeScalarUniform" id=8]
+uniform_name = "w"
+
+[sub_resource type="VisualShaderNodeScalarUniform" id=9]
+uniform_name = "x"
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id=10]
+
+[sub_resource type="VisualShader" id=11]
+code = "shader_type canvas_item;
+uniform float x;
+uniform float w;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Input:2
+	vec3 n_out2p0 = vec3(UV, 0.0);
+
+// VectorDecompose:9
+	float n_out9p0 = n_out2p0.x;
+	float n_out9p1 = n_out2p0.y;
+	float n_out9p2 = n_out2p0.z;
+
+// ScalarOp:10
+	float n_out10p0 = n_out9p0 + n_out9p1;
+
+// ScalarOp:11
+	float n_in11p1 = 2.00000;
+	float n_out11p0 = n_out10p0 / n_in11p1;
+
+// ScalarUniform:8
+	float n_out8p0 = x;
+
+// ScalarUniform:7
+	float n_out7p0 = w;
+
+// Compare:5
+	bool n_out5p0 = (abs(n_out11p0 - n_out8p0) < n_out7p0);
+// Output:0
+	COLOR.rgb = vec3(n_out5p0 ? 1.0 : 0.0);
+	COLOR.a = (n_out5p0 ? 1.0 : 0.0);
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( -684.958, 70.5 )
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2( 560, 180 )
+nodes/fragment/2/node = SubResource( 6 )
+nodes/fragment/2/position = Vector2( -360, 200 )
+nodes/fragment/5/node = SubResource( 7 )
+nodes/fragment/5/position = Vector2( 440, 200 )
+nodes/fragment/7/node = SubResource( 8 )
+nodes/fragment/7/position = Vector2( 60, 540 )
+nodes/fragment/8/node = SubResource( 9 )
+nodes/fragment/8/position = Vector2( 60, 480 )
+nodes/fragment/9/node = SubResource( 10 )
+nodes/fragment/9/position = Vector2( -180, 200 )
+nodes/fragment/10/node = SubResource( 4 )
+nodes/fragment/10/position = Vector2( 40, 200 )
+nodes/fragment/11/node = SubResource( 5 )
+nodes/fragment/11/position = Vector2( 240, 200 )
+nodes/fragment/connections = PoolIntArray( 5, 0, 0, 0, 5, 0, 0, 1, 7, 0, 5, 2, 8, 0, 5, 1, 2, 0, 9, 0, 9, 0, 10, 0, 9, 1, 10, 1, 10, 0, 11, 0, 11, 0, 5, 0 )
+
+[sub_resource type="ShaderMaterial" id=12]
+shader = SubResource( 11 )
+shader_param/x = 0.5
+shader_param/w = 0.006
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/time")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2.5 ]
+}
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -75,26 +186,11 @@ void light() {
 
 }"
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=13]
 shader = SubResource( 1 )
-shader_param/time = 0.570713
+shader_param/time = 0.56005
 shader_param/width = 0.074
 shader_param/color = Color( 0.72549, 0.835294, 0.952941, 1 )
-
-[sub_resource type="Animation" id=3]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:material:shader_param/time")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 2.5 ]
-}
 
 [node name="Overworld" type="Node"]
 script = ExtResource( 5 )
@@ -124,15 +220,21 @@ limit_bottom = 716
 [node name="RoomContainer" type="Node" parent="."]
 
 [node name="Splash" type="Sprite" parent="."]
-material = SubResource( 2 )
-position = Vector2( 736.709, 306.383 )
-scale = Vector2( 1, 0.417969 )
+material = SubResource( 12 )
+position = Vector2( 736.709, 306.29 )
 texture = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Splash"]
 method_call_mode = 1
 anims/RESET = SubResource( 3 )
 anims/ripple = ExtResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Splash"]
+material = SubResource( 13 )
+position = Vector2( 0, 12.901 )
+scale = Vector2( 1, 0.587 )
+z_index = -1
+texture = ExtResource( 4 )
 
 [node name="ScreenEffects" parent="." instance=ExtResource( 3 )]
 camera_active = true
