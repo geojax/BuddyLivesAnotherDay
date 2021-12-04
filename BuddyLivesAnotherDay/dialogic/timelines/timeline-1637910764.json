@@ -1,0 +1,73 @@
+{
+	"events": [
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "After Buddy gets kicked out of the arena, he hears the sounds of a struggle and Ferret calling out to him from an alley."
+		},
+		{
+			"character": "character-1637910659.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "FERRET: Buddy! Help! Over here!"
+		},
+		{
+			"character": "character-1637910913.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Shut up and quit struggling, you little weasel. The boss wants a word with you."
+		},
+		{
+			"character": "character-1637910659.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I’m no weasel, you ingrate! My kind are the most sophisticated of the Mustelidae. Not that the likes of you would know anything about sophistication. Buddy!"
+		},
+		{
+			"character": "character-1637911062.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Leave Ferret alone, Leo. He hasn’t done anything to you."
+		},
+		{
+			"character": "character-1637910913.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Buddy the Wolverine. What’re you doing playing hero? Last I heard, the boss pays your salary just like he does mine."
+		},
+		{
+			"character": "character-1637911062.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You’re behind the times, Leo. Big Star and I are done. Get your paws off Ferret. "
+		},
+		{
+			"character": "character-1637910913.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Or what? I don’t believe you’re as good as they say. Everyone knows Big Star’s matches are rigged. "
+		},
+		{
+			"character": "character-1637911062.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Keen to find out, you overgrown kitten? I win, Ferret goes free."
+		},
+		{
+			"character": "character-1637910913.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Done!"
+		},
+		{
+			"emit_signal": "wrestle",
+			"event_id": "dialogic_040"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.3",
+		"file": "timeline-1637910764.json",
+		"name": "Opening"
+	}
+}

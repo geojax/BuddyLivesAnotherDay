@@ -1,0 +1,20 @@
+{
+	"color": "#ff914fb5",
+	"description": "Posh",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1637910659.json",
+	"mirror_portraits": false,
+	"name": "Ferret",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://Art/ferretportait.png"
+		}
+	],
+	"scale": 100
+}
