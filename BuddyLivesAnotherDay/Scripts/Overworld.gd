@@ -54,5 +54,4 @@ func _on_exit_timeout():
 
 func _on_enter_timeout():
 	timer.queue_free()
-	print("hi")
 	$Player.canMove = true

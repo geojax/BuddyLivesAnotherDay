@@ -57,6 +57,8 @@ func UpdateAnimation() -> void:
 			animation = "WalkLeft"
 		MovementState.RIGHT:
 			animation = "WalkRight"
+	if !canMove:
+		animation = "Idle"
 	$AnimatedSprite.play(animation)
 
 func _process(delta: float) -> void:
