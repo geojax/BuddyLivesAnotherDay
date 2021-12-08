@@ -36,6 +36,7 @@ scale = Vector2( 0.320001, 0.32 )
 texture = ExtResource( 1 )
 
 [node name="NPC" parent="." instance=ExtResource( 6 )]
+timeline = "Opening"
 sprite_frames = SubResource( 2 )
 
 [node name="TransitionZone" parent="." instance=ExtResource( 7 )]
