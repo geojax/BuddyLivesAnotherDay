@@ -10,7 +10,7 @@ export var vignette_radius := 0.608
 export var vignette_blur := 0.293
 
 onready var viewport := get_viewport()
-onready var player := get_parent().get_node("Player")
+onready var player := get_parent().get_node("YSort/Player")
 onready var camera := player.get_node("Camera2D")
 
 func UpdateFocus(visibleRect: Rect2) -> void:

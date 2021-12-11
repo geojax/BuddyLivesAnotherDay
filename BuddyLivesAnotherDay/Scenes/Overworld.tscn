@@ -206,20 +206,23 @@ visible = false
 position = Vector2( 550.01, 298.72 )
 texture = ExtResource( 7 )
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 653.48, 296.88 )
 collision/safe_margin = 1.0
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="YSort/Player"]
 current = true
 limit_left = -189
 limit_top = -132
 limit_right = 1164
 limit_bottom = 716
 
-[node name="RoomContainer" type="Node" parent="."]
+[node name="RoomContainer" type="Node" parent="YSort"]
 
 [node name="Splash" type="Sprite" parent="."]
+visible = false
 material = SubResource( 12 )
 position = Vector2( 736.709, 306.29 )
 texture = ExtResource( 4 )
@@ -240,12 +243,6 @@ texture = ExtResource( 4 )
 camera_active = true
 use_enter_exit = true
 noise_scale = 0.15
+saturation = 0.3
 vignette_radius = 0.585
 vignette_blur = 0.33
-
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
-collision_layer = 0
-collision_mask = 0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KinematicBody2D"]
-polygon = PoolVector2Array( 375.853, 233.35, 357.102, -65.853, 315.523, -78.082, 19.5819, 111.875, -9.7677, 105.353, -307.34, 338.519, -309.786, 429.014, 522.601, 647.505, 575.593, 359.716, 569.887, 283.081 )

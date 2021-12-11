@@ -181,5 +181,5 @@ nodes/fragment/connections = PoolIntArray( 3, 0, 5, 0, 4, 0, 5, 2, 5, 1, 0, 1, 5
 
 [resource]
 shader = SubResource( 17 )
-shader_param/saturation = 1.0
+shader_param/saturation = 0.0
 shader_param/contrast = 1.0

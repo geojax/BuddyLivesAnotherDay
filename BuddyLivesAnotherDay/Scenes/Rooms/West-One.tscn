@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Art/lamppost.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Room.gd" type="Script" id=2]
+[ext_resource path="res://Art/West1.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Debug.gd" type="Script" id=4]
+[ext_resource path="res://Art/NPCGeneric.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Overworld Helpers/NPC.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Overworld Helpers/TransitionZone.tscn" type="PackedScene" id=7]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="West-One" type="Node"]
+script = ExtResource( 2 )
+left_limit = -38
+right_limit = 1056
+top_limit = 8
+bottom_limit = 788
+
+[node name="West1" type="Sprite" parent="."]
+position = Vector2( 510.816, 398.261 )
+scale = Vector2( 0.520347, 0.520347 )
+z_index = -198
+texture = ExtResource( 3 )
+
+[node name="Debug" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="Wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Wall"]
+polygon = PoolVector2Array( -34.8944, 12.9011, 51.8358, 100.21, 50.1012, 703.274, 967.245, 703.621, 962.478, 101.728, 1056.87, 8.04422, 1056.87, 785.725, -36.629, 789.542 )
+
+[node name="Lamppost" type="Sprite" parent="."]
+position = Vector2( 173.08, 369.088 )
+scale = Vector2( 0.12, 0.12 )
+texture = ExtResource( 1 )
+
+[node name="NPC" parent="." instance=ExtResource( 6 )]
+position = Vector2( 842.464, 602.814 )
+timeline = "Opening"
+sprite_frames = SubResource( 2 )
+
+[node name="TransitionZone" parent="." instance=ExtResource( 7 )]
+position = Vector2( 488.657, 11.6811 )
+scale = Vector2( 70.923, -0.704783 )
+toPosition = Vector2( 486, 281 )
+room = "Room-1"
