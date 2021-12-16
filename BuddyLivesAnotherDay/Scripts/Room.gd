@@ -1,6 +1,8 @@
 tool
 extends Node
 
+export var player_position := Vector2(0,0)
+
 export var left_limit := 0 setget set_left
 export var right_limit := 600 setget set_right
 export var top_limit := 0 setget set_top

@@ -14,6 +14,7 @@ right_limit = 1028
 bottom_limit = 1040
 
 [node name="Debug" type="Node2D" parent="."]
+visible = false
 script = ExtResource( 4 )
 
 [node name="Wall" type="StaticBody2D" parent="."]

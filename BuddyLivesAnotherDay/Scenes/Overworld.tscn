@@ -206,20 +206,21 @@ visible = false
 position = Vector2( 550.01, 298.72 )
 texture = ExtResource( 7 )
 
-[node name="YSort" type="YSort" parent="."]
+[node name="PlayContainer" type="YSort" parent="."]
 
-[node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 653.48, 296.88 )
+[node name="Player" parent="PlayContainer" instance=ExtResource( 1 )]
+z_as_relative = false
 collision/safe_margin = 1.0
 
-[node name="Camera2D" type="Camera2D" parent="YSort/Player"]
+[node name="Camera2D" type="Camera2D" parent="PlayContainer/Player"]
 current = true
 limit_left = -189
 limit_top = -132
 limit_right = 1164
 limit_bottom = 716
 
-[node name="RoomContainer" type="Node" parent="YSort"]
+[node name="RoomContainer" type="YSort" parent="PlayContainer"]
+z_as_relative = false
 
 [node name="Splash" type="Sprite" parent="."]
 visible = false

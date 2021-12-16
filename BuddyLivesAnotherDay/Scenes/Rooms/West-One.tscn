@@ -16,8 +16,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="West-One" type="Node"]
+[node name="West-One" type="YSort"]
+position = Vector2( -0.876953, 0 )
 script = ExtResource( 2 )
+player_position = Vector2( 500, 125 )
 left_limit = -38
 right_limit = 1056
 top_limit = 8
@@ -26,29 +28,36 @@ bottom_limit = 788
 [node name="West1" type="Sprite" parent="."]
 position = Vector2( 510.816, 398.261 )
 scale = Vector2( 0.520347, 0.520347 )
-z_index = -198
+z_index = -1
+z_as_relative = false
 texture = ExtResource( 3 )
 
 [node name="Debug" type="Node2D" parent="."]
+visible = false
 script = ExtResource( 4 )
 
 [node name="Wall" type="StaticBody2D" parent="."]
+z_as_relative = false
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Wall"]
 polygon = PoolVector2Array( -34.8944, 12.9011, 51.8358, 100.21, 50.1012, 703.274, 967.245, 703.621, 962.478, 101.728, 1056.87, 8.04422, 1056.87, 785.725, -36.629, 789.542 )
 
 [node name="Lamppost" type="Sprite" parent="."]
-position = Vector2( 173.08, 369.088 )
+position = Vector2( 136.538, 378.087 )
 scale = Vector2( 0.12, 0.12 )
+z_as_relative = false
 texture = ExtResource( 1 )
+offset = Vector2( 304.517, -74.9895 )
 
 [node name="NPC" parent="." instance=ExtResource( 6 )]
-position = Vector2( 842.464, 602.814 )
+position = Vector2( 861.724, 576.581 )
+z_as_relative = false
 timeline = "Opening"
 sprite_frames = SubResource( 2 )
 
 [node name="TransitionZone" parent="." instance=ExtResource( 7 )]
 position = Vector2( 488.657, 11.6811 )
 scale = Vector2( 70.923, -0.704783 )
+z_as_relative = false
 toPosition = Vector2( 486, 281 )
 room = "Room-1"
