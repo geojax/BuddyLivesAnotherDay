@@ -194,6 +194,7 @@ shader_param/color = Color( 0.72549, 0.835294, 0.952941, 1 )
 
 [node name="Overworld" type="Node"]
 script = ExtResource( 5 )
+initialRoom = "Main-One"
 
 [node name="PlayContainer" type="YSort" parent="."]
 

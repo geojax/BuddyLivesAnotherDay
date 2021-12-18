@@ -135,7 +135,7 @@ sprite_frames = SubResource( 2 )
 position = Vector2( 488.657, 11.6811 )
 scale = Vector2( 70.923, -0.704783 )
 z_as_relative = false
-toPosition = Vector2( 500, 125 )
+toPosition = Vector2( 500, 800 )
 room = "West-Two"
 
 [node name="FogOfWar" type="Node2D" parent="."]
