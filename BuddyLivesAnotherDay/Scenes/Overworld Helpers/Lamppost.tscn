@@ -7,14 +7,14 @@ radius = 71.3562
 height = 322.86
 
 [node name="Lamppost" type="Sprite"]
-position = Vector2( 136.538, 378.087 )
 scale = Vector2( 0.12, 0.12 )
 z_as_relative = false
 texture = ExtResource( 1 )
-offset = Vector2( 304.517, -74.9895 )
+offset = Vector2( 274.597, -317.068 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( -7.44214, 1.38135 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 23.7358, -47.4712 )
+position = Vector2( 4.24091, -230.208 )
 shape = SubResource( 1 )

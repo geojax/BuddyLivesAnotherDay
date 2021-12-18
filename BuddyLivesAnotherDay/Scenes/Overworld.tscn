@@ -216,7 +216,7 @@ camera_active = true
 use_enter_exit = true
 noise_scale = 0.15
 saturation = 0.0
-contrast = 1.2
+contrast = 0.9
 vignette_radius = 0.585
 vignette_blur = 0.33
 
