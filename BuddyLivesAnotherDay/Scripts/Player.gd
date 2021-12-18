@@ -61,10 +61,10 @@ func UpdateAnimation() -> void:
 		animation = "Idle"
 	$AnimatedSprite.play(animation)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	UpdateDirection()
 	UpdateAnimation()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if canMove:
 		velocity = move_and_slide(GetVelocity())

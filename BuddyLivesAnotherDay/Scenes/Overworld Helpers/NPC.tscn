@@ -9,7 +9,7 @@
 
 [sub_resource type="CapsuleShape2D" id=5]
 radius = 25.6357
-height = 115.227
+height = 18.8352
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
@@ -19,14 +19,15 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=4]
-radius = 118.877
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 85.2516
+height = 47.2977
 
 [node name="NPC" type="StaticBody2D"]
 script = ExtResource( 2 )
 
 [node name="CharacterCollision" type="CollisionShape2D" parent="."]
-position = Vector2( -1.02545, 11.5397 )
+position = Vector2( -0.814543, 12.8051 )
 shape = SubResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -40,14 +41,13 @@ offset = Vector2( 2.44775, -509.847 )
 script = ExtResource( 3 )
 
 [node name="PromptArea" type="CollisionShape2D" parent="NearPrompt"]
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="PromptLabel" type="Label" parent="NearPrompt"]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = -431.041
-margin_top = -528.884
-margin_right = -276.041
-margin_bottom = -512.884
+margin_left = -73.0184
+margin_top = -117.825
+margin_right = 81.9816
+margin_bottom = -101.825
 rect_pivot_offset = Vector2( 0.031, 0 )
 text = "Press [Space] to Talk"
 align = 1

@@ -49,7 +49,7 @@ func _ready() -> void:
 	if use_enter_exit == true:
 		$EnterExitEffect.get_material().set_shader_param("blurRadius", enter_exit_fade)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var visibleRect = get_viewport().get_visible_rect()
 	var screenRatio = visibleRect.size.x / visibleRect.size.y
 	$VignetteEffect.get_material().set_shader_param("screenRatio", screenRatio)

@@ -11,15 +11,20 @@ var setscene
 signal load_room (room)
 
 func _ready():
-	connect("load_room", self, "_on_Load_Room")
+	start()
+	
+func start():
+	var _e = connect("load_room", self, "_on_Load_Room")
 	emit_signal("load_room", initialRoom, true)
+	
+	create_timer(1.7, "_on_enter_timeout")
 	$ScreenEffects.PlayEnter()
 	$PlayContainer/Player.canMove = false
-	CreateTimer(1.7, "_on_enter_timeout")
 	
 func _on_Load_Room (room, start):
 	var path = room_path + room + ".tscn"
 	var new_room = load(path).instance()
+	
 	set_camera_limits(new_room)
 	if start:
 		$PlayContainer/Player.position = new_room.player_position
@@ -27,21 +32,25 @@ func _on_Load_Room (room, start):
 	if $PlayContainer/RoomContainer.get_child_count() != 0:
 		var child = $PlayContainer/RoomContainer.get_child(0)
 		$PlayContainer/RoomContainer.remove_child(child)
+		
 	$PlayContainer/RoomContainer.add_child(new_room)
 
 func _on_TransitionZone_entered(pos, scene):
 	$ScreenEffects.PlayExit()
 	$PlayContainer/Player.canMove = false
-	CreateTimer(1.7, "_on_exit_timeout")
+	create_timer(1.7, "_on_exit_timeout")
+	
 	setpos = pos
 	setscene = scene
 
-func CreateTimer(time, function):
+func create_timer(time, function):
 	timer = Timer.new()
+	
 	timer.set_wait_time(time)
 	timer.one_shot = true
 	timer.connect("timeout",self, function)
 	add_child(timer) #to process
+	
 	timer.start() #to start
 
 func set_camera_limits(room):
@@ -53,7 +62,7 @@ func set_camera_limits(room):
 	
 func _on_exit_timeout():
 	timer.queue_free()
-	CreateTimer(1.7, "_on_enter_timeout")
+	create_timer(1.7, "_on_enter_timeout")
 	$ScreenEffects.PlayEnter()
 	$PlayContainer/Player.position = setpos
 	call_deferred("_on_Load_Room", setscene, false)

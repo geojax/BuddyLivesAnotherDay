@@ -6,7 +6,7 @@ export var sprite_frames: SpriteFrames
 var player
 
 func _ready():
-	$Timer.connect("timeout", self, "_on_Timer_timeout")
+	var _e = $Timer.connect("timeout", self, "_on_Timer_timeout")
 	$AnimatedSprite.frames = sprite_frames
 
 func _process(_delta):
@@ -21,7 +21,7 @@ func _process(_delta):
 		dialog.connect("timeline_end", self, "_dialog_listener")
 		add_child(dialog)
 
-func _dialog_listener(string):
+func _dialog_listener(_string):
 	$Timer.start()
 	$NearPrompt.get_node("PromptAnim").play("Enter")
 

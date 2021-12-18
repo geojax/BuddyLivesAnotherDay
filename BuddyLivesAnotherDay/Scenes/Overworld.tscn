@@ -195,17 +195,6 @@ shader_param/color = Color( 0.72549, 0.835294, 0.952941, 1 )
 [node name="Overworld" type="Node"]
 script = ExtResource( 5 )
 
-[node name="Screen_Shot_2021-11-12_at_21830_PM" type="Sprite" parent="."]
-visible = false
-position = Vector2( 274.798, 158.978 )
-scale = Vector2( 1.89015, 1.89015 )
-texture = ExtResource( 2 )
-
-[node name="just-a-test-backdrop" type="Sprite" parent="."]
-visible = false
-position = Vector2( 550.01, 298.72 )
-texture = ExtResource( 7 )
-
 [node name="PlayContainer" type="YSort" parent="."]
 
 [node name="Player" parent="PlayContainer" instance=ExtResource( 1 )]
@@ -222,28 +211,42 @@ limit_bottom = 716
 [node name="RoomContainer" type="YSort" parent="PlayContainer"]
 z_as_relative = false
 
-[node name="Splash" type="Sprite" parent="."]
+[node name="ScreenEffects" parent="." instance=ExtResource( 3 )]
+camera_active = true
+use_enter_exit = true
+noise_scale = 0.15
+saturation = 0.0
+contrast = 1.2
+vignette_radius = 0.585
+vignette_blur = 0.33
+
+[node name="Unused" type="Node" parent="."]
+
+[node name="Splash" type="Sprite" parent="Unused"]
 visible = false
 material = SubResource( 12 )
 position = Vector2( 736.709, 306.29 )
 texture = ExtResource( 4 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Splash"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Unused/Splash"]
 method_call_mode = 1
 anims/RESET = SubResource( 3 )
 anims/ripple = ExtResource( 6 )
 
-[node name="Sprite" type="Sprite" parent="Splash"]
+[node name="Sprite" type="Sprite" parent="Unused/Splash"]
 material = SubResource( 13 )
 position = Vector2( 0, 12.901 )
 scale = Vector2( 1, 0.587 )
 z_index = -1
 texture = ExtResource( 4 )
 
-[node name="ScreenEffects" parent="." instance=ExtResource( 3 )]
-camera_active = true
-use_enter_exit = true
-noise_scale = 0.15
-saturation = 0.3
-vignette_radius = 0.585
-vignette_blur = 0.33
+[node name="Screen_Shot_2021-11-12_at_21830_PM" type="Sprite" parent="Unused"]
+visible = false
+position = Vector2( 274.798, 158.978 )
+scale = Vector2( 1.89015, 1.89015 )
+texture = ExtResource( 2 )
+
+[node name="just-a-test-backdrop" type="Sprite" parent="Unused"]
+visible = false
+position = Vector2( 550.01, 298.72 )
+texture = ExtResource( 7 )
