@@ -166,6 +166,22 @@ z_as_relative = false
 toPosition = Vector2( 763, 217 )
 room = "West-Two"
 
+[node name="TransitionZone3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 485.922, 890.751 )
+rotation = 3.14159
+scale = Vector2( 70.923, -0.704783 )
+z_as_relative = false
+toPosition = Vector2( 763, 217 )
+room = "Main-Two"
+
+[node name="TransitionZone4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 473.691, -96.3373 )
+rotation = 3.14159
+scale = Vector2( 70.923, -0.704783 )
+z_as_relative = false
+toPosition = Vector2( 763, 217 )
+room = "Main-One"
+
 [node name="TransitionZone2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1242.55, 483.951 )
 rotation = 1.5708

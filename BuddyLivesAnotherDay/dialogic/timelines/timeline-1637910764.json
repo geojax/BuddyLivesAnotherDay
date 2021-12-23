@@ -1,12 +1,6 @@
 {
 	"events": [
 		{
-			"character": "",
-			"event_id": "dialogic_001",
-			"portrait": "",
-			"text": "After Buddy gets kicked out of the arena, he hears the sounds of a struggle and Ferret calling out to him from an alley."
-		},
-		{
 			"character": "character-1637910659.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
