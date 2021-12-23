@@ -1,11 +1,11 @@
 [gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Overworld Helpers/Lamppost.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scripts/Room.gd" type="Script" id=2]
-[ext_resource path="res://Art/Main1.png" type="Texture" id=3]
-[ext_resource path="res://Scripts/Debug.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/Overworld Helpers/TransitionZone.tscn" type="PackedScene" id=7]
-[ext_resource path="res://icon.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/Overworld Helpers/TransitionZone.tscn" type="PackedScene" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Art/Main1.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Debug.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Room.gd" type="Script" id=6]
 
 [sub_resource type="VisualShaderNodeInput" id=3]
 input_name = "uv"
@@ -87,7 +87,7 @@ shader_param/ColorUniform = null
 
 [node name="West-One" type="YSort"]
 position = Vector2( -0.876953, 0 )
-script = ExtResource( 2 )
+script = ExtResource( 6 )
 player_position = Vector2( 500, 350 )
 left_limit = -270
 right_limit = 1290
@@ -99,10 +99,10 @@ position = Vector2( 510.816, 398.261 )
 scale = Vector2( 0.520347, 0.520347 )
 z_index = -1
 z_as_relative = false
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Debug" type="Node2D" parent="."]
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 
 [node name="Wall2" type="StaticBody2D" parent="."]
 position = Vector2( 1014.43, -5.99551 )
@@ -142,7 +142,7 @@ build_mode = 1
 polygon = PoolVector2Array( -121.613, 159.525, -117.54, -173.804, 441.962, -175.023, 440.763, -294.932, -278.429, -304.96, -258.31, 157.126 )
 
 [node name="Lamppost" parent="." instance=ExtResource( 1 )]
-position = Vector2( -74.2089, 178.406 )
+position = Vector2( -61.5194, 157.024 )
 
 [node name="Lamppost2" parent="." instance=ExtResource( 1 )]
 position = Vector2( -98.2649, 758.041 )
@@ -158,19 +158,13 @@ scale = Vector2( -0.12, 0.12 )
 position = Vector2( 1064.44, 158.932 )
 scale = Vector2( -0.12, 0.12 )
 
-[node name="TransitionZone" parent="." instance=ExtResource( 7 )]
+[node name="TransitionZone" parent="." instance=ExtResource( 2 )]
 position = Vector2( -265.097, 378.248 )
 rotation = 1.5708
 scale = Vector2( 70.923, -0.704783 )
 z_as_relative = false
 toPosition = Vector2( 763, 217 )
-room = "West-Two"
-
-[node name="TransitionZone2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1242.55, 483.951 )
-rotation = 1.5708
-scale = Vector2( 1314.48, -0.709646 )
-room = "Main-Four"
+room = "Main-One"
 
 [node name="FogOfWar" type="Node2D" parent="."]
 
@@ -179,25 +173,25 @@ material = SubResource( 9 )
 position = Vector2( 321.091, -165.427 )
 rotation = -5.56363e-08
 scale = Vector2( 36.0675, 1.16265 )
-texture = ExtResource( 8 )
+texture = ExtResource( 3 )
 
 [node name="Right" type="Sprite" parent="FogOfWar"]
 material = SubResource( 9 )
 position = Vector2( 1315.81, 395.283 )
 rotation = 1.5708
 scale = Vector2( 22.3475, 1.16265 )
-texture = ExtResource( 8 )
+texture = ExtResource( 3 )
 
 [node name="Bottom" type="Sprite" parent="FogOfWar"]
 material = SubResource( 9 )
 position = Vector2( 544.071, 968.822 )
 rotation = -3.14159
 scale = Vector2( 27.0675, 1.16265 )
-texture = ExtResource( 8 )
+texture = ExtResource( 3 )
 
 [node name="Left" type="Sprite" parent="FogOfWar"]
 material = SubResource( 9 )
 position = Vector2( -296.008, 424.651 )
 rotation = -1.5708
 scale = Vector2( 24.1475, 1.16265 )
-texture = ExtResource( 8 )
+texture = ExtResource( 3 )

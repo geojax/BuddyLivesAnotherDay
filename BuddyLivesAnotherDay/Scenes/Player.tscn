@@ -11,7 +11,7 @@
 animations = [ {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
-"name": "WalkUp",
+"name": "Idle",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
@@ -19,19 +19,19 @@ animations = [ {
 "name": "WalkRight",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 4 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "WalkLeft",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
-"name": "Idle",
+"name": "WalkUp",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "WalkDown",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "WalkLeft",
 "speed": 5.0
 } ]
 
@@ -42,14 +42,13 @@ extents = Vector2( 33.157, 31.739 )
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0.0828323, 32.0248 )
+position = Vector2( 0.00697418, 2.69063 )
+scale = Vector2( 0.420281, 0.420281 )
 frames = SubResource( 9 )
 animation = "WalkLeft"
-playing = true
 offset = Vector2( -0.0828323, -32.0248 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource( 10 )

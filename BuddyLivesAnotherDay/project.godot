@@ -51,6 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="ArmWrestling"
+run/main_scene="res://Scenes/Main.tscn"
 config/icon="res://icon.png"
 
 [display]

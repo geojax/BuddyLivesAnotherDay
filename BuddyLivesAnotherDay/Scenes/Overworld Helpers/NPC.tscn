@@ -24,6 +24,7 @@ radius = 85.2516
 height = 47.2977
 
 [node name="NPC" type="StaticBody2D"]
+visible = false
 script = ExtResource( 2 )
 
 [node name="CharacterCollision" type="CollisionShape2D" parent="."]

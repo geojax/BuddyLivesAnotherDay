@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/Overworld Helpers/Lamppost.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/Overworld Helpers/NPC.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Overworld Helpers/TransitionZone.tscn" type="PackedScene" id=7]
 [ext_resource path="res://icon.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/Overworld Helpers/DialogImmediateTrigger.tscn" type="PackedScene" id=9]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -167,3 +168,8 @@ position = Vector2( -61.9029, 417.817 )
 rotation = -1.5708
 scale = Vector2( 12.9475, 1.16265 )
 texture = ExtResource( 8 )
+
+[node name="DialogImmediateTrigger" parent="." instance=ExtResource( 9 )]
+position = Vector2( 498.531, 213.364 )
+scale = Vector2( 46.6362, -0.734689 )
+timeline = "Ferret0"
