@@ -1,6 +1,6 @@
 [gd_scene format=2]
 
-[node name="CamBorders" type="Node2D"]
+[node name="CamBox" type="Node2D"]
 z_index = 1
 
 [node name="TopLeft" type="Position2D" parent="."]

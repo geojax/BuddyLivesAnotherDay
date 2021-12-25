@@ -9,7 +9,7 @@
 [ext_resource path="res://Scenes/Overworld Helpers/TransitionZone.tscn" type="PackedScene" id=7]
 [ext_resource path="res://icon.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/Overworld Helpers/DialogImmediateTrigger.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Overworld Helpers/CamBorders.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Overworld Helpers/CamBox.tscn" type="PackedScene" id=10]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -101,10 +101,8 @@ shader_param/ColorUniform = null
 position = Vector2( -0.876953, 0 )
 script = ExtResource( 2 )
 player_position = Vector2( 500, 125 )
-left_limit = -38
-right_limit = 1056
-top_limit = 8
-bottom_limit = 788
+right_limit = 1082
+bottom_limit = 771
 
 [node name="West1" type="Sprite" parent="."]
 position = Vector2( 510.816, 398.261 )

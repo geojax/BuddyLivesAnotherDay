@@ -4,7 +4,7 @@
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=2]
 [ext_resource path="res://Art/Main1.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Debug.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/Overworld Helpers/CamBorders.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Overworld Helpers/CamBox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Overworld Helpers/TransitionZone.tscn" type="PackedScene" id=7]
 [ext_resource path="res://icon.png" type="Texture" id=8]
 
@@ -90,10 +90,10 @@ shader_param/ColorUniform = null
 position = Vector2( -0.876953, 0 )
 script = ExtResource( 2 )
 player_position = Vector2( 500, 350 )
-left_limit = -270
-right_limit = 1290
-top_limit = -138
-bottom_limit = 936
+left_limit = -262
+right_limit = 1285
+top_limit = -125
+bottom_limit = 938
 
 [node name="West1" type="Sprite" parent="."]
 position = Vector2( 510.816, 398.261 )
