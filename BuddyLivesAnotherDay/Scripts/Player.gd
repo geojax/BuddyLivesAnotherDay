@@ -45,21 +45,19 @@ func UpdateDirection() -> void:
 		state = MovementState.DOWN
 
 func UpdateAnimation() -> void:
-	var animation := "Idle"
 	match state:
 		MovementState.IDLE:
-			animation = "Idle"
+			$AnimatedSprite.stop()
 		MovementState.UP:
-			animation = "WalkUp"
+			$AnimatedSprite.play("WalkUp")
 		MovementState.DOWN:
-			animation = "WalkDown"
+			$AnimatedSprite.play("WalkDown")
 		MovementState.LEFT:
-			animation = "WalkLeft"
+			$AnimatedSprite.play("WalkLeft")
+			$AnimatedSprite.flip_h = false
 		MovementState.RIGHT:
-			animation = "WalkRight"
-	if !canMove:
-		animation = "Idle"
-	$AnimatedSprite.play(animation)
+			$AnimatedSprite.play("WalkRight")
+			$AnimatedSprite.flip_h = true
 
 func _process(_delta: float) -> void:
 	UpdateDirection()

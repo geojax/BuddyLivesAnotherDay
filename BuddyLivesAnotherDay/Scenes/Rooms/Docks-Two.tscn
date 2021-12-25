@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Art/Docks2.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Overworld Helpers/CamBorders.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=2]
+[ext_resource path="res://Art/Docks2compressed.jpg" type="Texture" id=3]
 [ext_resource path="res://Scripts/Debug.gd" type="Script" id=4]
 [ext_resource path="res://Art/NPCGeneric.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Overworld Helpers/NPC.tscn" type="PackedScene" id=6]
@@ -24,17 +25,23 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 882.794 ]
 }
-player_position = Vector2( 650, 125 )
 left_limit = -1000
-right_limit = 1300
+right_limit = 1500
 top_limit = -146
 bottom_limit = 942
 
-[node name="Docks1" type="Sprite" parent="."]
-position = Vector2( 676.888, 557.639 )
+[node name="CamBorders" parent="." instance=ExtResource( 1 )]
+position = Vector2( -1028, -96 )
+scale = Vector2( 0.25925, 0.25925 )
+
+[node name="BottomLeft" parent="CamBorders" index="1"]
+position = Vector2( 13130.2, 5037.61 )
+
+[node name="Docks2" type="Sprite" parent="."]
+position = Vector2( 677, 558 )
 scale = Vector2( 0.25925, 0.25925 )
 z_index = -1
-texture = ExtResource( 1 )
+texture = ExtResource( 3 )
 
 [node name="Debug" type="Node2D" parent="."]
 position = Vector2( 45.3884, 0.638672 )
@@ -71,5 +78,23 @@ sprite_frames = SubResource( 2 )
 position = Vector2( 648, 50 )
 scale = Vector2( 17.0466, -0.705712 )
 z_as_relative = false
-toPosition = Vector2( -157, 369 )
+toPosition = Vector2( 500, 832 )
 room = "Main-Two"
+
+[node name="TransitionZone2" parent="." instance=ExtResource( 7 )]
+position = Vector2( -882, 435 )
+rotation = -1.57079
+scale = Vector2( 17.0466, -0.705712 )
+z_as_relative = false
+toPosition = Vector2( 1230, 104 )
+room = "Docks-One"
+
+[node name="TransitionZone3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1534, 494 )
+rotation = -1.57079
+scale = Vector2( 17.0466, -0.705712 )
+z_as_relative = false
+toPosition = Vector2( 36, 160 )
+room = "Docks-Three"
+
+[editable path="CamBorders"]

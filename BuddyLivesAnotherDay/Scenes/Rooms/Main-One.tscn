@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Overworld Helpers/Lamppost.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=2]
 [ext_resource path="res://Art/Main1.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Debug.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Overworld Helpers/CamBorders.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Overworld Helpers/TransitionZone.tscn" type="PackedScene" id=7]
 [ext_resource path="res://icon.png" type="Texture" id=8]
 
@@ -217,3 +218,13 @@ position = Vector2( -296.008, 424.651 )
 rotation = -1.5708
 scale = Vector2( 24.1475, 1.16265 )
 texture = ExtResource( 8 )
+
+[node name="CamBorders" parent="." instance=ExtResource( 5 )]
+
+[node name="TopLeft" parent="CamBorders" index="0"]
+position = Vector2( -260.533, -129.655 )
+
+[node name="BottomRight" parent="CamBorders" index="1"]
+position = Vector2( 1166.89, 825.632 )
+
+[editable path="CamBorders"]

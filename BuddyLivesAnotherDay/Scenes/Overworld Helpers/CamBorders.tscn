@@ -1,0 +1,14 @@
+[gd_scene format=2]
+
+[node name="CamBorders" type="Node2D"]
+z_index = 1
+
+[node name="TopLeft" type="Position2D" parent="."]
+__meta__ = {
+"_gizmo_extents_": 30.0
+}
+
+[node name="BottomRight" type="Position2D" parent="."]
+__meta__ = {
+"_gizmo_extents_": 20.0
+}

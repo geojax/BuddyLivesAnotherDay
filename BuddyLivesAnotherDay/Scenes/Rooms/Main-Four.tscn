@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Overworld Helpers/Lamppost.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Overworld Helpers/TransitionZone.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Art/Main1.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/Debug.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Overworld Helpers/CamBorders.tscn" type="PackedScene" id=7]
 
 [sub_resource type="VisualShaderNodeInput" id=3]
 input_name = "uv"
@@ -89,10 +90,10 @@ shader_param/ColorUniform = null
 position = Vector2( -0.876953, 0 )
 script = ExtResource( 6 )
 player_position = Vector2( 500, 350 )
-left_limit = -270
-right_limit = 1290
-top_limit = -138
-bottom_limit = 936
+left_limit = 280
+right_limit = 0
+top_limit = -210
+bottom_limit = 0
 
 [node name="West1" type="Sprite" parent="."]
 position = Vector2( 510.816, 398.261 )
@@ -195,3 +196,13 @@ position = Vector2( -296.008, 424.651 )
 rotation = -1.5708
 scale = Vector2( 24.1475, 1.16265 )
 texture = ExtResource( 3 )
+
+[node name="CamBorders" parent="." instance=ExtResource( 7 )]
+
+[node name="TopLeft" parent="CamBorders" index="0"]
+position = Vector2( -260.83, -129.873 )
+
+[node name="BottomRight" parent="CamBorders" index="1"]
+position = Vector2( 1282.57, 935.605 )
+
+[editable path="CamBorders"]

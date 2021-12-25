@@ -11,6 +11,10 @@ export var bottom_limit := 300 setget set_bottom
 #onready var camera = get_parent().get_parent().get_node("Player").get_node("Camera2D")
 
 func _ready():
+	top_limit=$CamBorders/TopLeft.position.y
+	bottom_limit=$CamBorders/BottomRight.position.y
+	left_limit=$CamBorders/TopLeft.position.x
+	right_limit=$CamBorders/BottomRight.position.x
 	UpdateLines()
 	
 func UpdateLines():

@@ -5,4 +5,4 @@
 [node name="Main" type="Node"]
 
 [node name="Overworld" parent="." instance=ExtResource( 1 )]
-initialRoom = "West-Two"
+initialRoom = "Docks-Three"
