@@ -7,6 +7,7 @@ const room_path = "res://Scenes/Rooms/"
 var setpos
 var timer
 var setscene
+#var setmusic
 
 signal load_room (room)
 
@@ -22,6 +23,7 @@ func start():
 	$PlayContainer/Player.canMove = false
 	
 func _on_Load_Room (room, start):
+#func _on_Load_Room (room, start):
 	var path = room_path + room + ".tscn"
 	var new_room = load(path).instance()
 	
@@ -65,8 +67,15 @@ func _on_exit_timeout():
 	create_timer(1.7, "_on_enter_timeout")
 	$ScreenEffects.PlayEnter()
 	$PlayContainer/Player.position = setpos
+#	call_deferred("_on_Load_Room", setscene, false, setmusic)
 	call_deferred("_on_Load_Room", setscene, false)
 
 func _on_enter_timeout():
 	timer.queue_free()
 	$PlayContainer/Player.canMove = true
+
+func _on_TransitionZone_music_changed(music):
+	#How to fade music?
+	$AudioStreamPlayer.stream = music
+	$AudioStreamPlayer.play()
+	pass

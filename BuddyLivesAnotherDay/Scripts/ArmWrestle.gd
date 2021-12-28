@@ -26,12 +26,14 @@ const PLAYERPUSH = .1
 var pushStaminaCost = .15
 var staminaRegen = .08
 
-var fightProgress = 50.0
+var fightProgress = 50.0 
 var stamina = 100.0
 
 var timeElapsed = 0
 
 var fakeoutChance = 20
+
+var fightLengthModifier = 1
 onready var specialAttackDelayTimer := get_node("ExposeDelayTimer")
 onready var specialAttackTimer := get_node("ExposeTimer")
 onready var stunTimer := get_node("StunTimer")
@@ -40,9 +42,12 @@ onready var staminaProgressBar := get_node("ColorRect/StaminaProgressBar")
 	
 signal victory
 signal defeat
-	
+
 func EnterScreen():
 	$AnimationPlayer.play("EnterScreen")
+	print_debug("Starting the match")
+	state = FightState.NORMAL
+	specialAttackDelayTimer.start(floor(rand_range(MIN_EXPOSE_DELAY_TIME, MAX_EXPOSE_DELAY_TIME)))	
 	
 func ExitScreen():
 	$AnimationPlayer.play_backwards("EnterScreen")	
@@ -53,11 +58,10 @@ func changeState(newState):
 	print(state)
 
 func _ready():
-	#EnterScreen()
+	EnterScreen()
 	randomize()
-		
+	#state = FightState.IDLE
 	fightProgressBar.value = 50
-	specialAttackDelayTimer.start(floor(rand_range(MIN_EXPOSE_DELAY_TIME, MAX_EXPOSE_DELAY_TIME)))
 
 func _process(delta):
 	match state:

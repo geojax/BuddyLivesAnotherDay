@@ -97,15 +97,16 @@ shader = SubResource( 8 )
 shader_param/ColorUniform = null
 
 [node name="West-Two" type="YSort"]
+position = Vector2( -404.44, 50.1549 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 882.794 ]
 }
 player_position = Vector2( 500, 125 )
-left_limit = 126
-right_limit = 902
-top_limit = -132
-bottom_limit = 956
+left_limit = 67
+right_limit = 914
+top_limit = -211
+bottom_limit = 938
 
 [node name="West2" type="Sprite" parent="."]
 position = Vector2( 510.816, 398.261 )
@@ -194,9 +195,9 @@ texture = ExtResource( 8 )
 [node name="CamBorders" parent="." instance=ExtResource( 9 )]
 
 [node name="TopLeft" parent="CamBorders" index="0"]
-position = Vector2( 126.235, -132.469 )
+position = Vector2( 67.5181, -211.127 )
 
 [node name="BottomRight" parent="CamBorders" index="1"]
-position = Vector2( 902.348, 956.894 )
+position = Vector2( 914.008, 938.875 )
 
 [editable path="CamBorders"]

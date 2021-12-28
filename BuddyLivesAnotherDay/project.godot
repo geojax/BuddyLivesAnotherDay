@@ -38,6 +38,11 @@ _global_script_classes=[ {
 "class": "DialogicUtil",
 "language": "GDScript",
 "path": "res://addons/dialogic/Other/DialogicUtil.gd"
+}, {
+"base": "Area2D",
+"class": "TransitionZone",
+"language": "GDScript",
+"path": "res://Scripts/TransitionZone.gd"
 } ]
 _global_script_class_icons={
 "DTS": "",
@@ -45,7 +50,8 @@ _global_script_class_icons={
 "DialogicBackgroundMusic": "",
 "DialogicDefinitionsUtil": "",
 "DialogicResources": "",
-"DialogicUtil": ""
+"DialogicUtil": "",
+"TransitionZone": ""
 }
 
 [application]

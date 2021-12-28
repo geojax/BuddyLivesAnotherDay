@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Buddy_Main_Theme_Wip.mp3-9f88f74036a013be1de834097f064a5a.mp3str"
+
+[deps]
+
+source_file="res://Music/Buddy_Main_Theme_Wip.mp3"
+dest_files=[ "res://.import/Buddy_Main_Theme_Wip.mp3-9f88f74036a013be1de834097f064a5a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

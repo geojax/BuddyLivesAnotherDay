@@ -91,9 +91,9 @@ position = Vector2( -0.876953, 0 )
 script = ExtResource( 2 )
 player_position = Vector2( 500, 350 )
 left_limit = -260
-right_limit = 1166
+right_limit = 1286
 top_limit = -129
-bottom_limit = 825
+bottom_limit = 939
 
 [node name="West1" type="Sprite" parent="."]
 position = Vector2( 510.816, 398.261 )
@@ -222,9 +222,9 @@ texture = ExtResource( 8 )
 [node name="CamBorders" parent="." instance=ExtResource( 5 )]
 
 [node name="TopLeft" parent="CamBorders" index="0"]
-position = Vector2( -260.533, -129.655 )
+position = Vector2( -267.108, -132.943 )
 
 [node name="BottomRight" parent="CamBorders" index="1"]
-position = Vector2( 1166.89, 825.632 )
+position = Vector2( 1292.04, 945.181 )
 
 [editable path="CamBorders"]

@@ -1,10 +1,56 @@
 {
 	"events": [
 		{
+			"action": "join",
+			"character": "character-1637910659.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"action": "join",
+			"character": "character-1637911062.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"action": "join",
+			"character": "character-1637910913.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
 			"character": "character-1637910659.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "Buddy! Help! Over here!"
+		},
+		{
+			"emit_signal": "wrestle",
+			"event_id": "dialogic_040"
 		},
 		{
 			"character": "character-1637910913.json",
