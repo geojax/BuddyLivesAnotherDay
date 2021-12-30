@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Art/Docks1.png" type="Texture" id=1]
+[ext_resource path="res://Art/Docks1.jpg" type="Texture" id=1]
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Overworld Helpers/CamBox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Debug.gd" type="Script" id=4]
@@ -24,8 +24,8 @@ __meta__ = {
 "_edit_vertical_guides_": [ -802.0 ]
 }
 player_position = Vector2( 1450, 418 )
-right_limit = 1633
-bottom_limit = 1093
+right_limit = 1620
+bottom_limit = 1080
 
 [node name="Docks1" type="Sprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
@@ -40,7 +40,7 @@ z_as_relative = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall"]
 build_mode = 1
-polygon = PoolVector2Array( 335, 806, 66, 806, 144, 750, 139, 273, 1126, 275, 1174, 157, 1219, 157, 1290, 73, 1286, -2, -1, -5, -3, 853, 1296, 863, 1291, 424, 1169, 420, 1099, 518, 1104, 608, 972, 608, 888, 685, 339, 682 )
+polygon = PoolVector2Array( 111.538, 772.557, 66, 806, 144, 750, 139, 273, 1126, 275, 1174, 157, 1219, 157, 1290, 73, 1286, -2, -1, -5, -3, 853, 1296, 863, 1291, 424, 1169, 420, 1099, 518, 1104, 608, 972, 608, 888, 685, 220.273, 699.224 )
 
 [node name="NPC" parent="." instance=ExtResource( 6 )]
 visible = true
@@ -51,11 +51,11 @@ timeline = "Ferret1"
 sprite_frames = SubResource( 2 )
 
 [node name="TransitionZone" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1562, 367 )
+position = Vector2( 1570.48, 347.93 )
 rotation = 1.5708
-scale = Vector2( 14.7381, -0.93745 )
+scale = Vector2( 28.6035, -0.93745 )
 z_as_relative = false
-toPosition = Vector2( 648, 100 )
+toPosition = Vector2( -1655.59, -146 )
 room = "Docks-Two"
 
 [node name="CamBorders" parent="." instance=ExtResource( 3 )]

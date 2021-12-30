@@ -18,12 +18,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
-"name": "Idle",
+"name": "WalkDown",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
-"name": "WalkDown",
+"name": "Idle",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
@@ -60,7 +60,6 @@ volume_db = 12.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 35.7446 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 10 )
 
 [node name="Listener2D" type="Listener2D" parent="."]
