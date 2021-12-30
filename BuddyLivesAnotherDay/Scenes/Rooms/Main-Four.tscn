@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Overworld Helpers/Lamppost.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Overworld Helpers/TransitionZone.tscn" type="PackedScene" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://Scripts/Debug.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Overworld Helpers/CamBox.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 18.4719, 4.0897 )
 
 [sub_resource type="VisualShaderNodeInput" id=3]
 input_name = "uv"
@@ -137,10 +140,15 @@ polygon = PoolVector2Array( 29.2696, -550.669, -76.2507, -557.864, -77.4498, -21
 z_as_relative = false
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Wall4"]
-position = Vector2( 1055.55, 657.345 )
+position = Vector2( 1060.72, 649.584 )
 scale = Vector2( -1, -1 )
 build_mode = 1
 polygon = PoolVector2Array( -121.613, 159.525, -117.54, -173.804, 441.962, -175.023, 440.763, -294.932, -278.429, -304.96, -258.31, 157.126 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall4"]
+position = Vector2( 462.798, -78.6566 )
+scale = Vector2( 23.5095, 10.1345 )
+shape = SubResource( 10 )
 
 [node name="Lamppost" parent="." instance=ExtResource( 1 )]
 position = Vector2( -61.5194, 157.024 )
@@ -166,6 +174,22 @@ scale = Vector2( 70.923, -0.704783 )
 z_as_relative = false
 toPosition = Vector2( 763, 217 )
 room = "Main-One"
+
+[node name="TransitionZone2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1251.93, 359.892 )
+rotation = 1.5708
+scale = Vector2( 70.923, -0.704783 )
+z_as_relative = false
+toPosition = Vector2( 763, 217 )
+room = "East-One"
+
+[node name="TransitionZone3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 476.933, 889.537 )
+rotation = 3.14159
+scale = Vector2( 70.923, -0.704783 )
+z_as_relative = false
+toPosition = Vector2( 763, 217 )
+room = "Docks-Three"
 
 [node name="FogOfWar" type="Node2D" parent="."]
 

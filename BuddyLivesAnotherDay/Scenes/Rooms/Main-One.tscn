@@ -89,11 +89,14 @@ shader_param/ColorUniform = null
 [node name="West-One" type="YSort"]
 position = Vector2( -0.876953, 0 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 347.883 ]
+}
 player_position = Vector2( 500, 350 )
-left_limit = -260
-right_limit = 1286
-top_limit = -129
-bottom_limit = 939
+left_limit = -267
+right_limit = 1292
+top_limit = -132
+bottom_limit = 945
 
 [node name="West1" type="Sprite" parent="."]
 position = Vector2( 510.816, 398.261 )
@@ -164,7 +167,7 @@ position = Vector2( -265.097, 378.248 )
 rotation = 1.5708
 scale = Vector2( 70.923, -0.704783 )
 z_as_relative = false
-toPosition = Vector2( 763, 217 )
+toPosition = Vector2( 840, 400 )
 room = "West-Two"
 
 [node name="TransitionZone3" parent="." instance=ExtResource( 7 )]
@@ -172,7 +175,7 @@ position = Vector2( 485.922, 890.751 )
 rotation = 3.14159
 scale = Vector2( 70.923, -0.704783 )
 z_as_relative = false
-toPosition = Vector2( 763, 217 )
+toPosition = Vector2( 480, 40 )
 room = "Main-Two"
 
 [node name="TransitionZone4" parent="." instance=ExtResource( 7 )]
@@ -181,12 +184,13 @@ rotation = 3.14159
 scale = Vector2( 70.923, -0.704783 )
 z_as_relative = false
 toPosition = Vector2( 763, 217 )
-room = "Main-One"
+room = "North-One"
 
 [node name="TransitionZone2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1242.55, 483.951 )
+position = Vector2( 1240.34, 415.445 )
 rotation = 1.5708
 scale = Vector2( 1314.48, -0.709646 )
+toPosition = Vector2( -160, 381 )
 room = "Main-Four"
 
 [node name="FogOfWar" type="Node2D" parent="."]

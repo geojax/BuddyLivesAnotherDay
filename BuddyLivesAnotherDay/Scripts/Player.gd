@@ -62,6 +62,10 @@ func UpdateAnimation() -> void:
 func _process(_delta: float) -> void:
 	UpdateDirection()
 	UpdateAnimation()
+	if state == MovementState.IDLE:
+		$AudioStreamPlayer.stop()
+	elif $AudioStreamPlayer.playing == false:
+		$AudioStreamPlayer.play()
 
 func _physics_process(_delta: float) -> void:
 	if canMove:

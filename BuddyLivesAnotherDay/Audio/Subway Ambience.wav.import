@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Subway Ambience.wav-9c4d94b54d4adb05924f0e704d4f2ec4.sample"
+
+[deps]
+
+source_file="res://Audio/Subway Ambience.wav"
+dest_files=[ "res://.import/Subway Ambience.wav-9c4d94b54d4adb05924f0e704d4f2ec4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

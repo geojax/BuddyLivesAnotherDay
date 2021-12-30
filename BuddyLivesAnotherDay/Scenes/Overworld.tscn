@@ -196,7 +196,7 @@ shader_param/color = Color( 0.72549, 0.835294, 0.952941, 1 )
 [sub_resource type="Animation" id=14]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/0/path = NodePath("Footsteps:volume_db")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -212,7 +212,7 @@ tracks/0/keys = {
 resource_name = "music_fade"
 length = 1.5
 tracks/0/type = "bezier"
-tracks/0/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/0/path = NodePath("Footsteps:volume_db")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -224,7 +224,6 @@ tracks/0/keys = {
 
 [node name="Overworld" type="Node"]
 script = ExtResource( 5 )
-initialRoom = "Main-One"
 
 [node name="PlayContainer" type="YSort" parent="."]
 
@@ -234,10 +233,6 @@ collision/safe_margin = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="PlayContainer/Player"]
 current = true
-limit_left = -189
-limit_top = -132
-limit_right = 1164
-limit_bottom = 716
 
 [node name="RoomContainer" type="YSort" parent="PlayContainer"]
 z_as_relative = false
@@ -282,7 +277,7 @@ visible = false
 position = Vector2( 550.01, 298.72 )
 texture = ExtResource( 7 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Footsteps" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 autoplay = true
 

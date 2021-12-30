@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/RoomParent.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Overworld Helpers/TransitionZone.tscn" type="PackedScene" id=3]
+
+[node name="Room" instance=ExtResource( 1 )]
+
+[node name="TransitionZone" parent="." index="3"]
+position = Vector2( -506, -5 )
+rotation = -1.57079
+room = "North-Two"
+
+[node name="TransitionZone2" parent="." index="6" instance=ExtResource( 3 )]
+position = Vector2( -2, -361 )
+rotation = -3.14159
+scale = Vector2( 343.505, 1.01385 )
+room = "North-Four"
+
+[node name="TransitionZone3" parent="." index="7" instance=ExtResource( 3 )]
+position = Vector2( 10, 319 )
+rotation = -3.14159
+scale = Vector2( 343.505, 1.01385 )
+room = "Main-One"
