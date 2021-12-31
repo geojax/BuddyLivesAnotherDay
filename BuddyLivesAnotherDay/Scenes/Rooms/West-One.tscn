@@ -105,40 +105,33 @@ right_limit = 1082
 bottom_limit = 771
 
 [node name="West1" type="Sprite" parent="."]
-position = Vector2( 510.816, 398.261 )
 scale = Vector2( 0.520347, 0.520347 )
 z_index = -1
 z_as_relative = false
 texture = ExtResource( 3 )
-
-[node name="Debug" type="Node2D" parent="."]
-visible = false
-script = ExtResource( 4 )
-
-[node name="Wall" type="StaticBody2D" parent="."]
-z_as_relative = false
-
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Wall"]
-build_mode = 1
-polygon = PoolVector2Array( -34.8944, 12.9011, 80.3228, 125.846, 76.2848, 676.74, 938.679, 675.298, 937.237, 124.981, 1056.87, 8.04422, 1056.87, 785.725, -36.629, 789.542 )
+centered = false
 
 [node name="Lamppost" parent="." instance=ExtResource( 1 )]
-position = Vector2( 173.224, 335.343 )
+position = Vector2( 204.853, 329.797 )
+scale = Vector2( 0.12, 0.12 )
 
 [node name="NPC" parent="." instance=ExtResource( 6 )]
-position = Vector2( 802.597, 510.243 )
+position = Vector2( 834.226, 504.697 )
+scale = Vector2( 1, 1 )
 z_as_relative = false
 timeline = "Opening"
 sprite_frames = SubResource( 2 )
 
 [node name="TransitionZone" parent="." instance=ExtResource( 7 )]
-position = Vector2( 488.657, 11.6811 )
+position = Vector2( 520.286, 6.13489 )
 scale = Vector2( 70.923, -0.704783 )
 z_as_relative = false
 toPosition = Vector2( 500, 800 )
 room = "West-Two"
 
 [node name="FogOfWar" type="Node2D" parent="."]
+position = Vector2( 31.6295, -5.5462 )
+scale = Vector2( 1, 1 )
 
 [node name="Top" type="Sprite" parent="FogOfWar"]
 material = SubResource( 9 )
@@ -169,14 +162,33 @@ scale = Vector2( 12.9475, 1.16265 )
 texture = ExtResource( 8 )
 
 [node name="DialogImmediateTrigger" parent="." instance=ExtResource( 9 )]
-position = Vector2( 498.531, 213.364 )
+position = Vector2( 530.16, 207.818 )
 scale = Vector2( 46.6362, -0.734689 )
 timeline = "Ferret0"
 
 [node name="CamBorders" parent="." instance=ExtResource( 10 )]
-position = Vector2( -32.665, 8.11713 )
+position = Vector2( -1.03552, 2.57089 )
+scale = Vector2( 1, 1 )
+
+[node name="TopLeft" parent="CamBorders" index="0"]
+position = Vector2( 6.10352e-05, 0 )
 
 [node name="BottomRight" parent="CamBorders" index="1"]
-position = Vector2( 1082.74, 771.358 )
+position = Vector2( 1091.1, 783.303 )
+
+[node name="Debug" type="Node2D" parent="."]
+visible = false
+position = Vector2( -510.816, -398.261 )
+scale = Vector2( 1, 1 )
+script = ExtResource( 4 )
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2( 31.6295, -5.5462 )
+scale = Vector2( 1, 1 )
+z_as_relative = false
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Wall"]
+build_mode = 1
+polygon = PoolVector2Array( -34.8944, 12.9011, 80.3228, 125.846, 76.2848, 676.74, 938.679, 675.298, 937.237, 124.981, 1056.87, 8.04422, 1056.87, 785.725, -36.629, 789.542 )
 
 [editable path="CamBorders"]

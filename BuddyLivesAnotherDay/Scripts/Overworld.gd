@@ -71,10 +71,12 @@ func create_timer(time, function):
 
 func set_camera_limits(room):
 	var camera = $PlayContainer/Player.get_node("Camera2D")
-	camera.limit_left =  room.left_limit
-	camera.limit_right =  room.right_limit
-	camera.limit_top =  room.top_limit
-	camera.limit_bottom =  room.bottom_limit
+	var bg :Sprite = room.get_child(0)
+	camera.limit_left = 0
+	camera.limit_right =  bg.texture.get_width() * bg.scale.x
+	print_debug(camera.limit_right)
+	camera.limit_top =  0
+	camera.limit_bottom =  bg.texture.get_height() * bg.scale.y
 	
 func _on_exit_timeout():
 	timer.queue_free()
