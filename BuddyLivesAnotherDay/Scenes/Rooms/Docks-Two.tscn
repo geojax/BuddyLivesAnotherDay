@@ -24,13 +24,14 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 882.794 ]
 }
+player_position = Vector2( 948, 400 )
 left_limit = -2618
 right_limit = 10537
 top_limit = -2147
 bottom_limit = 2871
 
 [node name="Bg" type="Sprite" parent="."]
-scale = Vector2( 0.25925, 0.25925 )
+scale = Vector2( 0.212, 0.212 )
 z_index = -1
 texture = ExtResource( 3 )
 centered = false
@@ -55,55 +56,55 @@ position = Vector2( 45.3884, 0.638672 )
 z_as_relative = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall"]
-position = Vector2( 1262.21, 302.858 )
-scale = Vector2( 0.678922, 0.678922 )
+position = Vector2( 1015.53, 226.789 )
+scale = Vector2( 0.55879, 0.660456 )
 build_mode = 1
 polygon = PoolVector2Array( -1971.74, 169.016, -1772.21, 111.753, -1610.14, 92.4243, -1238.96, 89.4785, -1234.54, 186.994, 419.612, 188.361, 422.612, -455.639, -1952.11, -37.6715 )
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Wall"]
-position = Vector2( 373.284, 655.742 )
-scale = Vector2( 0.269113, 0.291115 )
+position = Vector2( 297.45, 534.931 )
+scale = Vector2( 0.221383, 0.246582 )
 build_mode = 1
 polygon = PoolVector2Array( -1042.75, -179.207, 141.913, 184.609, 391.493, -187.873, -639.659, -517.166 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Wall"]
-position = Vector2( 1225.08, 280.801 )
-scale = Vector2( 0.699771, 0.699771 )
+position = Vector2( 991.41, 229.536 )
+scale = Vector2( 0.570268, 0.570268 )
 polygon = PoolVector2Array( 699.612, -444.639, 701.612, 151.157, 933.126, 237.775, 1173.73, 239.379, 1181.75, 433.468, 1830.27, 432.19, 1842.74, 214.418, 2833.54, 211.224, 2831.74, -11.1349, 3145.92, -3.03278 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
-position = Vector2( 1699.2, 826.937 )
+position = Vector2( 1711.9, 679.492 )
 shape = SubResource( 3 )
 
 [node name="NPC" parent="." instance=ExtResource( 6 )]
 visible = true
-position = Vector2( 2024.73, 489.636 )
+position = Vector2( 1614.45, 396.878 )
 scale = Vector2( 0.660228, 0.660228 )
 z_as_relative = false
 timeline = "Ferret1"
 sprite_frames = SubResource( 2 )
 
 [node name="TransitionZone" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1684.46, 152.44 )
+position = Vector2( 1366.94, 43.033 )
 scale = Vector2( 17.0466, -0.705712 )
 z_as_relative = false
 toPosition = Vector2( 500, 832 )
 room = "Main-Two"
 
 [node name="TransitionZone2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 51.8489, 496.745 )
+position = Vector2( 22.5487, 399.311 )
 rotation = -1.57079
 scale = Vector2( 30.8431, -0.70581 )
 z_as_relative = false
-toPosition = Vector2( 948, 226 )
+toPosition = Vector2( 960, 210 )
 room = "Docks-One"
 
 [node name="TransitionZone3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 3389.01, 528.688 )
+position = Vector2( 2775.18, 428.224 )
 rotation = -1.57079
 scale = Vector2( 28.9266, -0.705712 )
 z_as_relative = false
-toPosition = Vector2( 36, 160 )
+toPosition = Vector2( 30, 258 )
 room = "Docks-Three"
 
 [editable path="CamBorders"]

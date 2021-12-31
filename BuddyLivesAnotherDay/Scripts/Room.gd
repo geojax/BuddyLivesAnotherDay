@@ -27,10 +27,7 @@ func _ready():
 #	cam.limit_top = 0.0
 #	cam.limit_right = bgsprite.texture.get_width()
 #	cam.limit_bottom = bgsprite.texture.get_height()
-	
-	
 	UpdateLines()
-	get_parent().get_parent().get_node("Player").get_node("Camera2D").zoom = cam_zoom
 	
 func UpdateLines():
 	if has_node("Debug"):

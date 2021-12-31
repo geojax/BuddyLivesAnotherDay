@@ -54,11 +54,11 @@ timeline = "Ferret1"
 sprite_frames = SubResource( 2 )
 
 [node name="TransitionZone" parent="." instance=ExtResource( 7 )]
-position = Vector2( 947.933, 226.567 )
+position = Vector2( 953.819, 203.022 )
 rotation = 1.5708
 scale = Vector2( 28.6035, -0.93745 )
 z_as_relative = false
-toPosition = Vector2( 59, 477 )
+toPosition = Vector2( 40, 399 )
 room = "Docks-Two"
 
 [node name="CamBorders" parent="." instance=ExtResource( 3 )]

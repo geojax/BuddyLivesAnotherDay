@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Art/Docks3.png" type="Texture" id=1]
+[ext_resource path="res://Art/Docks3New.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Overworld Helpers/CamBox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Art/NPCGeneric.png" type="Texture" id=5]
@@ -20,31 +20,31 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 882.794 ]
 }
-player_position = Vector2( 80, -360 )
+player_position = Vector2( 127, 203 )
 left_limit = -696
 right_limit = 712
 top_limit = -461
 bottom_limit = 462
 
 [node name="Bg" type="Sprite" parent="."]
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.6, 0.6 )
 z_index = -1
 texture = ExtResource( 1 )
 centered = false
 
 [node name="TransitionZone" parent="." instance=ExtResource( 7 )]
-position = Vector2( 992, 470 )
-scale = Vector2( 3.17951, 0.406963 )
+position = Vector2( 929.201, 17.1218 )
+scale = Vector2( 15.6684, 0.406963 )
 z_as_relative = false
 toPosition = Vector2( 500, 832 )
 room = "Main-Two"
 
 [node name="TransitionZone2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 264, 677.5 )
+position = Vector2( 18.3748, 258.589 )
 rotation = -1.57079
-scale = Vector2( 8.5233, -0.352856 )
+scale = Vector2( 18.2912, 1.06153 )
 z_as_relative = false
-toPosition = Vector2( 1230, 104 )
+toPosition = Vector2( 2800, 428 )
 room = "Docks-One"
 
 [node name="TopLimit" type="Node2D" parent="."]
@@ -78,7 +78,7 @@ position = Vector2( 712, 462 )
 
 [node name="NPC" parent="." instance=ExtResource( 6 )]
 visible = true
-position = Vector2( 997, 220 )
+position = Vector2( 758.2, 109.567 )
 scale = Vector2( 0.730114, 0.730114 )
 z_as_relative = false
 timeline = "Ferret1"
@@ -90,9 +90,9 @@ scale = Vector2( 0.5481, 0.538225 )
 z_as_relative = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall"]
-position = Vector2( -885.39, -1258.16 )
-scale = Vector2( 2.38749, 2.38749 )
+position = Vector2( -1042.39, -1358.78 )
+scale = Vector2( 3.3475, 3.09467 )
 build_mode = 1
-polygon = PoolVector2Array( -57.3884, 206.361, 387.612, 205.361, 395.612, 494.361, 128.612, 500.361, 137.612, 639.361, 540.612, 637.361, 530.612, 253.361, 527.612, 211.361, 780.612, 211.361, 781.612, 162.361, 907.612, 159.361, 911.612, 35.3613, 783.612, 35.3613, 782.612, -8.63867, 717.612, -7.63867, 717.612, 40.3613, 601.612, 41.3613, 600.612, -17.6387, 447.612, -16.6387, 448.612, 90.3613, -58.3884, 95.3613, -58.3884, -11.6387, 1033.61, -70.6387, 1051.61, 815.361, -281.388, 662.361 )
+polygon = PoolVector2Array( -57.3884, 206.361, 391.295, 203.387, 395.612, 494.361, 156.46, 507.705, 156.46, 635.516, 517.695, 635.516, 514.6, 255.492, 502.998, 206.924, 726.661, 216.351, 725.363, 172.511, 815.341, 169.652, 817.072, 52.429, 724.065, 52.429, 724.498, 10.972, 679.508, 11.925, 647.929, 78.1609, 571.361, 80.5435, 570.063, 9.06591, 447.641, 10.972, 448.612, 90.3613, -58.3884, 95.3613, -58.3884, -11.6387, 1033.61, -70.6387, 1051.61, 815.361, -281.388, 662.361 )
 
 [editable path="CamBorders"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Overworld Helpers/Lamppost.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Art/NPCGeneric.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Overworld Helpers/NPC.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Overworld Helpers/TransitionZone.tscn" type="PackedScene" id=7]
-[ext_resource path="res://icon.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/Overworld Helpers/CamBox.tscn" type="PackedScene" id=9]
 
 [sub_resource type="SpriteFrames" id=2]
@@ -18,86 +17,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="VisualShaderNodeInput" id=3]
-input_name = "uv"
-
-[sub_resource type="VisualShaderNodeVectorDecompose" id=4]
-
-[sub_resource type="VisualShaderNodeColorUniform" id=5]
-uniform_name = "ColorUniform"
-
-[sub_resource type="VisualShaderNodeScalarSmoothStep" id=6]
-output_port_for_preview = 0
-default_input_values = [ 0, 0.0, 1, 0.2, 2, 0.0 ]
-
-[sub_resource type="VisualShaderNodeScalarFunc" id=7]
-function = 31
-
-[sub_resource type="VisualShader" id=8]
-code = "shader_type canvas_item;
-uniform vec4 ColorUniform : hint_color;
-
-
-
-void vertex() {
-// Output:0
-
-}
-
-void fragment() {
-// ColorUniform:4
-	vec3 n_out4p0 = ColorUniform.rgb;
-	float n_out4p1 = ColorUniform.a;
-
-// Input:2
-	vec3 n_out2p0 = vec3(UV, 0.0);
-
-// VectorDecompose:3
-	float n_out3p0 = n_out2p0.x;
-	float n_out3p1 = n_out2p0.y;
-	float n_out3p2 = n_out2p0.z;
-
-// ScalarFunc:7
-	float n_out7p0 = 1.0 - n_out3p1;
-
-// ScalarSmoothStep:6
-	float n_in6p0 = 0.00000;
-	float n_in6p1 = 0.20000;
-	float n_out6p0 = smoothstep(n_in6p0, n_in6p1, n_out7p0);
-
-// Output:0
-	COLOR.rgb = n_out4p0;
-	COLOR.a = n_out6p0;
-
-}
-
-void light() {
-// Output:0
-
-}
-"
-graph_offset = Vector2( -347.265, 84.25 )
-mode = 1
-flags/light_only = false
-nodes/fragment/0/position = Vector2( 360, 140 )
-nodes/fragment/2/node = SubResource( 3 )
-nodes/fragment/2/position = Vector2( -820, 260 )
-nodes/fragment/3/node = SubResource( 4 )
-nodes/fragment/3/position = Vector2( -480, 260 )
-nodes/fragment/4/node = SubResource( 5 )
-nodes/fragment/4/position = Vector2( -420, 20 )
-nodes/fragment/6/node = SubResource( 6 )
-nodes/fragment/6/position = Vector2( -420, 520 )
-nodes/fragment/7/node = SubResource( 7 )
-nodes/fragment/7/position = Vector2( 20, 300 )
-nodes/fragment/connections = PoolIntArray( 2, 0, 3, 0, 4, 0, 0, 0, 3, 1, 7, 0, 7, 0, 6, 2, 6, 0, 0, 1 )
-
-[sub_resource type="ShaderMaterial" id=9]
-shader = SubResource( 8 )
-shader_param/ColorUniform = null
-
 [node name="West-Two" type="YSort"]
-position = Vector2( -404.44, 50.1549 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 882.794 ]
@@ -107,23 +27,26 @@ left_limit = 67
 right_limit = 914
 top_limit = -211
 bottom_limit = 938
+cam_zoom = Vector2( 0.6, 0.6 )
 
-[node name="West2" type="Sprite" parent="."]
-position = Vector2( 510.816, 398.261 )
-scale = Vector2( 0.520347, 0.520347 )
+[node name="Bg" type="Sprite" parent="."]
+scale = Vector2( 0.648, 0.648 )
 z_index = -1
 z_as_relative = false
 texture = ExtResource( 3 )
+centered = false
 
 [node name="Debug" type="Node2D" parent="."]
+visible = false
 script = ExtResource( 4 )
 
 [node name="Wall" type="StaticBody2D" parent="."]
 z_as_relative = false
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Wall"]
-position = Vector2( 1018.11, 799.142 )
+position = Vector2( 1839.79, 1938.9 )
 rotation = 3.14159
+scale = Vector2( 2.1529, 2.1529 )
 build_mode = 1
 polygon = PoolVector2Array( 783.331, 831.351, 784.097, -23.5762, 893.351, -134.357, 897.474, 944.119, 131.63, 938.005, 230.188, 831.808 )
 
@@ -136,61 +59,27 @@ timeline = "Ferret1"
 sprite_frames = SubResource( 2 )
 
 [node name="TransitionZone" parent="." instance=ExtResource( 7 )]
-position = Vector2( 896.353, 352.862 )
+position = Vector2( 953.621, 567.762 )
 rotation = 1.5708
-scale = Vector2( 70.923, -0.704783 )
+scale = Vector2( 125.043, -0.704783 )
 z_as_relative = false
-toPosition = Vector2( -157, 369 )
+toPosition = Vector2( 80, 1002 )
 room = "Main-One"
 
 [node name="TransitionZone2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 509.517, 942.787 )
-scale = Vector2( 70.923, -0.704783 )
+position = Vector2( 658.603, 1312.14 )
+scale = Vector2( 172.28, 1.44714 )
 z_as_relative = false
 toPosition = Vector2( 490, 74 )
 room = "West-One"
 
 [node name="Lamppost" parent="." instance=ExtResource( 1 )]
-position = Vector2( 339.136, 159.877 )
+position = Vector2( 321.136, 351.877 )
 
 [node name="Lamppost2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 339.746, 541.692 )
+position = Vector2( 321.746, 699.692 )
 
 [node name="FogOfWar" type="Node2D" parent="."]
-
-[node name="Top" type="Sprite" parent="FogOfWar"]
-material = SubResource( 9 )
-position = Vector2( 553.086, -169.225 )
-rotation = -5.56363e-08
-scale = Vector2( 19.4275, 1.16265 )
-texture = ExtResource( 8 )
-
-[node name="Right" type="Sprite" parent="FogOfWar"]
-material = SubResource( 9 )
-position = Vector2( 925.036, 236.575 )
-rotation = 1.5708
-scale = Vector2( 23.6675, 1.16265 )
-texture = ExtResource( 8 )
-
-[node name="Bottom" type="Sprite" parent="FogOfWar"]
-material = SubResource( 9 )
-position = Vector2( 552.889, 966.161 )
-rotation = -3.14159
-scale = Vector2( 19.4275, 1.16265 )
-texture = ExtResource( 8 )
-
-[node name="Left" type="Sprite" parent="FogOfWar"]
-material = SubResource( 9 )
-position = Vector2( 101.686, 550.094 )
-rotation = -1.5708
-scale = Vector2( 23.8275, 1.16592 )
-texture = ExtResource( 8 )
-
-[node name="Sprite" type="Sprite" parent="FogOfWar"]
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 1366.91, 550.93 )
-scale = Vector2( 13.6989, 29.7705 )
-texture = ExtResource( 8 )
 
 [node name="CamBorders" parent="." instance=ExtResource( 9 )]
 
