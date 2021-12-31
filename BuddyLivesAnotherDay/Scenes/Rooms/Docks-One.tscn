@@ -24,6 +24,8 @@ __meta__ = {
 "_edit_vertical_guides_": [ -802.0 ]
 }
 player_position = Vector2( 450, 350 )
+right_limit = 1633
+bottom_limit = 1093
 cam_zoom = Vector2( 0.6, 0.6 )
 
 [node name="Bg" type="Sprite" parent="."]
@@ -56,7 +58,7 @@ position = Vector2( 947.933, 226.567 )
 rotation = 1.5708
 scale = Vector2( 28.6035, -0.93745 )
 z_as_relative = false
-toPosition = Vector2( -1655.59, -146 )
+toPosition = Vector2( 59, 477 )
 room = "Docks-Two"
 
 [node name="CamBorders" parent="." instance=ExtResource( 3 )]
