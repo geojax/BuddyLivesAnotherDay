@@ -24,10 +24,10 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 882.794 ]
 }
-left_limit = -2000
-right_limit = 2000
-top_limit = -2000
-bottom_limit = 2000
+left_limit = -1700
+right_limit = 1700
+top_limit = -660
+bottom_limit = 660
 
 [node name="CamBorders" parent="." instance=ExtResource( 1 )]
 position = Vector2( -1028, -96 )

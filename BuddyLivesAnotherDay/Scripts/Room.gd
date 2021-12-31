@@ -7,6 +7,7 @@ export var left_limit := 0 setget set_left
 export var right_limit := 600 setget set_right
 export var top_limit := 0 setget set_top
 export var bottom_limit := 300 setget set_bottom
+export var cam_zoom := Vector2(1.0,1.0)
 
 #onready var camera = get_parent().get_parent().get_node("Player").get_node("Camera2D")
 
@@ -16,6 +17,7 @@ func _ready():
 	left_limit=$CamBorders/TopLeft.position.x
 	right_limit=$CamBorders/BottomRight.position.x
 	UpdateLines()
+	get_parent().get_parent().get_node("Player").get_node("Camera2D").zoom = cam_zoom
 	
 func UpdateLines():
 	if has_node("Debug"):
