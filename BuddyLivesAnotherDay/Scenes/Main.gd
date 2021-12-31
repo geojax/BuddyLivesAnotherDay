@@ -7,6 +7,7 @@ extends Node
 # var b = "text"
 var player = find_node("Player")
 var footsteps := find_node("Footsteps")
+var camera := find_node("Camera2D")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

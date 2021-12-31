@@ -19,19 +19,25 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="West-Two" type="YSort"]
+[node name="Docks-Two" type="YSort"]
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 882.794 ]
 }
-left_limit = -1700
-right_limit = 1700
-top_limit = -660
-bottom_limit = 660
+left_limit = -2000
+right_limit = 2000
+top_limit = -2000
+bottom_limit = 2000
 
 [node name="CamBorders" parent="." instance=ExtResource( 1 )]
 position = Vector2( -1028, -96 )
 scale = Vector2( 0.25925, 0.25925 )
+
+[node name="TopLeft" parent="CamBorders" index="0"]
+position = Vector2( -2618.46, -2147.9 )
+
+[node name="BottomRight" parent="CamBorders" index="1"]
+position = Vector2( 10537.8, 2871.71 )
 
 [node name="Docks2" type="Sprite" parent="."]
 scale = Vector2( 0.25925, 0.25925 )
@@ -88,7 +94,7 @@ position = Vector2( -1655.59, -146.025 )
 rotation = -1.57079
 scale = Vector2( 30.8431, -0.70581 )
 z_as_relative = false
-toPosition = Vector2( 1570, 347 )
+toPosition = Vector2( 948, 226 )
 room = "Docks-One"
 
 [node name="TransitionZone3" parent="." instance=ExtResource( 7 )]

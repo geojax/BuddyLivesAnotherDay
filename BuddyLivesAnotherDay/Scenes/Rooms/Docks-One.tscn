@@ -23,12 +23,13 @@ __meta__ = {
 "_edit_horizontal_guides_": [ -10.0 ],
 "_edit_vertical_guides_": [ -802.0 ]
 }
-player_position = Vector2( 1450, 418 )
-right_limit = 1620
-bottom_limit = 1080
+player_position = Vector2( 450, 350 )
+right_limit = 972
+bottom_limit = 648
+cam_zoom = Vector2( 0.6, 0.6 )
 
 [node name="Docks1" type="Sprite" parent="."]
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.3, 0.3 )
 z_index = -1
 texture = ExtResource( 1 )
 centered = false
@@ -39,19 +40,21 @@ scale = Vector2( 1.25692, 1.25692 )
 z_as_relative = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall"]
+position = Vector2( 0.368765, 5.56784 )
+scale = Vector2( 0.6, 0.6 )
 build_mode = 1
 polygon = PoolVector2Array( 111.538, 772.557, 66, 806, 144, 750, 139, 273, 1126, 275, 1174, 157, 1219, 157, 1290, 73, 1286, -2, -1, -5, -3, 853, 1296, 863, 1291, 424, 1169, 420, 1099, 518, 1104, 608, 972, 608, 888, 685, 220.273, 699.224 )
 
 [node name="NPC" parent="." instance=ExtResource( 6 )]
 visible = true
-position = Vector2( 1074, 510 )
+position = Vector2( 748.867, 357.173 )
 scale = Vector2( 0.870995, 0.870995 )
 z_as_relative = false
 timeline = "Ferret1"
 sprite_frames = SubResource( 2 )
 
 [node name="TransitionZone" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1570.48, 347.93 )
+position = Vector2( 947.933, 226.567 )
 rotation = 1.5708
 scale = Vector2( 28.6035, -0.93745 )
 z_as_relative = false

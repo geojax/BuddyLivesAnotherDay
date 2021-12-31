@@ -7,4 +7,4 @@
 script = ExtResource( 2 )
 
 [node name="Overworld" parent="." instance=ExtResource( 1 )]
-initialRoom = "Docks-One"
+initialRoom = "Docks-Two"
