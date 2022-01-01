@@ -50,13 +50,19 @@ func UpdateAnimation() -> void:
 			$AnimatedSprite.stop()
 		MovementState.UP:
 			$AnimatedSprite.play("WalkUp")
+			$AnimatedSprite.scale = Vector2(0.285,0.285)
 		MovementState.DOWN:
 			$AnimatedSprite.play("WalkDown")
+			$AnimatedSprite.scale = Vector2.ONE		
 		MovementState.LEFT:
 			$AnimatedSprite.play("WalkLeft")
+			$AnimatedSprite.scale = Vector2.ONE
+			
 			$AnimatedSprite.flip_h = false
 		MovementState.RIGHT:
 			$AnimatedSprite.play("WalkRight")
+			$AnimatedSprite.scale = Vector2.ONE
+			
 			$AnimatedSprite.flip_h = true
 
 func _process(_delta: float) -> void:

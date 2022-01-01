@@ -225,6 +225,7 @@ tracks/0/keys = {
 
 [node name="Overworld" type="Node"]
 script = ExtResource( 5 )
+initialRoom = "Docks-Three"
 
 [node name="PlayContainer" type="YSort" parent="."]
 
@@ -251,6 +252,7 @@ current = true
 z_as_relative = false
 
 [node name="ScreenEffects" parent="." instance=ExtResource( 3 )]
+visible = false
 camera_active = true
 use_enter_exit = true
 noise_scale = 0.15

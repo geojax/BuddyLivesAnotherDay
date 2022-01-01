@@ -1,24 +1,15 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Art/Docks3New.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Overworld Helpers/CamBox.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Art/NPCGeneric.png" type="Texture" id=5]
-[ext_resource path="res://Scenes/Overworld Helpers/NPC.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Overworld Helpers/TransitionZone.tscn" type="PackedScene" id=7]
-
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
 
 [node name="Docks-Three" type="YSort"]
 script = ExtResource( 2 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 882.794 ]
+"_edit_horizontal_guides_": [ 882.794, 247.0 ],
+"_edit_vertical_guides_": [ 1015.0 ]
 }
 player_position = Vector2( 127, 203 )
 left_limit = -696
@@ -34,7 +25,7 @@ centered = false
 
 [node name="TransitionZone" parent="." instance=ExtResource( 7 )]
 position = Vector2( 929.201, 17.1218 )
-scale = Vector2( 15.6684, 0.406963 )
+scale = Vector2( 15.6684, 1.60696 )
 z_as_relative = false
 toPosition = Vector2( 500, 832 )
 room = "Main-Two"
@@ -42,10 +33,10 @@ room = "Main-Two"
 [node name="TransitionZone2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 18.3748, 258.589 )
 rotation = -1.57079
-scale = Vector2( 18.2912, 1.06153 )
+scale = Vector2( 18.2912, 1.58153 )
 z_as_relative = false
 toPosition = Vector2( 2800, 428 )
-room = "Docks-One"
+room = "Docks-Two"
 
 [node name="TopLimit" type="Node2D" parent="."]
 visible = false
@@ -75,14 +66,6 @@ position = Vector2( -696, -461 )
 
 [node name="BottomRight" parent="CamBorders" index="1"]
 position = Vector2( 712, 462 )
-
-[node name="NPC" parent="." instance=ExtResource( 6 )]
-visible = true
-position = Vector2( 758.2, 109.567 )
-scale = Vector2( 0.730114, 0.730114 )
-z_as_relative = false
-timeline = "Ferret1"
-sprite_frames = SubResource( 2 )
 
 [node name="Wall" type="StaticBody2D" parent="."]
 position = Vector2( 563, 718 )

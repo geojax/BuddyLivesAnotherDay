@@ -1,42 +1,29 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Art/NPCGeneric.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/NPC.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/NearCheck.gd" type="Script" id=3]
 [ext_resource path="res://Graphics/ButtonPrompt/Exit.tres" type="Animation" id=4]
 [ext_resource path="res://Graphics/ButtonPrompt/ScenesOut.tres" type="Animation" id=5]
 [ext_resource path="res://Graphics/ButtonPrompt/Enter.tres" type="Animation" id=6]
+[ext_resource path="res://icon.png" type="Texture" id=7]
 
 [sub_resource type="CapsuleShape2D" id=5]
 radius = 25.6357
 height = 18.8352
-
-[sub_resource type="SpriteFrames" id=3]
-animations = [ {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
 
 [sub_resource type="CapsuleShape2D" id=6]
 radius = 85.2516
 height = 47.2977
 
 [node name="NPC" type="StaticBody2D"]
-visible = false
 script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 7 )
 
 [node name="CharacterCollision" type="CollisionShape2D" parent="."]
 position = Vector2( -0.814543, 12.8051 )
 shape = SubResource( 5 )
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-modulate = Color( 0.615686, 0, 1, 1 )
-position = Vector2( -0.607451, 92.7659 )
-scale = Vector2( 0.190317, 0.190317 )
-frames = SubResource( 3 )
-offset = Vector2( 2.44775, -509.847 )
 
 [node name="NearPrompt" type="Area2D" parent="."]
 script = ExtResource( 3 )

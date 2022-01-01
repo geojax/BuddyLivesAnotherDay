@@ -4,10 +4,10 @@ export var timeline := "test-timeline"
 export var sprite_frames: SpriteFrames
 
 var player
-
+var encounters
 func _ready():
 	var _e = $Timer.connect("timeout", self, "_on_Timer_timeout")
-	$AnimatedSprite.frames = sprite_frames
+#	$AnimatedSprite.frames = sprite_frames
 
 func _process(_delta):
 	if !$NearPrompt.in_dialog && Input.is_action_just_pressed("ui_accept") && $NearPrompt.entered:

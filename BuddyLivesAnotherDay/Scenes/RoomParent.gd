@@ -16,6 +16,10 @@ func _ready():
 	left_limit=$Image/TopLeft.position.x
 	right_limit=$Image/BottomRight.position.x
 	UpdateLines()
+	for npc in NPCs.rooms[name]:
+		add_child(npc)
+		print(get_path_to(npc))
+		
 
 func UpdateLines():
 	if has_node("Debug"):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Art/veryquickdemo1.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
@@ -8,22 +8,19 @@
 [ext_resource path="res://Art/wolvwalk_4.png" type="Texture" id=6]
 [ext_resource path="res://Art/wolvwalk_1.png" type="Texture" id=7]
 [ext_resource path="res://Art/Shadow.png" type="Texture" id=8]
+[ext_resource path="res://Art/Buddy_Backwards_2.png" type="Texture" id=9]
+[ext_resource path="res://Art/Buddy_Backwards_1.png" type="Texture" id=11]
 
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 9 ) ],
 "loop": true,
-"name": "WalkLeft",
-"speed": 5.0
+"name": "WalkUp",
+"speed": 1.0
 }, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "WalkDown",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "Idle",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
@@ -31,9 +28,14 @@ animations = [ {
 "name": "WalkRight",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 4 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "WalkLeft",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
-"name": "WalkUp",
+"name": "Idle",
 "speed": 5.0
 } ]
 
@@ -45,6 +47,7 @@ scale = Vector2( 0.619422, 0.619422 )
 script = ExtResource( 2 )
 
 [node name="Shadow" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0.745098 )
 position = Vector2( 56.1752, 8.21765 )
 scale = Vector2( 0.70009, 0.70009 )
 texture = ExtResource( 8 )
