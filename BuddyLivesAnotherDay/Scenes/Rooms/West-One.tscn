@@ -33,7 +33,7 @@ texture = ExtResource( 1 )
 centered = false
 
 [node name="NPC" parent="." instance=ExtResource( 6 )]
-position = Vector2( 834.226, 504.697 )
+position = Vector2( -186.114, 238.314 )
 z_as_relative = false
 timeline = "Opening"
 sprite_frames = SubResource( 2 )
