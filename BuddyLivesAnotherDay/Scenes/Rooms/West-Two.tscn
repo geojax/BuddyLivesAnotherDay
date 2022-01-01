@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Scenes/Overworld Helpers/Lamppost.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=2]
-[ext_resource path="res://Art/West2.png" type="Texture" id=3]
+[ext_resource path="res://Art/West2new.jpg" type="Texture" id=3]
 [ext_resource path="res://Scripts/Debug.gd" type="Script" id=4]
 [ext_resource path="res://Art/NPCGeneric.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Overworld Helpers/NPC.tscn" type="PackedScene" id=6]
@@ -22,7 +21,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 882.794 ]
 }
-player_position = Vector2( 500, 125 )
+player_position = Vector2( 1000, 600 )
 left_limit = 67
 right_limit = 914
 top_limit = -211
@@ -30,7 +29,7 @@ bottom_limit = 938
 cam_zoom = Vector2( 0.6, 0.6 )
 
 [node name="Bg" type="Sprite" parent="."]
-scale = Vector2( 0.648, 0.648 )
+scale = Vector2( 0.4, 0.4 )
 z_index = -1
 z_as_relative = false
 texture = ExtResource( 3 )
@@ -44,40 +43,34 @@ script = ExtResource( 4 )
 z_as_relative = false
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Wall"]
-position = Vector2( 1839.79, 1938.9 )
+position = Vector2( 1869.79, 1862.9 )
 rotation = 3.14159
 scale = Vector2( 2.1529, 2.1529 )
 build_mode = 1
-polygon = PoolVector2Array( 783.331, 831.351, 784.097, -23.5762, 893.351, -134.357, 897.474, 944.119, 131.63, 938.005, 230.188, 831.808 )
+polygon = PoolVector2Array( 783.597, 736.226, 783.031, 386.876, 756.091, 374.799, 734.724, 344.142, 731.938, 316.273, 781.638, 313.022, 784.097, -23.5762, 893.351, -134.357, 897.474, 944.119, 131.63, 938.005, 249.876, 736.225 )
 
 [node name="NPC" parent="." instance=ExtResource( 6 )]
 visible = true
-position = Vector2( 802.597, 510.243 )
-scale = Vector2( 0.660228, 0.660228 )
+position = Vector2( 854.597, 372.243 )
+scale = Vector2( 0.988076, 0.988076 )
 z_as_relative = false
 timeline = "Ferret1"
 sprite_frames = SubResource( 2 )
 
 [node name="TransitionZone" parent="." instance=ExtResource( 7 )]
-position = Vector2( 953.621, 567.762 )
+position = Vector2( 1040.28, 769.69 )
 rotation = 1.5708
 scale = Vector2( 125.043, -0.704783 )
 z_as_relative = false
-toPosition = Vector2( 80, 1002 )
+toPosition = Vector2( 60, 1004 )
 room = "Main-One"
 
 [node name="TransitionZone2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 658.603, 1312.14 )
+position = Vector2( 580.603, 1538.14 )
 scale = Vector2( 172.28, 1.44714 )
 z_as_relative = false
-toPosition = Vector2( 490, 74 )
+toPosition = Vector2( 750, 90 )
 room = "West-One"
-
-[node name="Lamppost" parent="." instance=ExtResource( 1 )]
-position = Vector2( 321.136, 351.877 )
-
-[node name="Lamppost2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 321.746, 699.692 )
 
 [node name="FogOfWar" type="Node2D" parent="."]
 

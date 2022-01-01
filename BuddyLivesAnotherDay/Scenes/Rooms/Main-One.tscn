@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scenes/Overworld Helpers/Lamppost.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=2]
 [ext_resource path="res://Art/MainBIGdraft.jpg" type="Texture" id=3]
 [ext_resource path="res://Scripts/Debug.gd" type="Script" id=4]
@@ -13,7 +12,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 347.883 ]
 }
-player_position = Vector2( 500, 350 )
+player_position = Vector2( 1000, 700 )
 left_limit = -267
 right_limit = 1292
 top_limit = -132
@@ -27,6 +26,7 @@ texture = ExtResource( 3 )
 centered = false
 
 [node name="Debug" type="Node2D" parent="."]
+visible = false
 script = ExtResource( 4 )
 
 [node name="Wall2" type="StaticBody2D" parent="."]
@@ -35,17 +35,18 @@ scale = Vector2( -1, 1 )
 z_as_relative = false
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Wall2"]
-position = Vector2( -1871.45, 729.995 )
+position = Vector2( -873.447, 385.995 )
 build_mode = 1
-polygon = PoolVector2Array( -118.157, 89.3226, -117.54, -173.804, 151.337, -170.316, 158.532, -390.95, -278.429, -304.96, -225.348, 88.0139 )
+polygon = PoolVector2Array( -1048, 572, -1046, 111, -884, 106, -860, 438, -788, 470, -477, 461, -406, 108, 167, 109, 158.532, -390.95, -1342, -398, -1477, 575 )
 
 [node name="Wall" type="StaticBody2D" parent="."]
 z_as_relative = false
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Wall"]
-position = Vector2( 323.877, 405 )
+position = Vector2( 1226.69, 635.195 )
+scale = Vector2( 3.32501, 1.04241 )
 build_mode = 1
-polygon = PoolVector2Array( -118.157, 89.3226, -117.54, -173.804, 57.711, -175.123, 55.7213, -293.162, -278.429, -304.96, -225.348, 88.0139 )
+polygon = PoolVector2Array( -75.4312, 275.136, -73.9274, -33.7632, -74.2282, -142.166, 62.3127, -147.922, 60.2074, -626.619, -375.881, -632.375, -373.776, 274.177 )
 
 [node name="Wall3" type="StaticBody2D" parent="."]
 position = Vector2( 1014.43, -5.99551 )
@@ -53,46 +54,29 @@ scale = Vector2( -1, 1 )
 z_as_relative = false
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Wall3"]
-position = Vector2( 930.553, 1883 )
+position = Vector2( 970.553, 1686 )
 build_mode = 1
-polygon = PoolVector2Array( 29.2696, -550.669, -76.2507, -557.864, -77.4498, -212.525, -600.255, -207.728, -595.459, -102.208, 32.8669, -107.004 )
+polygon = PoolVector2Array( 68, -548, -187, -546, -182, -276, -1364, -277, -1372, -204, -1537, -205, -1539, -274, -2072, -279, -2175, -45.0001, -2406, -45.0001, -2513, 141, 79, 151 )
 
 [node name="Wall4" type="StaticBody2D" parent="."]
 z_as_relative = false
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Wall4"]
-position = Vector2( 2919.88, 1502 )
+position = Vector2( 2816.88, 1318 )
 scale = Vector2( -1, -1 )
 build_mode = 1
-polygon = PoolVector2Array( -121.613, 159.525, -117.54, -173.804, 441.962, -175.023, 440.763, -294.932, -278.429, -304.96, -258.31, 157.126 )
-
-[node name="Lamppost" parent="." instance=ExtResource( 1 )]
-position = Vector2( -74.2089, 178.406 )
-
-[node name="Lamppost2" parent="." instance=ExtResource( 1 )]
-position = Vector2( -98.2649, 758.041 )
-
-[node name="Lamppost3" parent="." instance=ExtResource( 1 )]
-position = Vector2( -98.2649, 758.041 )
-
-[node name="Lamppost4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1051.84, 727.112 )
-scale = Vector2( -0.12, 0.12 )
-
-[node name="Lamppost5" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1064.44, 158.932 )
-scale = Vector2( -0.12, 0.12 )
+polygon = PoolVector2Array( -121.613, 159.525, -118, -325, 29, -333, 21, -540, -550, -531, -562, 167 )
 
 [node name="TransitionZone" parent="." instance=ExtResource( 7 )]
-position = Vector2( 67.877, 1002 )
+position = Vector2( 47.877, 1004 )
 rotation = 1.5708
 scale = Vector2( 70.923, -0.704783 )
 z_as_relative = false
-toPosition = Vector2( 1000, 567 )
+toPosition = Vector2( 1010, 770 )
 room = "West-Two"
 
 [node name="TransitionZone3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2706.88, 1790 )
+position = Vector2( 2666.88, 1780 )
 rotation = 3.14159
 scale = Vector2( 70.923, -0.704783 )
 z_as_relative = false
@@ -100,7 +84,7 @@ toPosition = Vector2( 480, 40 )
 room = "Main-Two"
 
 [node name="TransitionZone4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1656.88, 311 )
+position = Vector2( 1604.88, 265 )
 rotation = 3.14159
 scale = Vector2( 70.923, -0.704783 )
 z_as_relative = false
@@ -108,7 +92,7 @@ toPosition = Vector2( 763, 217 )
 room = "North-One"
 
 [node name="TransitionZone2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 3178.88, 697 )
+position = Vector2( 3212.88, 1059 )
 rotation = 1.5708
 scale = Vector2( 1314.48, -0.709646 )
 toPosition = Vector2( -160, 381 )
