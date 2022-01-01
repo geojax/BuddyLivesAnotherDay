@@ -13,10 +13,11 @@ export var cam_zoom := Vector2(1.0,1.0)
 
 func _ready():
 	var bgsprite : Sprite = get_node("Bg")
-	top_limit=$CamBorders/TopLeft.position.y
-	bottom_limit=$CamBorders/BottomRight.position.y
-	left_limit=$CamBorders/TopLeft.position.x
-	right_limit=$CamBorders/BottomRight.position.x
+#	top_limit=$CamBorders/TopLeft.position.y
+#	bottom_limit=$CamBorders/BottomRight.position.y
+#	left_limit=$CamBorders/TopLeft.position.x
+#	right_limit=$CamBorders/BottomRight.position.x
+	
 #	top_limit = 0
 #	left_limit = 0
 #	bottom_limit = 

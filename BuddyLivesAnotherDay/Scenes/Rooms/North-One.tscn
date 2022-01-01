@@ -1,23 +1,72 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/RoomParent.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Art/North1.jpg" type="Texture" id=2]
 [ext_resource path="res://Scenes/Overworld Helpers/TransitionZone.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/Room.gd" type="Script" id=4]
 
-[node name="Room" instance=ExtResource( 1 )]
+[node name="North-One" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+player_position = Vector2( 400, 400 )
+cam_zoom = Vector2( 0.75, 0.75 )
 
-[node name="TransitionZone" parent="." index="3"]
-position = Vector2( -506, -5 )
-rotation = -1.57079
-room = "North-Two"
+[node name="Bg" type="Sprite" parent="." index="0"]
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 2 )
+centered = false
 
-[node name="TransitionZone2" parent="." index="6" instance=ExtResource( 3 )]
-position = Vector2( -2, -361 )
+[node name="Node2D" parent="." index="1"]
+visible = false
+script = null
+
+[node name="TransitionZone" parent="Image" index="1"]
+position = Vector2( 784.686, 1.45425 )
+scale = Vector2( 62.7375, 3.89992 )
+toPosition = Vector2( 19, 470 )
+room = "North-Four"
+
+[node name="TransitionZone2" parent="." index="3" instance=ExtResource( 3 )]
+position = Vector2( 1010, -77 )
 rotation = -3.14159
 scale = Vector2( 343.505, 1.01385 )
 room = "North-Four"
 
-[node name="TransitionZone3" parent="." index="7" instance=ExtResource( 3 )]
-position = Vector2( 10, 319 )
+[node name="TransitionZone3" parent="." index="4" instance=ExtResource( 3 )]
+position = Vector2( 1010.66, 1242.53 )
 rotation = -3.14159
-scale = Vector2( 343.505, 1.01385 )
+scale = Vector2( 100.004, -2.18964 )
+toPosition = Vector2( 1600, 280 )
 room = "Main-One"
+
+[node name="TransitionZone4" parent="." index="5" instance=ExtResource( 3 )]
+position = Vector2( 27.147, 627.124 )
+rotation = -3.14159
+scale = Vector2( 2.1463, -74.6697 )
+toPosition = Vector2( 4800, 638 )
+room = "North-Two"
+
+[node name="TransitionZone5" parent="." index="6" instance=ExtResource( 3 )]
+position = Vector2( 1513.41, 483.166 )
+rotation = -3.14159
+scale = Vector2( -1.18551, -7.26283 )
+toPosition = Vector2( 1970, 250 )
+room = "Sub-One"
+
+[node name="Wall1" type="StaticBody2D" parent="." index="7"]
+position = Vector2( 1014.43, -5.99551 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+z_as_relative = false
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Wall1" index="0"]
+position = Vector2( 901.037, 1167.52 )
+z_index = 2
+build_mode = 1
+polygon = PoolVector2Array( -1841.27, 144.657, -1644.29, 334.522, -1040.17, 221.547, -1050.87, 12.2471, -1678.77, 5.11182, -1678.77, -535.977, -1437.24, -574.058, -1361.21, -578.077, -1363.33, -601.411, -1411.41, -601.411, -1411.41, -749.197, -1359.79, -747.783, -1357.67, -769.703, -1391.61, -771.117, -1413.58, -883.226, -1672.83, -908.199, -1418.34, -945.065, -999.736, -952.2, -990.223, -1194.8, -1828.61, -1181.72, -2148.54, -386.157 )
+
+[node name="CollisionShape2D2" type="CollisionPolygon2D" parent="Wall1" index="1"]
+position = Vector2( -439.746, 206.34 )
+rotation = 3.12135
+z_index = 2
+build_mode = 1
+polygon = PoolVector2Array( -1841.27, 144.657, -1644.29, 334.522, -1032.81, 226.489, -1038.05, -32.8772, -1313.8, -32.4668, -1322.56, -339.86, -1447.14, -330.394, -1465.74, -596.025, -1305.3, -600.269, -1303.44, -988.373, -579.904, -973.721, -581.546, -1114.62, -1828.61, -1181.72, -2148.54, -386.157 )

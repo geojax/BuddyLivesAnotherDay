@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Art/North2notrain.jpg" type="Texture" id=1]
+[ext_resource path="res://Scenes/Overworld Helpers/TransitionZone.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/RoomParent.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/Room.gd" type="Script" id=4]
+
+[node name="Room" instance=ExtResource( 3 )]
+script = ExtResource( 4 )
+cam_zoom = Vector2( 0.75, 0.75 )
+
+[node name="Bg" type="Sprite" parent="." index="0"]
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Wall1" type="StaticBody2D" parent="." index="3"]
+position = Vector2( 1014.43, -5.99551 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+z_as_relative = false
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Wall1" index="0"]
+position = Vector2( 1287.22, 1230.79 )
+z_index = 2
+build_mode = 1
+polygon = PoolVector2Array( -1841.27, 144.657, -406, 108, 167, 109, 153.186, -389.332, -6552.8, -422.153, -6432.16, 101.69 )
+
+[node name="CollisionShape2D2" type="CollisionPolygon2D" parent="Wall1" index="1"]
+position = Vector2( 1176.86, -11.0736 )
+z_index = 2
+build_mode = 1
+polygon = PoolVector2Array( 190.476, 520.764, 153.186, -389.332, -6552.8, -422.153, -6555.98, 504.89 )
+
+[node name="TransitionZone" parent="." index="4" instance=ExtResource( 2 )]
+position = Vector2( 4836.42, 638.092 )
+rotation = 1.5708
+scale = Vector2( 70.923, -0.704783 )
+z_as_relative = false
+toPosition = Vector2( 40, 627 )
+room = "North-One"
