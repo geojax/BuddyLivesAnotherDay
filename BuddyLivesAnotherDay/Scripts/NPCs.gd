@@ -37,14 +37,3 @@ func makeNPC(pos:Vector2, spritepath: String) -> PackedScene:
 	ret.get_node("Sprite").texture = load(spritepath)
 	ret.get_node("Sprite").scale = Vector2(0.2,0.2)
 	return ret
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-# Append this NPC to the corresponding room.
-# NPCs have a number of encounters.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

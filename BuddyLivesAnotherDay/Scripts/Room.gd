@@ -30,12 +30,12 @@ func _ready():
 #	cam.limit_bottom = bgsprite.texture.get_height()
 	UpdateLines()
 	
-	for npc in NPCs.rooms[name]:
-		add_child(npc)
-		npc.visible = true
-		npc.z_index = 1
-		print(get_path_to(npc))
-		
+#	for npc in NPCs.rooms[name]:
+#		add_child(npc)
+#		npc.visible = true
+#		npc.z_index = 1
+#		print(get_path_to(npc))
+#
 func UpdateLines():
 	if has_node("Debug"):
 		var debug = get_node("Debug")

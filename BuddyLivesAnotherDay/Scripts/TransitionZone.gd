@@ -10,7 +10,7 @@ export var changeFootstepsTo: AudioStream
 
 var checking := false
 
-onready var overworld = get_tree().root.get_child(0).find_node("Overworld")
+onready var overworld = get_tree().root.get_node("Main").find_node("Overworld")
 
 signal exit(pos, scene)
 signal newmusic(music)
