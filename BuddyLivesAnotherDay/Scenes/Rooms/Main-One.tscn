@@ -1,22 +1,20 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Scripts/Room.gd" type="Script" id=2]
+[ext_resource path="res://Audio/Sax_for_Club_Audio.wav" type="AudioStream" id=1]
+[ext_resource path="res://Scenes/Rooms/Main-One.gd" type="Script" id=2]
 [ext_resource path="res://Art/MainBIGdraft.jpg" type="Texture" id=3]
 [ext_resource path="res://Scripts/Debug.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Overworld Helpers/CamBox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Overworld Helpers/TransitionZone.tscn" type="PackedScene" id=7]
 
-[node name="West-One" type="YSort"]
+[node name="Main-One" type="YSort"]
 position = Vector2( -0.876953, 0 )
 script = ExtResource( 2 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 347.883 ]
+"_edit_horizontal_guides_": [ 347.883, 722.678 ],
+"_edit_vertical_guides_": [ 2187.21 ]
 }
-player_position = Vector2( 1000, 700 )
-left_limit = -267
-right_limit = 1292
-top_limit = -132
-bottom_limit = 945
+player_position = Vector2( 2000, 1000 )
 
 [node name="Bg" type="Sprite" parent="."]
 scale = Vector2( 0.520347, 0.520347 )
@@ -107,5 +105,12 @@ position = Vector2( -267.108, -132.943 )
 
 [node name="BottomRight" parent="CamBorders" index="1"]
 position = Vector2( 1292.04, 945.181 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 2565, 426.724 )
+stream = ExtResource( 1 )
+volume_db = 14.976
+max_distance = 1500.0
+attenuation = 1.2
 
 [editable path="CamBorders"]

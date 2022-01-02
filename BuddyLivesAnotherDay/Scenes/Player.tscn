@@ -13,16 +13,6 @@
 
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
-"frames": [ ExtResource( 11 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "WalkUp",
-"speed": 1.0
-}, {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "WalkDown",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 7 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "WalkRight",
@@ -36,6 +26,16 @@ animations = [ {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "WalkUp",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "WalkDown",
 "speed": 5.0
 } ]
 
@@ -57,7 +57,7 @@ frames = SubResource( 9 )
 animation = "WalkLeft"
 offset = Vector2( -0.0828323, -32.0248 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Footsteps" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = 12.0
 

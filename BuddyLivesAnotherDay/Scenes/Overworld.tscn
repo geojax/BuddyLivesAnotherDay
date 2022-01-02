@@ -197,7 +197,7 @@ shader_param/color = Color( 0.72549, 0.835294, 0.952941, 1 )
 [sub_resource type="Animation" id=14]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Footsteps:volume_db")
+tracks/0/path = NodePath("Music:volume_db")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -213,7 +213,7 @@ tracks/0/keys = {
 resource_name = "music_fade"
 length = 1.5
 tracks/0/type = "bezier"
-tracks/0/path = NodePath("Footsteps:volume_db")
+tracks/0/path = NodePath("Music:volume_db")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -291,9 +291,8 @@ visible = false
 position = Vector2( 550.01, 298.72 )
 texture = ExtResource( 7 )
 
-[node name="Footsteps" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-autoplay = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 14 )

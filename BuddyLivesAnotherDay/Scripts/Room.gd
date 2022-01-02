@@ -13,29 +13,8 @@ export var cam_zoom := Vector2(1.0,1.0)
 
 func _ready():
 	var bgsprite : Sprite = get_node("Bg")
-#	top_limit=$CamBorders/TopLeft.position.y
-#	bottom_limit=$CamBorders/BottomRight.position.y
-#	left_limit=$CamBorders/TopLeft.position.x
-#	right_limit=$CamBorders/BottomRight.position.x
-	
-#	top_limit = 0
-#	left_limit = 0
-#	bottom_limit = 
-#	right_limit = 
-	#	var cam:Camera2D = get_node("/root/Main/Overworld/Player/Camera2D")
-#	print(cam)
-#	cam.limit_left = 0.0
-#	cam.limit_top = 0.0
-#	cam.limit_right = bgsprite.texture.get_width()
-#	cam.limit_bottom = bgsprite.texture.get_height()
 	UpdateLines()
 	
-#	for npc in NPCs.rooms[name]:
-#		add_child(npc)
-#		npc.visible = true
-#		npc.z_index = 1
-#		print(get_path_to(npc))
-#
 func UpdateLines():
 	if has_node("Debug"):
 		var debug = get_node("Debug")
