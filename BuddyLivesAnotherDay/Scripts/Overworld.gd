@@ -139,3 +139,7 @@ func _on_TransitionZone_music_changed(music):
 	
 func _on_TransitionZone_footsteps_changed(footsteps):
 	player.get_node("Footsteps").stream = footsteps
+
+func _on_TransitionZone_ambience_changed(ambience: AudioStream):
+	$Ambience.stream = ambience
+	$Ambience.play()

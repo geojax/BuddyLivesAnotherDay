@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Audio/Sax_for_Club_Audio.wav" type="AudioStream" id=1]
 [ext_resource path="res://Scenes/Rooms/Main-One.gd" type="Script" id=2]
 [ext_resource path="res://Art/MainBIGdraft.jpg" type="Texture" id=3]
 [ext_resource path="res://Scripts/Debug.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Overworld Helpers/CamBox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Audio/North Ambience.wav" type="AudioStream" id=6]
 [ext_resource path="res://Scenes/Overworld Helpers/TransitionZone.tscn" type="PackedScene" id=7]
 
 [node name="Main-One" type="YSort"]
@@ -88,6 +89,8 @@ scale = Vector2( 70.923, -0.704783 )
 z_as_relative = false
 toPosition = Vector2( 1010, 1220 )
 room = "North-One"
+changeAmbience = true
+changeAmbeinceTo = ExtResource( 6 )
 
 [node name="TransitionZone2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 3212.88, 1059 )

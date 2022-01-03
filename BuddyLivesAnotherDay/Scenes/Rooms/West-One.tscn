@@ -1,14 +1,14 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Art/West1new.jpg" type="Texture" id=1]
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=2]
+[ext_resource path="res://Art/lamp_post.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Debug.gd" type="Script" id=4]
 [ext_resource path="res://Art/NPCGeneric.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/NPCs/NPC.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Overworld Helpers/TransitionZone.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Overworld Helpers/DialogImmediateTrigger.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Overworld Helpers/CamBox.tscn" type="PackedScene" id=10]
-
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -17,6 +17,10 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 13.724
+height = 0.0
 
 [node name="West-One" type="YSort"]
 position = Vector2( -0.876953, 0 )
@@ -77,5 +81,16 @@ position = Vector2( 31.2014, -103.894 )
 scale = Vector2( 1.4666, 1.44856 )
 build_mode = 1
 polygon = PoolVector2Array( -34.8944, 12.9011, 86.1717, 74.8607, 88.6718, 675.112, 938.679, 675.298, 936.29, 48.6278, 1056.87, 8.04422, 1056.87, 785.725, -36.629, 789.542 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall"]
+position = Vector2( 275.44, 404.971 )
+rotation = -0.570814
+shape = SubResource( 3 )
+
+[node name="LampPost" type="Sprite" parent="."]
+position = Vector2( 306.346, 403.038 )
+scale = Vector2( 0.323377, 0.323378 )
+texture = ExtResource( 3 )
+offset = Vector2( 128.616, -419.472 )
 
 [editable path="CamBorders"]
