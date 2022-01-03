@@ -7,7 +7,7 @@
 [ext_resource path="res://Scripts/Overworld.gd" type="Script" id=5]
 [ext_resource path="res://Graphics/Effects/RippleAnimation.tres" type="Animation" id=6]
 [ext_resource path="res://Graphics/just-a-test-backdrop.jpg" type="Texture" id=7]
-[ext_resource path="res://Music/Buddy_Main_Theme_Wip.mp3" type="AudioStream" id=8]
+[ext_resource path="res://Audio/Buddy Main Theme.wav" type="AudioStream" id=8]
 [ext_resource path="res://Art/West2.png" type="Texture" id=9]
 
 [sub_resource type="VisualShaderNodeScalarOp" id=4]
@@ -292,6 +292,9 @@ position = Vector2( 550.01, 298.72 )
 texture = ExtResource( 7 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
