@@ -1,4 +1,4 @@
-tool
+#tool
 extends Node
 
 export var player_position := Vector2(0,0)
@@ -15,11 +15,7 @@ func _ready():
 	bottom_limit=$Image/BottomRight.position.y
 	left_limit=$Image/TopLeft.position.x
 	right_limit=$Image/BottomRight.position.x
-	UpdateLines()
-	for npc in NPCs.rooms[name]:
-		add_child(npc)
-		print(get_path_to(npc))
-		
+	UpdateLines()		
 
 func UpdateLines():
 	if has_node("Debug"):

@@ -178,6 +178,7 @@ room = "Main-Four"
 position = Vector2( 497.793, -88.4655 )
 rotation = 3.14159
 scale = Vector2( 1314.48, -0.709646 )
+toPosition = Vector2( 2666, 1750 )
 room = "Main-One"
 
 [node name="TransitionZone4" parent="." instance=ExtResource( 7 )]

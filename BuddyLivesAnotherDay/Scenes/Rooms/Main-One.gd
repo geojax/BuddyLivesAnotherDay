@@ -7,7 +7,7 @@ extends "res://Scripts/Room.gd"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var musicPlayer:AudioStreamPlayer = get_node("/root/Main/Overworld/Music")
+	var musicPlayer:AudioStreamPlayer = Overworld.get_node("Music")
 	$AudioStreamPlayer2D.play(musicPlayer.get_playback_position())
 	pass # Replace with function body.
 

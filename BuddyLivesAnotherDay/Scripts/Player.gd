@@ -9,11 +9,11 @@ enum MovementState{
 }
 
 export var canMove = true
-
+export var canMoveVert = true
 var state = MovementState.IDLE
 var velocity := Vector2()
 
-const MOVE_SPEED := 200
+const MOVE_SPEED := 1000
 
 
 func _ready() -> void:
@@ -27,10 +27,11 @@ func GetVelocity() -> Vector2:
 		moveDirection.x += 1
 	if Input.is_action_pressed("worldLeft"):
 		moveDirection.x -= 1
-	if Input.is_action_pressed("worldUp"):
-		moveDirection.y -= 1
-	if Input.is_action_pressed("worldDown"):
-		moveDirection.y += 1
+	if canMoveVert:
+		if Input.is_action_pressed("worldUp"):
+			moveDirection.y -= 1
+		if Input.is_action_pressed("worldDown"):
+			moveDirection.y += 1
 	return moveDirection.normalized() * MOVE_SPEED
 
 func UpdateDirection() -> void:

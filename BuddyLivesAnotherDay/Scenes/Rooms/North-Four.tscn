@@ -9,28 +9,17 @@
 script = ExtResource( 3 )
 player_position = Vector2( 600, 200 )
 cam_zoom = Vector2( 0.7, 0.7 )
+playerCanMoveVert = false
 
 [node name="Bg" type="Sprite" parent="." index="0"]
 scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 1 )
 centered = false
 
-[node name="Wall1" type="StaticBody2D" parent="." index="1"]
-position = Vector2( 1014.43, -5.99551 )
-rotation = 3.14159
-scale = Vector2( 1, -1 )
-z_as_relative = false
-
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Wall1" index="0"]
-position = Vector2( 918.026, 963.646 )
-z_index = 2
-build_mode = 1
-polygon = PoolVector2Array( -1841.27, 144.657, -406, 108, 167, 109, 153.186, -389.332, -1835.83, -390.919, -1837.41, -990.957, -2148.54, -386.157 )
-
 [node name="TransitionZone" parent="Image" index="1"]
 position = Vector2( 772.089, -209.54 )
 
-[node name="TransitionZone" parent="." index="4" instance=ExtResource( 4 )]
+[node name="TransitionZone" parent="." index="3" instance=ExtResource( 4 )]
 position = Vector2( 19.3037, 426.186 )
 rotation = 1.5708
 scale = Vector2( 70.923, -0.704783 )

@@ -8,6 +8,8 @@
 
 [node name="Room" type="YSort"]
 script = ExtResource( 3 )
+right_limit = 1927
+bottom_limit = 1085
 footstepSound = ExtResource( 4 )
 
 [node name="Node2D" type="Node2D" parent="."]
