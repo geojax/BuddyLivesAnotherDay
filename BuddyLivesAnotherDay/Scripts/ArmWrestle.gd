@@ -60,7 +60,7 @@ func changeState(newState):
 func _ready():
 	EnterScreen()
 	randomize()
-	#state = FightState.IDLE
+	state = FightState.IDLE
 	fightProgressBar.value = 50
 
 func _process(delta):

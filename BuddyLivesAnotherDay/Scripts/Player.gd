@@ -8,8 +8,8 @@ enum MovementState{
 	RIGHT
 }
 
-export var canMove = true
-export var canMoveVert = true
+var canMove = true
+var canMoveVert = true
 var state = MovementState.IDLE
 var velocity := Vector2()
 

@@ -1,4 +1,3 @@
-tool
 extends Node
 
 export var player_position := Vector2(0,0)
@@ -10,10 +9,9 @@ export var bottom_limit := 300 setget set_bottom
 export var cam_zoom := Vector2(1.0,1.0)
 export var playerCanMoveVert := true
 #onready var camera = get_parent().get_parent().get_node("Player").get_node("Camera2D")
-
 func _ready():
 	var bgsprite : Sprite = get_node("Bg")
-	Overworld.player.canMoveVert = playerCanMoveVert
+#	Overworld.player.canMoveVert = playerCanMoveVert
 	
 	UpdateLines()
 func UpdateLines():

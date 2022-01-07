@@ -62,7 +62,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Overworld="*res://Scenes/Overworld.tscn"
+Overworld="*res://OverworldContainer.tscn"
+ArmWrestling="*res://ArmWrestlingContainer.tscn"
 NPCs="*res://Scripts/NPCs.gd"
 
 [display]
