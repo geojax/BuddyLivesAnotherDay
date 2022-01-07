@@ -226,7 +226,7 @@ tracks/0/keys = {
 
 [node name="Overworld" type="Node"]
 script = ExtResource( 5 )
-initialRoom = "North-One"
+initialRoom = "Main-Two"
 
 [node name="PlayContainer" type="YSort" parent="."]
 

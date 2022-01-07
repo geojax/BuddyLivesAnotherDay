@@ -13,7 +13,7 @@ export var canMoveVert = true
 var state = MovementState.IDLE
 var velocity := Vector2()
 
-const MOVE_SPEED := 1000
+const MOVE_SPEED := 100
 
 
 func _ready() -> void:
