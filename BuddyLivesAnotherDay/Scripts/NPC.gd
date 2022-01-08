@@ -5,8 +5,13 @@ export var sprite_frames: SpriteFrames
 
 var player
 var encounters
+
+signal dialog_entered(timeline)
+
 func _ready():
 	var _e = $Timer.connect("timeout", self, "_on_Timer_timeout")
+	connect("dialog_entered", get_node("/root/Main/ViewportContainer2/Overworld/DialogManager"), "_on_NPC_dialog_entered")
+	
 #	$AnimatedSprite.frames = sprite_frames
 
 func _process(_delta):
@@ -17,10 +22,11 @@ func _process(_delta):
 			player.canMove = false
 		$NearPrompt.body_exit("Player")
 		$NearPrompt.in_dialog = true
-		var dialog = Dialogic.start(timeline)
-		dialog.connect("timeline_end", self, "_dialog_listener")
-		dialog.connect("dialogic_signal", self, "_on_Dialogic_")
-		add_child(dialog)
+		emit_signal("dialog_entered", timeline)
+#		var dialog = Dialogic.start(timeline)
+#		dialog.connect("timeline_end", self, "_dialog_listener")
+#		dialog.connect("dialogic_signal", self, "_on_Dialogic_")
+#		add_child(dialog)
 
 func _dialog_listener(_string):
 	$Timer.start()

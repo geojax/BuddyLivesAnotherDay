@@ -10,4 +10,3 @@ script = ExtResource( 3 )
 [node name="ViewportContainer2" parent="." instance=ExtResource( 1 )]
 
 [node name="ViewportContainer" parent="." instance=ExtResource( 2 )]
-visible = true
