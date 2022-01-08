@@ -26,7 +26,7 @@ func _ready():
 	randomize()
 	start()
 	player = $PlayContainer/Player	
-	$Music.play()
+	$Music.play(25)
 	musicPlayer = $Music
 	ambiencePlayer = $Ambience
 	
@@ -134,3 +134,4 @@ func _on_TransitionZone_ambience_changed(ambience: AudioStream):
 func _on_DialogManager_wrestle():
 	musicPlayer.stop()
 	ambiencePlayer.stop()
+	player

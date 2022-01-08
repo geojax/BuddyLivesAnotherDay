@@ -1,3 +1,4 @@
+class_name Player
 extends KinematicBody2D
 
 enum MovementState{
@@ -17,8 +18,6 @@ const MOVE_SPEED := 1000
 
 
 func _ready() -> void:
-	# var new_dialog = Dialogic.start('test-timeline')
-	# add_child(new_dialog)
 	$AnimatedSprite.play("Idle");
 
 func GetVelocity() -> Vector2:
@@ -58,12 +57,10 @@ func UpdateAnimation() -> void:
 		MovementState.LEFT:
 			$AnimatedSprite.play("WalkLeft")
 			$AnimatedSprite.scale = Vector2.ONE
-			
 			$AnimatedSprite.flip_h = false
 		MovementState.RIGHT:
 			$AnimatedSprite.play("WalkRight")
 			$AnimatedSprite.scale = Vector2.ONE
-			
 			$AnimatedSprite.flip_h = true
 
 func _process(_delta: float) -> void:
@@ -71,7 +68,7 @@ func _process(_delta: float) -> void:
 	UpdateAnimation()
 	if state == MovementState.IDLE:
 		$Footsteps.stop()
-	elif $Footsteps.playing == false:
+	elif $Footsteps.playing == false and canMove:
 		$Footsteps.play()
 
 func _physics_process(_delta: float) -> void:

@@ -127,7 +127,7 @@ func _process(_delta):
 		loseTimer.start()
 	elif fightProgress > 5:
 		loseTimer.stop()
-	elif fightProgress == 100:
+	if fightProgress == 100:
 		state = FightState.WIN
 	fightProgressBar.value = fightProgress
 	staminaProgressBar.value = stamina
