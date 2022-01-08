@@ -58,7 +58,7 @@ func changeState(newState):
 	print(state)
 
 func _ready():
-	EnterScreen()
+#	EnterScreen()
 	randomize()
 	state = FightState.IDLE
 	fightProgressBar.value = 50

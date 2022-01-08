@@ -1,21 +1,21 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scripts/ArmWrestle.gd" type="Script" id=1]
+[ext_resource path="res://ArmWrestlingContainer.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/ArmWrestling.tscn" type="PackedScene" id=2]
 
 [node name="ViewportContainer" type="ViewportContainer"]
-visible = false
 margin_right = 1080.0
 margin_bottom = 1080.0
 stretch = true
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Viewport" type="Viewport" parent="."]
 size = Vector2( 1080, 1080 )
+transparent_bg = true
 handle_input_locally = false
-render_target_update_mode = 0
+render_target_update_mode = 3
 
-[node name="ArmWrestling" type="Node2D" parent="Viewport" instance=ExtResource( 2 )]
-script = ExtResource( 1 )
+[node name="ArmWrestling" parent="Viewport" instance=ExtResource( 2 )]

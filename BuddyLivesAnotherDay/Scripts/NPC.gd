@@ -19,6 +19,7 @@ func _process(_delta):
 		$NearPrompt.in_dialog = true
 		var dialog = Dialogic.start(timeline)
 		dialog.connect("timeline_end", self, "_dialog_listener")
+		dialog.connect("dialogic_signal", self, "_on_Dialogic_")
 		add_child(dialog)
 
 func _dialog_listener(_string):

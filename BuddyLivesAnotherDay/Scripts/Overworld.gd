@@ -1,4 +1,4 @@
-extends Node
+extends Viewport
 
 export var initialRoom := "West-One"
 
