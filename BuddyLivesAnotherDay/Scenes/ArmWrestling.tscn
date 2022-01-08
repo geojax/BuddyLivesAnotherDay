@@ -76,6 +76,8 @@ position = Vector2( 548.422, 373.266 )
 scale = Vector2( 0.333019, 0.333019 )
 texture = ExtResource( 2 )
 
+[node name="FightMusic" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="timeout" from="ExposeDelayTimer" to="." method="_on_ExposeDelayTimer_timeout"]
 [connection signal="timeout" from="ExposeTimer" to="." method="_on_ExposeTimer_timeout"]
 [connection signal="timeout" from="StunTimer" to="." method="_on_StunTimer_timeout"]

@@ -13,6 +13,7 @@ margin_top = -1005.0
 margin_right = 1931.0
 margin_bottom = 908.0
 
+[connection signal="wrestle" from="ViewportContainer2/Overworld/DialogManager" to="ViewportContainer2/Overworld" method="_on_DialogManager_wrestle"]
 [connection signal="wrestle" from="ViewportContainer2/Overworld/DialogManager" to="ViewportContainer" method="_on_DialogManager_wrestle"]
 
 [editable path="ViewportContainer2"]

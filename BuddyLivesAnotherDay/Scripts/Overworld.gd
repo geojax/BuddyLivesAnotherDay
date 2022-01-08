@@ -4,6 +4,9 @@ export var initialRoom := "West-One"
 
 const room_path = "res://Scenes/Rooms/"
 
+var musicPlayer :AudioStreamPlayer
+var ambiencePlayer :AudioStreamPlayer
+
 var setpos
 var timer
 var setscene
@@ -24,6 +27,8 @@ func _ready():
 	start()
 	player = $PlayContainer/Player	
 	$Music.play()
+	musicPlayer = $Music
+	ambiencePlayer = $Ambience
 	
 func start():
 	var _e = connect("load_room", self, "_on_Overworld_load_room")
@@ -59,6 +64,8 @@ func _on_TransitionZone_entered(pos, scene):
 	setpos = pos
 	setscene = scene
 
+# Creates a timer with time `time`
+# that runs `function` when it times out.
 func create_timer(time, function):
 	timer = Timer.new()
 	
@@ -122,3 +129,8 @@ func _on_TransitionZone_footsteps_changed(footsteps):
 func _on_TransitionZone_ambience_changed(ambience: AudioStream):
 	$Ambience.stream = ambience
 	$Ambience.play()
+
+# Stop the overworld sound when wrestling.
+func _on_DialogManager_wrestle():
+	musicPlayer.stop()
+	ambiencePlayer.stop()
