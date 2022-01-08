@@ -30,9 +30,9 @@ func _ready() -> void:
 	if overworld == null:
 		overworld = get_tree().root.get_child(0)
 	_e = connect("exit", overworld, "_on_TransitionZone_entered")
-	connect("newmusic", overworld, "_on_TransitionZone_music_changed")
-	connect("newfootsteps", overworld, "_on_TransitionZone_footsteps_changed")
-	connect("newambience", overworld, "_on_TransitionZone_ambience_changed")
+	_e = connect("newmusic", overworld, "_on_TransitionZone_music_changed")
+	_e = connect("newfootsteps", overworld, "_on_TransitionZone_footsteps_changed")
+	_e = connect("newambience", overworld, "_on_TransitionZone_ambience_changed")
 
 func _on_body_entered(body) -> void:
 	if checking && body && body.name && body.name == "Player":

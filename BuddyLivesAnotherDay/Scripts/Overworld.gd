@@ -1,4 +1,4 @@
-extends Node
+extends Viewport
 
 export var initialRoom := "West-One"
 
@@ -9,30 +9,34 @@ var timer
 var setscene
 var baroffset 
 var offset
-var barL
-var barR
-var player
+var barL : Sprite
+var barR : Sprite
+var player : KinematicBody2D
 var cam_zoom
-export var width := 1620
+export var widthBetweenBars := 1620
 
 export var rooms = []
 
 signal load_room (room)
 
 func _ready():
-	start()		
+	start()
+	player = $PlayContainer/Player	
 	$Music.play()
 	
 func start():
-	var _e = connect("load_room", self, "_on_Load_Room")
+	var _e = connect("load_room", self, "_on_Overworld_load_room")
 	emit_signal("load_room", initialRoom, true)
 	
 	create_timer(1.7, "_on_enter_timeout")
 	$ScreenEffects.PlayEnter()
 	$PlayContainer/Player.canMove = false
-	
-func _on_Load_Room (room, start):
-#func _on_Load_Room (room, start):
+
+# Set up room when it has been loaded in:
+# - Set camera's limits and zoom
+# - Set player's spawn positoin
+# - 
+func _on_Overworld_load_room (room, start):
 	var path = room_path + room + ".tscn"
 	var new_room = load(path).instance()
 	
@@ -69,24 +73,13 @@ func set_camera_limits(room):
 	var bg :Sprite = room.get_child(0)
 	camera.zoom = room.cam_zoom
 	cam_zoom = camera.zoom.x
-	offset = ((1920 - width) * cam_zoom) / 2
+	offset = ((1920 - widthBetweenBars) * cam_zoom) / 2
 	camera.limit_left = -offset
 	camera.limit_right = (bg.texture.get_width()*bg.scale.x) + offset
 	camera.limit_top = 0
 	camera.limit_bottom = bg.texture.get_height() * bg.scale.y
 	baroffset = bg.texture.get_width() * bg.scale.x
 	
-#	var box = Sprite.new()
-#	box.texture = load("res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.stex")
-#	room.add_child(box)
-#	box.centered = false
-#	box.position.x = -offset*4
-#	box.scale.x = camera.limit_right/32
-#	box.scale.y = camera.limit_bottom/32
-#	box.modulate = Color(0,0,0)
-#	box.z_index = -2
-	
-	player = $PlayContainer.get_node("Player")
 	barL = $PlayContainer.get_node("Bars")
 	barR = $PlayContainer.get_node("Bars2")
 	barL.scale.x = (offset/1440)
@@ -97,13 +90,12 @@ func set_camera_limits(room):
 	barR.position.y = -300
 	
 func updatebars():	
-	
 	var posChange = player.position.x - (960*cam_zoom)
-	barL.position.x = clamp(posChange, -offset, (baroffset-(width*cam_zoom)-offset))
+	barL.position.x = clamp(posChange, -offset, (baroffset-(widthBetweenBars*cam_zoom)-offset))
 	var posChange2 = player.position.x + (960*cam_zoom) - offset
-	barR.position.x = clamp(posChange2, ((width*cam_zoom)-(offset/64)), baroffset-(offset/64))
+	barR.position.x = clamp(posChange2, ((widthBetweenBars*cam_zoom)-(offset/64)), baroffset-(offset/64))
 
-func _process(delta):
+func _process(_delta):
 	updatebars()
 	
 func _on_exit_timeout():
@@ -111,7 +103,7 @@ func _on_exit_timeout():
 	create_timer(1.7, "_on_enter_timeout")
 	$ScreenEffects.PlayEnter()
 	$PlayContainer/Player.position = setpos
-	call_deferred("_on_Load_Room", setscene, false)
+	call_deferred("_on_Overworld_load_room", setscene, false)
 
 func _on_enter_timeout():
 	timer.queue_free()

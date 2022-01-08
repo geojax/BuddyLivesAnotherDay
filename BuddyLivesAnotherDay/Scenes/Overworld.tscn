@@ -1,15 +1,14 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Art/Screen_Shot_2021-11-12_at_2.18.30_PM.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/ScreenEffects.tscn" type="PackedScene" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/Overworld.gd" type="Script" id=5]
 [ext_resource path="res://Graphics/Effects/RippleAnimation.tres" type="Animation" id=6]
-[ext_resource path="res://Graphics/just-a-test-backdrop.jpg" type="Texture" id=7]
 [ext_resource path="res://Audio/Buddy Main Theme.wav" type="AudioStream" id=8]
 [ext_resource path="res://Art/West2.png" type="Texture" id=9]
 [ext_resource path="res://Audio/West, Main, East Ambience.wav" type="AudioStream" id=10]
+[ext_resource path="res://Scripts/DialogManager.gd" type="Script" id=11]
 
 [sub_resource type="VisualShaderNodeScalarOp" id=4]
 output_port_for_preview = 0
@@ -224,7 +223,9 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1.5 )
 }
 
-[node name="Overworld" type="Node"]
+[node name="Overworld" type="Viewport"]
+size = Vector2( 1920, 1080 )
+transparent_bg = true
 script = ExtResource( 5 )
 initialRoom = "Main-Two"
 
@@ -257,7 +258,7 @@ camera_active = true
 use_enter_exit = true
 noise_scale = 0.15
 saturation = 0.0
-contrast = 0.9
+contrast = 0.7
 vignette_radius = 0.585
 vignette_blur = 0.33
 
@@ -281,17 +282,6 @@ scale = Vector2( 1, 0.587 )
 z_index = -1
 texture = ExtResource( 4 )
 
-[node name="Screen_Shot_2021-11-12_at_21830_PM" type="Sprite" parent="Unused"]
-visible = false
-position = Vector2( 274.798, 158.978 )
-scale = Vector2( 1.89015, 1.89015 )
-texture = ExtResource( 2 )
-
-[node name="just-a-test-backdrop" type="Sprite" parent="Unused"]
-visible = false
-position = Vector2( 550.01, 298.72 )
-texture = ExtResource( 7 )
-
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 
@@ -302,3 +292,6 @@ autoplay = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 14 )
 anims/music_fade = SubResource( 15 )
+
+[node name="DialogManager" type="Node" parent="."]
+script = ExtResource( 11 )

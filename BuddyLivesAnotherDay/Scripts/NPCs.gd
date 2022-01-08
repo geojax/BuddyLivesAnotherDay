@@ -15,6 +15,8 @@ var bigstar := NPC.instance()
 var leo := NPC.instance()
 var ferret := load("res://Scenes/NPCs/Ferret.tscn")
 
+onready var overworld = get_node("/root").find_node("Overworld")
+
 var rooms := {
 	"Docks-One": [],
 	"Docks-Two": [],
