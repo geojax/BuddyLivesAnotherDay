@@ -67,6 +67,10 @@ one_shot = true
 [node name="StunTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="LoseTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [node name="hands" type="Sprite" parent="."]
 position = Vector2( 548.422, 373.266 )
 scale = Vector2( 0.333019, 0.333019 )
@@ -75,3 +79,4 @@ texture = ExtResource( 2 )
 [connection signal="timeout" from="ExposeDelayTimer" to="." method="_on_ExposeDelayTimer_timeout"]
 [connection signal="timeout" from="ExposeTimer" to="." method="_on_ExposeTimer_timeout"]
 [connection signal="timeout" from="StunTimer" to="." method="_on_StunTimer_timeout"]
+[connection signal="timeout" from="LoseTimer" to="." method="_on_LoseTimer_timeout"]

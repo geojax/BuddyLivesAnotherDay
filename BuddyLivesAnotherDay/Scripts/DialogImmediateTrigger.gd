@@ -3,7 +3,7 @@ extends Node2D
 export var timeline := String()
 var hasTriggered = false
 
-func _on_Area2D_body_entered(body):
+func _on_Area2D_body_entered(_body):
 	print("Triggering dialogue....")
 	if !hasTriggered:
 		var dialog = Dialogic.start(timeline)

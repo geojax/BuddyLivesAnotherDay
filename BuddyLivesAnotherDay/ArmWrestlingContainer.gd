@@ -14,6 +14,7 @@ func _ready():
 
 func enterScreen():
 	rect_position.y = 0
+	$Viewport/ArmWrestling.start()
 
 func exitScreen():
 	rect_position.y = -2000

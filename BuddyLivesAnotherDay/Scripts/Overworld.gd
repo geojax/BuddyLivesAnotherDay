@@ -20,6 +20,7 @@ export var rooms = []
 signal load_room (room)
 
 func _ready():
+	randomize()
 	start()
 	player = $PlayContainer/Player	
 	$Music.play()
