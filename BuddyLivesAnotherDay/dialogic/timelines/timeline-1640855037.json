@@ -1,6 +1,131 @@
 {
 	"events": [
-
+		{
+			"action": "join",
+			"character": "character-1641491044.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"action": "join",
+			"character": "character-1641491097.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"action": "join",
+			"character": "character-1640855020.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"action": "join",
+			"character": "character-1637911062.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1641491044.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Now untie that rope. That one, there. No, not that one, the other one! Hurry, before that slippery little rat swims away. Don’t drop the goddamn oar in the––– You’re an idiot."
+		},
+		{
+			"character": "character-1641491097.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Yeah! An id–– I mean, no I’m not!"
+		},
+		{
+			"character": "character-1640855020.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "BUDDY!"
+		},
+		{
+			"character": "character-1641491044.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Huh?"
+		},
+		{
+			"character": "character-1641491097.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "It’s Buddy the Wolverine!"
+		},
+		{
+			"character": "character-1641491044.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Shut up and start rowing! Quick!"
+		},
+		{
+			"character": "character-1640855020.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "BUDDY! I’M STUCK OUT ‘ERE WITHOUT ANY OARS!"
+		},
+		{
+			"character": "character-1637911062.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Swim for it, Otter! I’ll hold them off!"
+		},
+		{
+			"character": "character-1640855020.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I CAN’T SWIM!"
+		},
+		{
+			"character": "character-1637911062.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You can’t [i]swim[/i]?!"
+		},
+		{
+			"character": "character-1640855020.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "THERE’S ANOTHER ROWBOAT OVER YONDER! HURRY, BUDDY!"
+		},
+		{
+			"emit_signal": "wrestle",
+			"event_id": "dialogic_040"
+		}
 	],
 	"metadata": {
 		"dialogic-version": "1.3",

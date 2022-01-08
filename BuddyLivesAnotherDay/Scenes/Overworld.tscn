@@ -227,7 +227,7 @@ tracks/0/keys = {
 size = Vector2( 1920, 1080 )
 transparent_bg = true
 script = ExtResource( 5 )
-initialRoom = "North-One"
+initialRoom = "Main-Two"
 
 [node name="PlayContainer" type="YSort" parent="."]
 
