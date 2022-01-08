@@ -10,3 +10,9 @@ script = ExtResource( 3 )
 [node name="ViewportContainer2" parent="." instance=ExtResource( 1 )]
 
 [node name="ViewportContainer" parent="." instance=ExtResource( 2 )]
+
+[connection signal="wrestle" from="ViewportContainer2/Overworld/DialogManager" to="ViewportContainer" method="_on_DialogManager_wrestle"]
+
+[editable path="ViewportContainer2"]
+[editable path="ViewportContainer2/Overworld"]
+[editable path="ViewportContainer"]

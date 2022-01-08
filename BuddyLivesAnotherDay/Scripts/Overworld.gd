@@ -95,7 +95,7 @@ func updatebars():
 	var posChange2 = player.position.x + (960*cam_zoom) - offset
 	barR.position.x = clamp(posChange2, ((widthBetweenBars*cam_zoom)-(offset/64)), baroffset-(offset/64))
 
-func _process(delta):
+func _process(_delta):
 	updatebars()
 	
 func _on_exit_timeout():

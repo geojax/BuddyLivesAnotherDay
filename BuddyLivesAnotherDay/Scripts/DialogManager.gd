@@ -1,19 +1,12 @@
 extends Node
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
+signal wrestle
 
 func _on_NPC_dialog_entered(timeline:String):
 	var dialog = Dialogic.start(timeline)
+	dialog.connect("dialogic_signal", self, "_on_Dialog_dialogic_signal")
 	add_child(dialog)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	
+func _on_Dialog_dialogic_signal(string):
+	if string == "wrestle":
+		emit_signal("wrestle")

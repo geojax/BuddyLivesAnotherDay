@@ -10,7 +10,7 @@ signal dialog_entered(timeline)
 
 func _ready():
 	var _e = $Timer.connect("timeout", self, "_on_Timer_timeout")
-	connect("dialog_entered", get_node("/root/Main/ViewportContainer2/Overworld/DialogManager"), "_on_NPC_dialog_entered")
+	_e = connect("dialog_entered", get_node("/root/Main/ViewportContainer2/Overworld/DialogManager"), "_on_NPC_dialog_entered")
 	
 #	$AnimatedSprite.frames = sprite_frames
 

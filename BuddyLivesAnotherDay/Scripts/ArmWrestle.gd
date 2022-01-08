@@ -63,7 +63,7 @@ func _ready():
 	state = FightState.IDLE
 	fightProgressBar.value = 50
 
-func _process(delta):
+func _process(_delta):
 	match state:
 		FightState.NORMAL:
 			fightProgress -= BOSSPUSH
@@ -152,3 +152,8 @@ func _on_ExposeTimer_timeout():
 func _on_StunTimer_timeout():
 	state = FightState.NORMAL
 	specialAttackDelayTimer.start(randi() % 4 + 5)
+
+
+func _on_DialogManager_wrestle():
+	EnterScreen()
+	pass # Replace with function body.
