@@ -49,10 +49,6 @@
 			"text": "Buddy! Help! Over here!"
 		},
 		{
-			"emit_signal": "wrestle",
-			"event_id": "dialogic_040"
-		},
-		{
 			"character": "character-1637910913.json",
 			"event_id": "dialogic_001",
 			"portrait": "",

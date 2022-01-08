@@ -25,6 +25,7 @@ tracks/0/keys = {
 }
 
 [node name="Node2D" type="Node2D"]
+scale = Vector2( 1.88521, 1.88521 )
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]

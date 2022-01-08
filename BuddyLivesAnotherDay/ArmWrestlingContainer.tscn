@@ -5,8 +5,8 @@
 
 [node name="ViewportContainer" type="ViewportContainer"]
 margin_left = 1.0
-margin_top = -596.0
-margin_right = 1081.0
+margin_top = -1429.0
+margin_right = 1914.0
 margin_bottom = 484.0
 stretch = true
 script = ExtResource( 1 )
@@ -15,7 +15,7 @@ __meta__ = {
 }
 
 [node name="Viewport" type="Viewport" parent="."]
-size = Vector2( 1080, 1080 )
+size = Vector2( 1913, 1913 )
 transparent_bg = true
 handle_input_locally = false
 render_target_update_mode = 3
