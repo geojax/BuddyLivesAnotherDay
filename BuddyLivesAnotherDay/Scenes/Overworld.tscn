@@ -258,10 +258,9 @@ current = true
 layer = 3
 
 [node name="ScreenEffects" parent="PlayContainer/Player/Camera2D/EffectContainer" instance=ExtResource( 3 )]
+visible = false
 camera_active = true
 noise_scale = 0.15
-saturation = 0.0
-contrast = 0.7
 vignette_radius = 0.585
 vignette_blur = 0.33
 

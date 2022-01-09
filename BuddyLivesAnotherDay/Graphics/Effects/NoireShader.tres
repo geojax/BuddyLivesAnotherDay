@@ -1,30 +1,42 @@
-[gd_resource type="ShaderMaterial" load_steps=18 format=2]
+[gd_resource type="ShaderMaterial" load_steps=16 format=2]
 
 [sub_resource type="VisualShaderNodeScalarOp" id=1]
-output_port_for_preview = 0
 operator = 2
 
 [sub_resource type="VisualShaderNodeVectorCompose" id=2]
-
-[sub_resource type="VisualShaderNodeScalarOp" id=3]
-operator = 6
-
-[sub_resource type="VisualShaderNodeVectorOp" id=4]
-operator = 2
-
-[sub_resource type="VisualShaderNodeVectorOp" id=5]
-operator = 1
-
-[sub_resource type="VisualShaderNodeScalarConstant" id=6]
-constant = 0.5
-
-[sub_resource type="VisualShaderNodeVectorOp" id=7]
 
 [sub_resource type="VisualShaderNodeScalarUniform" id=8]
 uniform_name = "contrast"
 
 [sub_resource type="VisualShaderNodeScalarUniform" id=9]
 uniform_name = "saturation"
+
+[sub_resource type="VisualShaderNodeExpression" id=18]
+size = Vector2( 1138, 389 )
+expression = "vec3 d = vec3(pow(b.x, 0.4545f), pow(b.y, 0.4545f), pow(b.z, 0.4545f));
+float red = pow(abs(d.x * 2f - 1f), 1f / max(contrast, 0.0001f)) * sign(d.x - .5f) + .5f;
+float green = pow(abs(d.y * 2f - 1f), 1f / max(contrast, 0.0001f)) * sign(d.y - .5f) + .5f;
+float blue = pow(abs(d.z * 2f - 1f), 1f / max(contrast, 0.0001f)) * sign(d.z - .5f) + .5f;
+
+if (a.x > 1f) a.x = 1f;
+if (a.x < 0f) a.x = 0f;
+
+if (a.y > 1f) a.y = 1f;
+if (a.y < 0f) a.y = 0f;
+
+if (a.z > 1f) a.z = 1f;
+if (a.z < 0f) a.z = 0f;
+
+a = vec3(pow(red, 2.2f), pow(green, 2.2f), pow(blue, 2.2f));"
+
+[sub_resource type="VisualShaderNodeVectorOp" id=19]
+default_input_values = [ 0, Vector3( 0, 0, 0 ), 1, Vector3( 0.8, 0.8, 0.8 ) ]
+operator = 2
+
+[sub_resource type="VisualShaderNodeVectorCompose" id=20]
+
+[sub_resource type="VisualShaderNodeScalarUniform" id=21]
+uniform_name = "grayness"
 
 [sub_resource type="VisualShaderNodeInput" id=10]
 input_name = "screen_uv"
@@ -33,7 +45,6 @@ input_name = "screen_uv"
 input_name = "screen_texture"
 
 [sub_resource type="VisualShaderNodeTexture" id=12]
-output_port_for_preview = 0
 source = 5
 
 [sub_resource type="VisualShaderNodeVectorFunc" id=13]
@@ -45,15 +56,13 @@ output_port_for_preview = 0
 function = 5
 
 [sub_resource type="VisualShaderNodeVectorDecompose" id=15]
-output_port_for_preview = 1
-
-[sub_resource type="VisualShaderNodeScalarConstant" id=16]
-constant = 0.25
+output_port_for_preview = 2
 
 [sub_resource type="VisualShader" id=17]
 code = "shader_type canvas_item;
-uniform float saturation;
 uniform float contrast;
+uniform float saturation;
+uniform float grayness;
 
 
 
@@ -63,6 +72,9 @@ void vertex() {
 }
 
 void fragment() {
+// ScalarUniform:18
+	float n_out18p0 = contrast;
+
 // Input:3
 	vec3 n_out3p0 = vec3(SCREEN_UV, 0.0);
 
@@ -112,27 +124,38 @@ void fragment() {
 		n_out7p0 = c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
 	}
 
-// Scalar:16
-	float n_out16p0 = 0.500000;
+// Expression:20
+	vec3 n_out20p0;
+	n_out20p0 = vec3(0.0, 0.0, 0.0);
+	{
+		vec3 d = vec3(pow(n_out7p0.x, 0.4545f), pow(n_out7p0.y, 0.4545f), pow(n_out7p0.z, 0.4545f));
+		float red = pow(abs(d.x * 2f - 1f), 1f / max(n_out18p0, 0.0001f)) * sign(d.x - .5f) + .5f;
+		float green = pow(abs(d.y * 2f - 1f), 1f / max(n_out18p0, 0.0001f)) * sign(d.y - .5f) + .5f;
+		float blue = pow(abs(d.z * 2f - 1f), 1f / max(n_out18p0, 0.0001f)) * sign(d.z - .5f) + .5f;
+		
+		if (n_out20p0.x > 1f) n_out20p0.x = 1f;
+		if (n_out20p0.x < 0f) n_out20p0.x = 0f;
+		
+		if (n_out20p0.y > 1f) n_out20p0.y = 1f;
+		if (n_out20p0.y < 0f) n_out20p0.y = 0f;
+		
+		if (n_out20p0.z > 1f) n_out20p0.z = 1f;
+		if (n_out20p0.z < 0f) n_out20p0.z = 0f;
+		
+		n_out20p0 = vec3(pow(red, 2.2f), pow(green, 2.2f), pow(blue, 2.2f));
+	}
 
-// VectorOp:15
-	vec3 n_out15p0 = n_out7p0 - vec3(n_out16p0);
+// ScalarUniform:23
+	float n_out23p0 = grayness;
 
-// ScalarUniform:18
-	float n_out18p0 = contrast;
+// VectorCompose:22
+	vec3 n_out22p0 = vec3(n_out23p0, n_out23p0, n_out23p0);
 
-// ScalarOp:13
-	float n_in13p1 = 0.00000;
-	float n_out13p0 = max(n_out18p0, n_in13p1);
-
-// VectorOp:14
-	vec3 n_out14p0 = n_out15p0 * vec3(n_out13p0);
-
-// VectorOp:17
-	vec3 n_out17p0 = n_out14p0 + vec3(n_out16p0);
+// VectorOp:21
+	vec3 n_out21p0 = n_out20p0 * n_out22p0;
 
 // Output:0
-	COLOR.rgb = n_out17p0;
+	COLOR.rgb = n_out21p0;
 	COLOR.a = n_out5p1;
 
 }
@@ -142,44 +165,60 @@ void light() {
 
 }
 "
+graph_offset = Vector2( 2590.69, 194.25 )
 mode = 1
 flags/light_only = false
-nodes/fragment/0/position = Vector2( 2620, 360 )
+nodes/fragment/0/position = Vector2( 4280, 0 )
 nodes/fragment/3/node = SubResource( 10 )
-nodes/fragment/3/position = Vector2( 1000, 180 )
+nodes/fragment/3/position = Vector2( 980, 120 )
 nodes/fragment/4/node = SubResource( 11 )
-nodes/fragment/4/position = Vector2( 1000, 280 )
+nodes/fragment/4/position = Vector2( 980, 260 )
 nodes/fragment/5/node = SubResource( 12 )
-nodes/fragment/5/position = Vector2( 1260, 180 )
+nodes/fragment/5/position = Vector2( 1300, -40 )
 nodes/fragment/6/node = SubResource( 13 )
-nodes/fragment/6/position = Vector2( 1500, 100 )
+nodes/fragment/6/position = Vector2( 1480, 80 )
 nodes/fragment/7/node = SubResource( 14 )
-nodes/fragment/7/position = Vector2( 2400, 220 )
+nodes/fragment/7/position = Vector2( 2400, 80 )
 nodes/fragment/8/node = SubResource( 15 )
-nodes/fragment/8/position = Vector2( 1720, 80 )
-nodes/fragment/9/node = SubResource( 16 )
-nodes/fragment/9/position = Vector2( 1760, 320 )
+nodes/fragment/8/position = Vector2( 1680, 80 )
 nodes/fragment/10/node = SubResource( 1 )
-nodes/fragment/10/position = Vector2( 2000, 80 )
+nodes/fragment/10/position = Vector2( 1920, 180 )
 nodes/fragment/11/node = SubResource( 2 )
-nodes/fragment/11/position = Vector2( 2160, 200 )
-nodes/fragment/13/node = SubResource( 3 )
-nodes/fragment/13/position = Vector2( 1982.44, 400.833 )
-nodes/fragment/14/node = SubResource( 4 )
-nodes/fragment/14/position = Vector2( 2180, 300 )
-nodes/fragment/15/node = SubResource( 5 )
-nodes/fragment/15/position = Vector2( 2230.77, 436.667 )
-nodes/fragment/16/node = SubResource( 6 )
-nodes/fragment/16/position = Vector2( 2450.77, 470 )
-nodes/fragment/17/node = SubResource( 7 )
-nodes/fragment/17/position = Vector2( 2680, 260 )
+nodes/fragment/11/position = Vector2( 2140, 80 )
 nodes/fragment/18/node = SubResource( 8 )
-nodes/fragment/18/position = Vector2( 1580, 380 )
+nodes/fragment/18/position = Vector2( 2400, 380 )
 nodes/fragment/19/node = SubResource( 9 )
-nodes/fragment/19/position = Vector2( 1580, 320 )
-nodes/fragment/connections = PoolIntArray( 3, 0, 5, 0, 4, 0, 5, 2, 5, 1, 0, 1, 5, 0, 6, 0, 6, 0, 8, 0, 8, 1, 10, 0, 10, 0, 11, 1, 8, 0, 11, 0, 8, 2, 11, 2, 11, 0, 7, 0, 13, 0, 14, 1, 7, 0, 15, 0, 16, 0, 15, 1, 15, 0, 14, 0, 14, 0, 17, 0, 16, 0, 17, 1, 17, 0, 0, 0, 19, 0, 10, 1, 18, 0, 13, 0 )
+nodes/fragment/19/position = Vector2( 1700, 300 )
+nodes/fragment/20/node = SubResource( 18 )
+nodes/fragment/20/position = Vector2( 2660, 340 )
+nodes/fragment/20/size = Vector2( 1138, 389 )
+nodes/fragment/20/input_ports = "0,0,contrast;1,1,b;"
+nodes/fragment/20/output_ports = "0,1,a;"
+nodes/fragment/20/expression = "vec3 d = vec3(pow(b.x, 0.4545f), pow(b.y, 0.4545f), pow(b.z, 0.4545f));
+float red = pow(abs(d.x * 2f - 1f), 1f / max(contrast, 0.0001f)) * sign(d.x - .5f) + .5f;
+float green = pow(abs(d.y * 2f - 1f), 1f / max(contrast, 0.0001f)) * sign(d.y - .5f) + .5f;
+float blue = pow(abs(d.z * 2f - 1f), 1f / max(contrast, 0.0001f)) * sign(d.z - .5f) + .5f;
+
+if (a.x > 1f) a.x = 1f;
+if (a.x < 0f) a.x = 0f;
+
+if (a.y > 1f) a.y = 1f;
+if (a.y < 0f) a.y = 0f;
+
+if (a.z > 1f) a.z = 1f;
+if (a.z < 0f) a.z = 0f;
+
+a = vec3(pow(red, 2.2f), pow(green, 2.2f), pow(blue, 2.2f));"
+nodes/fragment/21/node = SubResource( 19 )
+nodes/fragment/21/position = Vector2( 3840, 340 )
+nodes/fragment/22/node = SubResource( 20 )
+nodes/fragment/22/position = Vector2( 3620, 160 )
+nodes/fragment/23/node = SubResource( 21 )
+nodes/fragment/23/position = Vector2( 3380, 160 )
+nodes/fragment/connections = PoolIntArray( 3, 0, 5, 0, 4, 0, 5, 2, 5, 1, 0, 1, 5, 0, 6, 0, 6, 0, 8, 0, 8, 1, 10, 0, 10, 0, 11, 1, 8, 0, 11, 0, 8, 2, 11, 2, 11, 0, 7, 0, 19, 0, 10, 1, 18, 0, 20, 0, 7, 0, 20, 1, 20, 0, 21, 0, 21, 0, 0, 0, 22, 0, 21, 1, 23, 0, 22, 2, 23, 0, 22, 1, 23, 0, 22, 0 )
 
 [resource]
 shader = SubResource( 17 )
-shader_param/saturation = 0.0
 shader_param/contrast = 1.0
+shader_param/saturation = 1.0
+shader_param/grayness = 0.5
