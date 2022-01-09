@@ -10,7 +10,7 @@
 
 [node name="Overworld" parent="ViewportContainer2" index="0"]
 audio_listener_enable_2d = true
-initialRoom = "Arena"
+initialRoom = "Main-One"
 
 [node name="ViewportContainer" parent="." instance=ExtResource( 2 )]
 margin_left = 18.0
@@ -23,6 +23,7 @@ script = ExtResource( 3 )
 
 [connection signal="wrestle" from="ViewportContainer2/Overworld/DialogManager" to="ViewportContainer2/Overworld" method="_on_DialogManager_wrestle"]
 [connection signal="wrestle" from="ViewportContainer2/Overworld/DialogManager" to="ViewportContainer" method="_on_DialogManager_wrestle"]
+[connection signal="wrestleEnd" from="ViewportContainer" to="ViewportContainer2/Overworld/DialogManager" method="_on_ViewportContainer_wrestleEnd"]
 
 [editable path="ViewportContainer2"]
 [editable path="ViewportContainer2/Overworld"]

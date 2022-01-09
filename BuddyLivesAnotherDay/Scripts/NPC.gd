@@ -5,32 +5,35 @@ export var sprite_frames: SpriteFrames
 
 var player
 var encounters
+var cooldown = 0.25
+var timer
 
 signal dialog_entered(timeline)
 
 func _ready():
-	var _e = $Timer.connect("timeout", self, "_on_Timer_timeout")
-	_e = connect("dialog_entered", get_node("/root/Main/ViewportContainer2/Overworld/DialogManager"), "_on_NPC_dialog_entered")
+	var _e
+	var manager = get_node("/root/Main/ViewportContainer2/Overworld/DialogManager")
+	_e = connect("dialog_entered", manager, "_on_NPC_dialog_entered")
+	_e = manager.connect("dialog_end", self, "dialog_end")
 	
 #	$AnimatedSprite.frames = sprite_frames
 
 func _process(_delta):
 	if !$NearPrompt.in_dialog && Input.is_action_just_pressed("ui_accept") && $NearPrompt.entered:
-		if player == null:
-			player = find_parent("Overworld").find_node("Player")
-		if player != null:
-			player.canMove = false
 		$NearPrompt.body_exit("Player")
 		$NearPrompt.in_dialog = true
-		emit_signal("dialog_entered", timeline)
+		$NearPrompt.entered = false
+		emit_signal("dialog_entered", timeline, self)
+		
 #		var dialog = Dialogic.start(timeline)
 #		dialog.connect("timeline_end", self, "_dialog_listener")
 #		dialog.connect("dialogic_signal", self, "_on_Dialogic_")
 #		add_child(dialog)
 
-func _dialog_listener(_string):
-	$Timer.start()
-	$NearPrompt.get_node("PromptAnim").play("Enter")
+func dialog_end(initiator):
+	if initiator == self:
+		create_timer(cooldown, "_on_Timer_timeout")
+		$NearPrompt.get_node("PromptAnim").play("Enter")
 
 func _on_Timer_timeout():
 	if player == null:
@@ -39,3 +42,19 @@ func _on_Timer_timeout():
 		player.canMove = true
 	$NearPrompt.in_dialog = false
 	$NearPrompt.entered = true
+	
+func create_timer(time, function):
+	if timer != null:
+		delete_timer()
+	timer = Timer.new()
+	
+	timer.set_wait_time(time)
+	timer.one_shot = true
+	timer.connect("timeout", self, function)
+	timer.connect("timeout", self, "delete_timer")
+	add_child(timer) #to process
+	timer.start() #to start
+
+func delete_timer():
+	if timer != null && is_instance_valid(timer):
+		timer.queue_free()

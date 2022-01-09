@@ -3,11 +3,18 @@ extends Node2D
 export var timeline := String()
 var hasTriggered = false
 
+signal dialog_entered(timeline)
+
+func _ready():
+	var manager = get_node("/root/Main/ViewportContainer2/Overworld/DialogManager")
+	var _e = connect("dialog_entered", manager, "_on_NPC_dialog_entered")
+	_e = manager.connect("dialog_end", self, "dialog_end")
+
 func _on_Area2D_body_entered(_body):
 	print("Triggering dialogue....")
 	if !hasTriggered:
-		var dialog = Dialogic.start(timeline)
-		dialog.connect("timeline_end", self, "_dialog_listener")
-		add_child(dialog)
+		emit_signal("dialog_entered", timeline, self)
 	hasTriggered = true	
-	pass # Replace with function body.
+
+func dialog_end(_initiator):
+	pass

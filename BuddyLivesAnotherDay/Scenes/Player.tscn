@@ -54,7 +54,7 @@ script = ExtResource( 2 )
 [node name="Shadow" type="Sprite" parent="."]
 self_modulate = Color( 1, 1, 1, 0.745098 )
 position = Vector2( 56.1752, 8.21765 )
-scale = Vector2( 0.70009, 0.70009 )
+scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 8 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

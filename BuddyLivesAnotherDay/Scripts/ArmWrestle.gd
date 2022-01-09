@@ -110,6 +110,7 @@ func _process(_delta):
 			specialAttackDelayTimer.stop()
 			specialAttackTimer.stop()
 			stunTimer.stop()
+			loseTimer.stop()
 			state = FightState.IDLE
 			
 		FightState.LOSE:
@@ -118,12 +119,13 @@ func _process(_delta):
 			specialAttackDelayTimer.stop()
 			specialAttackTimer.stop()
 			stunTimer.stop()
+			loseTimer.stop()
 			state = FightState.IDLE
 			
 	fightProgress = clamp(fightProgress, 0, 100)
 	stamina = clamp(stamina, 0, 100)	
 	
-	if fightProgress == 0 and loseTimer.is_stopped():
+	if fightProgress == 0 and loseTimer.is_stopped() and state != FightState.IDLE:
 		loseTimer.start()
 	elif fightProgress > 5:
 		loseTimer.stop()

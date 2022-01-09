@@ -135,4 +135,3 @@ func _on_TransitionZone_ambience_changed(ambience: AudioStream):
 func _on_DialogManager_wrestle():
 	musicPlayer.stop()
 	ambiencePlayer.stop()
-	player

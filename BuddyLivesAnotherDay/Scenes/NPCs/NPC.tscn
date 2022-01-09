@@ -48,7 +48,3 @@ __meta__ = {
 anims/Enter = ExtResource( 6 )
 anims/Exit = ExtResource( 4 )
 anims/Out = ExtResource( 5 )
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.25
-one_shot = true
