@@ -11,7 +11,7 @@ export var playerCanMoveVert := true
 #onready var camera = get_parent().get_parent().get_node("Player").get_node("Camera2D")
 func _ready():
 #	var bgsprite : Sprite = get_node("Bg")
-#	Overworld.player.canMoveVert = playerCanMoveVert
+	pass
 	
 	UpdateLines()
 func UpdateLines():

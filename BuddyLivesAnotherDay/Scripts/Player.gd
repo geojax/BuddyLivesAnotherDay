@@ -40,9 +40,15 @@ func UpdateDirection() -> void:
 	if Input.is_action_pressed("worldLeft"):
 		state = MovementState.LEFT
 	if Input.is_action_pressed("worldUp"):
-		state = MovementState.UP
+		if canMoveVert:	
+			state = MovementState.UP
+		else:
+			state = MovementState.IDLE
 	if Input.is_action_pressed("worldDown"):
-		state = MovementState.DOWN
+		if canMoveVert:	
+			state = MovementState.DOWN
+		else:
+			state = MovementState.IDLE
 
 func UpdateAnimation() -> void:
 	match state:

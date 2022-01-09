@@ -55,6 +55,7 @@ func _on_Overworld_load_room (room, start):
 		$PlayContainer/RoomContainer.remove_child(child)
 		
 	$PlayContainer/RoomContainer.add_child(new_room)
+	$PlayContainer/Player.canMoveVert = new_room.playerCanMoveVert
 
 func _on_TransitionZone_entered(pos, scene):
 	$EffectContainer/ScreenEffects.PlayExit()
