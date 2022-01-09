@@ -254,6 +254,17 @@ collision/safe_margin = 1.0
 [node name="Camera2D" type="Camera2D" parent="PlayContainer/Player"]
 current = true
 
+[node name="EffectContainer" type="CanvasLayer" parent="PlayContainer/Player/Camera2D"]
+layer = 3
+
+[node name="ScreenEffects" parent="PlayContainer/Player/Camera2D/EffectContainer" instance=ExtResource( 3 )]
+use_enter_exit = true
+noise_scale = 0.15
+saturation = 0.0
+contrast = 0.7
+vignette_radius = 0.585
+vignette_blur = 0.33
+
 [node name="RoomContainer" type="YSort" parent="PlayContainer"]
 z_as_relative = false
 
@@ -290,16 +301,3 @@ anims/music_fade = SubResource( 15 )
 
 [node name="DialogManager" type="Node" parent="."]
 script = ExtResource( 11 )
-
-[node name="EffectContainer" type="CanvasLayer" parent="."]
-layer = 3
-follow_viewport_enable = true
-
-[node name="ScreenEffects" parent="EffectContainer" instance=ExtResource( 3 )]
-camera_active = true
-use_enter_exit = true
-noise_scale = 0.15
-saturation = 0.0
-contrast = 0.7
-vignette_radius = 0.585
-vignette_blur = 0.33

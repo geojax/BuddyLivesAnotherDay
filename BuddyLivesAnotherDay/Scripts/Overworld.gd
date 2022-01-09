@@ -17,8 +17,9 @@ var barR : Sprite
 var player : KinematicBody2D
 var cam_zoom
 export var widthBetweenBars := 1620
-
 export var rooms = []
+
+onready var effects = find_node("ScreenEffects")
 
 signal load_room (room)
 
@@ -35,7 +36,7 @@ func start():
 	emit_signal("load_room", initialRoom, true)
 	
 	create_timer(1.7, "_on_enter_timeout")
-	$EffectContainer/ScreenEffects.PlayEnter()
+	effects.PlayEnter()
 	$PlayContainer/Player.canMove = false
 
 # Set up room when it has been loaded in:
@@ -58,7 +59,7 @@ func _on_Overworld_load_room (room, start):
 	$PlayContainer/Player.canMoveVert = new_room.playerCanMoveVert
 
 func _on_TransitionZone_entered(pos, scene):
-	$EffectContainer/ScreenEffects.PlayExit()
+	effects.PlayExit()
 	$PlayContainer/Player.canMove = false
 	create_timer(1.7, "_on_exit_timeout")
 	
@@ -110,7 +111,7 @@ func _process(_delta):
 func _on_exit_timeout():
 	timer.queue_free()
 	create_timer(1.7, "_on_enter_timeout")
-	$EffectContainer/ScreenEffects.PlayEnter()
+	effects.PlayEnter()
 	$PlayContainer/Player.position = setpos
 	call_deferred("_on_Overworld_load_room", setscene, false)
 

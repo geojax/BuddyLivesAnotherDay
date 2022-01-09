@@ -10,7 +10,7 @@ export var vignette_radius := 0.608
 export var vignette_blur := 0.293
 
 onready var viewport := get_viewport()
-onready var player := get_parent().get_parent().get_node("PlayContainer/Player")
+onready var player := get_tree().root.get_node("Main").find_node("Player")
 onready var camera := player.get_node("Camera2D")
 
 func UpdateFocus(visibleRect: Rect2) -> void:
@@ -53,8 +53,6 @@ func _process(_delta: float) -> void:
 	var visibleRect = get_viewport().get_visible_rect()
 	var screenRatio = visibleRect.size.x / visibleRect.size.y
 	$VignetteEffect.get_material().set_shader_param("screenRatio", screenRatio)
-	if camera_active && camera != null:
-		rect_position = Vector2(camera.get_camera_screen_center().x - visibleRect.size.x/2, camera.get_camera_screen_center().y - visibleRect.size.y/2)
 	if use_enter_exit: 
 		UpdateFocus(visibleRect)
 		$EnterExitEffect.get_material().set_shader_param("screenRatio", screenRatio)
