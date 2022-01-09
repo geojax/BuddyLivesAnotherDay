@@ -35,7 +35,7 @@ func start():
 	emit_signal("load_room", initialRoom, true)
 	
 	create_timer(1.7, "_on_enter_timeout")
-	$ScreenEffects.PlayEnter()
+	$EffectContainer/ScreenEffects.PlayEnter()
 	$PlayContainer/Player.canMove = false
 
 # Set up room when it has been loaded in:
@@ -57,7 +57,7 @@ func _on_Overworld_load_room (room, start):
 	$PlayContainer/RoomContainer.add_child(new_room)
 
 func _on_TransitionZone_entered(pos, scene):
-	$ScreenEffects.PlayExit()
+	$EffectContainer/ScreenEffects.PlayExit()
 	$PlayContainer/Player.canMove = false
 	create_timer(1.7, "_on_exit_timeout")
 	
@@ -88,8 +88,8 @@ func set_camera_limits(room):
 	camera.limit_bottom = bg.texture.get_height() * bg.scale.y
 	baroffset = bg.texture.get_width() * bg.scale.x
 	
-	barL = $PlayContainer.get_node("Bars")
-	barR = $PlayContainer.get_node("Bars2")
+	barL = $PlayContainer.find_node("Bars")
+	barR = $PlayContainer.find_node("Bars2")
 	barL.scale.x = (offset/1440)
 	barL.scale.y = 200
 	barL.position.y = -300
@@ -109,7 +109,7 @@ func _process(_delta):
 func _on_exit_timeout():
 	timer.queue_free()
 	create_timer(1.7, "_on_enter_timeout")
-	$ScreenEffects.PlayEnter()
+	$EffectContainer/ScreenEffects.PlayEnter()
 	$PlayContainer/Player.position = setpos
 	call_deferred("_on_Overworld_load_room", setscene, false)
 

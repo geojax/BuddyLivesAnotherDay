@@ -231,13 +231,17 @@ initialRoom = "Main-Two"
 
 [node name="PlayContainer" type="YSort" parent="."]
 
-[node name="Bars" type="Sprite" parent="PlayContainer"]
+[node name="SideBars" type="CanvasLayer" parent="PlayContainer"]
+layer = 4
+follow_viewport_enable = true
+
+[node name="Bars" type="Sprite" parent="PlayContainer/SideBars"]
 modulate = Color( 0, 0, 0, 1 )
 z_index = 2
 texture = ExtResource( 9 )
 centered = false
 
-[node name="Bars2" type="Sprite" parent="PlayContainer"]
+[node name="Bars2" type="Sprite" parent="PlayContainer/SideBars"]
 modulate = Color( 0, 0, 0, 1 )
 z_index = 2
 texture = ExtResource( 9 )
@@ -253,29 +257,20 @@ current = true
 [node name="RoomContainer" type="YSort" parent="PlayContainer"]
 z_as_relative = false
 
-[node name="ScreenEffects" parent="." instance=ExtResource( 3 )]
-camera_active = true
-use_enter_exit = true
-noise_scale = 0.15
-saturation = 0.0
-contrast = 0.7
-vignette_radius = 0.585
-vignette_blur = 0.33
+[node name="Unused" type="Node" parent="PlayContainer"]
 
-[node name="Unused" type="Node" parent="."]
-
-[node name="Splash" type="Sprite" parent="Unused"]
+[node name="Splash" type="Sprite" parent="PlayContainer/Unused"]
 visible = false
 material = SubResource( 12 )
 position = Vector2( 736.709, 306.29 )
 texture = ExtResource( 4 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Unused/Splash"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayContainer/Unused/Splash"]
 method_call_mode = 1
 anims/RESET = SubResource( 3 )
 anims/ripple = ExtResource( 6 )
 
-[node name="Sprite" type="Sprite" parent="Unused/Splash"]
+[node name="Sprite" type="Sprite" parent="PlayContainer/Unused/Splash"]
 material = SubResource( 13 )
 position = Vector2( 0, 12.901 )
 scale = Vector2( 1, 0.587 )
@@ -295,3 +290,16 @@ anims/music_fade = SubResource( 15 )
 
 [node name="DialogManager" type="Node" parent="."]
 script = ExtResource( 11 )
+
+[node name="EffectContainer" type="CanvasLayer" parent="."]
+layer = 3
+follow_viewport_enable = true
+
+[node name="ScreenEffects" parent="EffectContainer" instance=ExtResource( 3 )]
+camera_active = true
+use_enter_exit = true
+noise_scale = 0.15
+saturation = 0.0
+contrast = 0.7
+vignette_radius = 0.585
+vignette_blur = 0.33

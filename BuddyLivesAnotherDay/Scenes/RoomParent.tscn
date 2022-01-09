@@ -7,7 +7,6 @@
 [ext_resource path="res://Scripts/Debug.gd" type="Script" id=5]
 [ext_resource path="res://Art/rainwhite.png" type="Texture" id=6]
 
-
 [sub_resource type="ParticlesMaterial" id=1]
 trail_divisor = 2
 emission_shape = 2

@@ -9,7 +9,6 @@
 [ext_resource path="res://Scenes/Overworld Helpers/TransitionZone.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Music/Docks_Ambience_2_Wip.mp3" type="AudioStream" id=8]
 
-
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 5 ) ],
@@ -47,7 +46,6 @@ build_mode = 1
 polygon = PoolVector2Array( 111.538, 772.557, 66, 806, 144, 750, 139, 273, 1126, 275, 1174, 157, 1219, 157, 1290, 73, 1286, -2, -1, -5, -3, 853, 1296, 863, 1291, 424, 1169, 420, 1099, 518, 1104, 608, 972, 608, 888, 685, 220.273, 699.224 )
 
 [node name="NPC" parent="." instance=ExtResource( 6 )]
-visible = true
 position = Vector2( 748.867, 357.173 )
 scale = Vector2( 0.870995, 0.870995 )
 z_as_relative = false
