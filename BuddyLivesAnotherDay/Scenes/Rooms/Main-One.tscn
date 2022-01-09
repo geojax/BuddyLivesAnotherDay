@@ -36,7 +36,7 @@ z_as_relative = false
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Wall2"]
 position = Vector2( -873.447, 385.995 )
 build_mode = 1
-polygon = PoolVector2Array( -1048, 572, -1046, 111, -884, 106, -860, 438, -788, 470, -477, 461, -406, 108, 167, 109, 158.532, -390.95, -1342, -398, -1477, 575 )
+polygon = PoolVector2Array( -1048, 572, -1046, 111, -884, 106, -860, 438, -788, 470, -477, 461, -406, 108, 167, 109, 158.532, -390.95, -1342, -398, -1562.54, 238.021, -1648.81, 846.133, -1358.89, 785.321, -1361.75, 574.194 )
 
 [node name="Wall" type="StaticBody2D" parent="."]
 z_as_relative = false
@@ -45,7 +45,7 @@ z_as_relative = false
 position = Vector2( 1226.69, 635.195 )
 scale = Vector2( 3.32501, 1.04241 )
 build_mode = 1
-polygon = PoolVector2Array( -75.4312, 275.136, -73.9274, -33.7632, -74.2282, -142.166, 62.3127, -147.922, 60.2074, -626.619, -375.881, -632.375, -373.776, 274.177 )
+polygon = PoolVector2Array( -75.4312, 275.136, -73.9274, -33.7632, -74.2282, -142.166, 62.3127, -147.922, 52.7638, -467.982, 188.877, -471.401, 225.316, -673.099, 60.2074, -626.619, -375.881, -632.375, -373.776, 274.177 )
 
 [node name="Wall3" type="StaticBody2D" parent="."]
 position = Vector2( 1014.43, -5.99551 )
@@ -55,7 +55,7 @@ z_as_relative = false
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Wall3"]
 position = Vector2( 970.553, 1686 )
 build_mode = 1
-polygon = PoolVector2Array( 68, -548, -187, -546, -182, -276, -1364, -277, -1372, -204, -1537, -205, -1539, -274, -2072, -279, -2175, -45.0001, -2406, -45.0001, -2513, 141, 79, 151 )
+polygon = PoolVector2Array( 68, -548, -187, -546, -182, -276, -1364, -277, -1372, -204, -1537, -205, -1539, -274, -2072, -279, -2175, -45.0001, -2406, -45.0001, -2513, 141, -3212.8, 141.612, -3461.51, 755.918, 79, 151, 556.835, -839.118, 58.8345, -843.118 )
 
 [node name="Wall4" type="StaticBody2D" parent="."]
 z_as_relative = false
@@ -67,7 +67,7 @@ build_mode = 1
 polygon = PoolVector2Array( -121.613, 159.525, -118, -325, 29, -333, 21, -540, -550, -531, -562, 167 )
 
 [node name="TransitionZone" parent="." instance=ExtResource( 7 )]
-position = Vector2( 47.877, 1004 )
+position = Vector2( 21.877, 1004 )
 rotation = 1.5708
 scale = Vector2( 70.923, -0.704783 )
 z_as_relative = false
@@ -75,7 +75,7 @@ toPosition = Vector2( 1010, 770 )
 room = "West-Two"
 
 [node name="TransitionZone3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2666.88, 1780 )
+position = Vector2( 2666.88, 1803.97 )
 rotation = 3.14159
 scale = Vector2( 70.923, -0.704783 )
 z_as_relative = false
@@ -93,7 +93,7 @@ changeAmbience = true
 changeAmbeinceTo = ExtResource( 6 )
 
 [node name="TransitionZone2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 3212.88, 1059 )
+position = Vector2( 3239.79, 1059 )
 rotation = 1.5708
 scale = Vector2( 1314.48, -0.709646 )
 toPosition = Vector2( 50, 586 )

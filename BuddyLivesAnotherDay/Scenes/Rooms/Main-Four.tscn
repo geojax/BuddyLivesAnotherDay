@@ -43,7 +43,7 @@ z_as_relative = false
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Wall"]
 position = Vector2( 0.999939, 149.004 )
 build_mode = 1
-polygon = PoolVector2Array( -118.157, 89.3226, -117.54, -173.804, 57.711, -175.123, 55.7213, -293.162, -278.429, -304.96, -225.348, 88.0139 )
+polygon = PoolVector2Array( -118.157, 89.3226, -117.54, -173.804, 57.711, -175.123, 55.7213, -293.162, -278.429, -304.96, -283.502, 1.11072 )
 
 [node name="Wall4" type="StaticBody2D" parent="."]
 position = Vector2( 290.877, 217.996 )
@@ -53,20 +53,26 @@ z_as_relative = false
 position = Vector2( 1038, 689.004 )
 scale = Vector2( -1, -1 )
 build_mode = 1
-polygon = PoolVector2Array( -108, 316, -110, -222, -289, -236, -317, 549 )
+polygon = PoolVector2Array( -108, 316, -110, -222, -289, -236, -676.177, 574.964, -291.112, 717.304, -288.115, 507.541 )
 
 [node name="CollisionShape2D2" type="CollisionPolygon2D" parent="Wall4"]
 position = Vector2( -364, 689.004 )
 scale = Vector2( -1, -1 )
 build_mode = 1
-polygon = PoolVector2Array( -36.9999, 392, -110, -222, -256, -244, -256, 140 )
+polygon = PoolVector2Array( -47.5528, 379.989, 89.9528, -319.539, -1810.75, -656.122, -1542.05, -178.118, -252.2, -179.067, -256, 140 )
+
+[node name="CollisionShape2D3" type="CollisionPolygon2D" parent="Wall4"]
+position = Vector2( -364, 689.004 )
+scale = Vector2( -1, -1 )
+build_mode = 1
+polygon = PoolVector2Array( -64.8018, 327.649, 200.099, 148.055, 135.358, 621.858, -69.1859, 579.047 )
 
 [node name="TransitionZone" parent="." instance=ExtResource( 2 )]
-position = Vector2( 35.877, 586 )
+position = Vector2( 7.59276, 581.757 )
 rotation = 1.5708
 scale = Vector2( 70.923, -0.704783 )
 z_as_relative = false
-toPosition = Vector2( 763, 217 )
+toPosition = Vector2( 3087, 1036 )
 room = "Main-One"
 
 [node name="TransitionZone2" parent="." instance=ExtResource( 2 )]
@@ -78,7 +84,7 @@ toPosition = Vector2( 20, 401 )
 room = "East-One"
 
 [node name="TransitionZone3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 828.877, 1065 )
+position = Vector2( 828.877, 1079.25 )
 rotation = 3.14159
 scale = Vector2( 70.923, -0.704783 )
 z_as_relative = false
