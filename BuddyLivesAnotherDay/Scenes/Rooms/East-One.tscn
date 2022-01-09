@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/RoomParent.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Art/East1test.jpg" type="Texture" id=2]
+[ext_resource path="res://Scripts/Room.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Overworld Helpers/TransitionZone.tscn" type="PackedScene" id=4]
+
+[node name="East-One" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+right_limit = 600
+bottom_limit = 300
+cam_zoom = Vector2( 0.63, 0.63 )
+
+[node name="Bg" type="Sprite" parent="." index="0"]
+scale = Vector2( 0.374, 0.374 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="TransitionZone" parent="Image" index="1"]
+position = Vector2( -352.005, -65.4064 )
+
+[node name="TransitionZone2" parent="." index="5" instance=ExtResource( 4 )]
+position = Vector2( 13.7283, 401.264 )
+rotation = 1.5708
+scale = Vector2( 70.923, -0.704783 )
+z_as_relative = false
+toPosition = Vector2( 1560, 385 )
+room = "Main-Four"
+
+[node name="TransitionZone3" parent="." index="6" instance=ExtResource( 4 )]
+position = Vector2( 1200.56, 401.264 )
+rotation = 1.5708
+scale = Vector2( 70.923, -0.704783 )
+z_as_relative = false
+toPosition = Vector2( 12, 586 )
+room = "Arena"

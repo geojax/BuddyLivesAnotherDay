@@ -96,7 +96,7 @@ changeAmbeinceTo = ExtResource( 6 )
 position = Vector2( 3212.88, 1059 )
 rotation = 1.5708
 scale = Vector2( 1314.48, -0.709646 )
-toPosition = Vector2( -160, 381 )
+toPosition = Vector2( 50, 586 )
 room = "Main-Four"
 
 [node name="FogOfWar" type="Node2D" parent="."]
