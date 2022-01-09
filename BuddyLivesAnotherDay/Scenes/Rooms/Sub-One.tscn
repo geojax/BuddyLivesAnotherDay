@@ -18,6 +18,10 @@ centered = false
 scale = Vector2( 0.5, 0.5 )
 centered = false
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Image/Wall" index="0"]
+scale = Vector2( 2, 2 )
+polygon = PoolVector2Array( -6.23059, 353.309, 1495.29, 354.932, 1496.84, 249.82, 985.463, 262.293, 1181.46, 2.15057, 1050.57, -2.49521, 986.147, 100.888, 253.475, 88.9015, 114.132, -137.343, 1570.49, -156.821, 1558.31, 4.82326, 1576.44, 599.128, -64.5986, 604.74 )
+
 [node name="TransitionZone" parent="Image" index="1"]
 position = Vector2( 2008.47, 250.216 )
 rotation = 1.57079
@@ -26,6 +30,7 @@ toPosition = Vector2( 1500, 483 )
 room = "North-One"
 
 [node name="TransitionZone2" parent="Image" index="4" instance=ExtResource( 3 )]
-position = Vector2( 3114.2, 562.29 )
+position = Vector2( 2984.7, 565.654 )
 rotation = 1.57079
+scale = Vector2( 38.6939, -5.15312 )
 room = "Docks-One"

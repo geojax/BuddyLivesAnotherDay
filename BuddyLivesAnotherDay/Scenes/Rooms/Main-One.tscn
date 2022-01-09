@@ -42,7 +42,7 @@ polygon = PoolVector2Array( -1048, 572, -1046, 111, -884, 106, -860, 438, -788, 
 z_as_relative = false
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Wall"]
-position = Vector2( 1226.69, 635.195 )
+position = Vector2( 1226.69, 633.076 )
 scale = Vector2( 3.32501, 1.04241 )
 build_mode = 1
 polygon = PoolVector2Array( -75.4312, 275.136, -73.9274, -33.7632, -74.2282, -142.166, 62.3127, -147.922, 52.7638, -467.982, 188.877, -471.401, 225.316, -673.099, 60.2074, -626.619, -375.881, -632.375, -373.776, 274.177 )

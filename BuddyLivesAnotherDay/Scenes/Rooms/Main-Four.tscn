@@ -34,7 +34,7 @@ z_as_relative = false
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Wall2"]
 position = Vector2( -24.5669, 60 )
 build_mode = 1
-polygon = PoolVector2Array( -118.157, 89.3226, -117.54, -173.804, 151.337, -170.316, 158.532, -390.95, -278.429, -304.96, -225.348, 88.0139 )
+polygon = PoolVector2Array( -118.157, 89.3226, -76.6975, -142.435, 151.337, -170.316, 158.532, -390.95, -298.694, -312.297, -552.645, -438.431, -574.508, -140.754, -270.104, -85.2545, -225.348, 88.0139 )
 
 [node name="Wall" type="StaticBody2D" parent="."]
 position = Vector2( 290.877, 217.996 )
@@ -43,7 +43,7 @@ z_as_relative = false
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Wall"]
 position = Vector2( 0.999939, 149.004 )
 build_mode = 1
-polygon = PoolVector2Array( -118.157, 89.3226, -117.54, -173.804, 57.711, -175.123, 55.7213, -293.162, -278.429, -304.96, -283.502, 1.11072 )
+polygon = PoolVector2Array( -118.157, 89.3226, -117.54, -173.804, 1166.83, -176.891, 1044.06, -494.75, -348.462, -509.886, -283.502, 1.11072 )
 
 [node name="Wall4" type="StaticBody2D" parent="."]
 position = Vector2( 290.877, 217.996 )

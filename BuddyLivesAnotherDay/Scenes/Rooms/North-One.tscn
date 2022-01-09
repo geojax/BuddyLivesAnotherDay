@@ -49,7 +49,7 @@ room = "North-Two"
 position = Vector2( 1513.41, 483.166 )
 rotation = -3.14159
 scale = Vector2( -1.18551, -7.26283 )
-toPosition = Vector2( 1970, 250 )
+toPosition = Vector2( 930, 133 )
 room = "Sub-One"
 
 [node name="Wall1" type="StaticBody2D" parent="." index="7"]
@@ -70,7 +70,3 @@ rotation = 3.12135
 z_index = 2
 build_mode = 1
 polygon = PoolVector2Array( -1841.27, 144.657, -1644.29, 334.522, -1032.81, 226.489, -1038.05, -32.8772, -1313.8, -32.4668, -1322.56, -339.86, -1447.14, -330.394, -1465.74, -596.025, -1305.3, -600.269, -1303.44, -988.373, -579.904, -973.721, -581.546, -1114.62, -1828.61, -1181.72, -2148.54, -386.157 )
-
-[node name="Particles2D" parent="." index="8"]
-position = Vector2( 965, 151 )
-z_index = 1
