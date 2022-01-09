@@ -82,6 +82,7 @@ func set_camera_limits(room):
 	var camera = $PlayContainer/Player.get_node("Camera2D")
 	var bg :Sprite = room.get_child(0)
 	camera.zoom = room.cam_zoom
+	effects.zoom = room.cam_zoom
 	cam_zoom = camera.zoom.x
 	offset = ((1920 - widthBetweenBars) * cam_zoom) / 2
 	camera.limit_left = -offset

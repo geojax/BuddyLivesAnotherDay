@@ -10,10 +10,8 @@ export var cam_zoom := Vector2(1.0,1.0)
 export var playerCanMoveVert := true
 #onready var camera = get_parent().get_parent().get_node("Player").get_node("Camera2D")
 func _ready():
-#	var bgsprite : Sprite = get_node("Bg")
-	pass
-	
 	UpdateLines()
+	
 func UpdateLines():
 	if has_node("Debug"):
 		var debug = get_node("Debug")

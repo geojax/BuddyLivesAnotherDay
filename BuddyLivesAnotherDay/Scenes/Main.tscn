@@ -10,10 +10,7 @@
 
 [node name="Overworld" parent="ViewportContainer2" index="0"]
 audio_listener_enable_2d = true
-initialRoom = "Main-One"
-
-[node name="ScreenEffects" parent="ViewportContainer2/Overworld/PlayContainer/Player/Camera2D/EffectContainer" index="0"]
-camera_active = true
+initialRoom = "West-Two"
 
 [node name="ViewportContainer" parent="." instance=ExtResource( 2 )]
 margin_left = 18.0
