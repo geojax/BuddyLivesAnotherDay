@@ -6,7 +6,8 @@ enum MovementState{
 	UP,
 	LEFT,
 	DOWN,
-	RIGHT
+	RIGHT,
+	SIDESCROLLER_IDLE
 }
 
 var canMove = true
@@ -35,20 +36,21 @@ func GetVelocity() -> Vector2:
 
 func UpdateDirection() -> void:
 	state = MovementState.IDLE
-	if Input.is_action_pressed("worldRight"):
-		state = MovementState.RIGHT
-	if Input.is_action_pressed("worldLeft"):
-		state = MovementState.LEFT
-	if Input.is_action_pressed("worldUp"):
-		if canMoveVert:	
-			state = MovementState.UP
-		else:
-			state = MovementState.IDLE
-	if Input.is_action_pressed("worldDown"):
-		if canMoveVert:	
-			state = MovementState.DOWN
-		else:
-			state = MovementState.IDLE
+	if canMove:
+		if Input.is_action_pressed("worldRight"):
+			state = MovementState.RIGHT
+		if Input.is_action_pressed("worldLeft"):
+			state = MovementState.LEFT
+		if Input.is_action_pressed("worldUp"):
+			if canMoveVert:	
+				state = MovementState.UP
+			else:
+				state = MovementState.SIDESCROLLER_IDLE
+		if Input.is_action_pressed("worldDown"):
+			if canMoveVert:	
+				state = MovementState.DOWN
+			else:
+				state = MovementState.SIDESCROLLER_IDLE
 
 func UpdateAnimation() -> void:
 	match state:
@@ -68,6 +70,9 @@ func UpdateAnimation() -> void:
 			$AnimatedSprite.play("WalkRight")
 			$AnimatedSprite.scale = Vector2.ONE
 			$AnimatedSprite.flip_h = true
+		MovementState.SIDESCROLLER_IDLE:
+			$AnimatedSprite.play("IdleDown")
+			$AnimatedSprite.scale = Vector2.ONE
 
 func _process(_delta: float) -> void:
 	UpdateDirection()

@@ -37,6 +37,11 @@ animations = [ {
 "loop": true,
 "name": "Idle",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "IdleDown",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=10]
@@ -54,7 +59,7 @@ texture = ExtResource( 8 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 9 )
-animation = "WalkLeft"
+animation = "IdleDown"
 offset = Vector2( -0.0828323, -32.0248 )
 
 [node name="Footsteps" type="AudioStreamPlayer" parent="."]
