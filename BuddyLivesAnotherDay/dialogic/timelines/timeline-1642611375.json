@@ -1,0 +1,67 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1637911062.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"action": "join",
+			"character": "character-1642611118.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1642611118.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hey... Don' I know youse?"
+		},
+		{
+			"character": "character-1637911062.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Maybe. Maybe not."
+		},
+		{
+			"character": "character-1642611118.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Yeah…! Sure I do. You’re the champion––the old champion. You’re Buddy the… wolf. Don’ you reckernize me? It’s me! Saggy T!"
+		},
+		{
+			"character": "character-1637911062.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Didn’t expect to see you here, Saggy. Shouldn’t you be at the arena? They need a bouncer at the back door with a big match coming up. "
+		},
+		{
+			"character": "character-1642611118.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Yer right. Yer always right. Buddy the Wolv’rine. What a guy. Say, wasn’t the boss talking about’cha today? An’ the Dippers, too. Sumthin’ we was all supposed’a do if we saw youse…"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.3",
+		"file": "timeline-1642611375.json",
+		"name": "BarSaggy"
+	}
+}
