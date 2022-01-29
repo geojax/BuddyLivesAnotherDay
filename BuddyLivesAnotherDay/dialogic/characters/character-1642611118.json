@@ -1,0 +1,20 @@
+{
+	"color": "#ff2e4725",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1642611118.json",
+	"mirror_portraits": false,
+	"name": "Sagittarius",
+	"nickname": "Saggy T",
+	"nickname_bool": true,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100
+}
