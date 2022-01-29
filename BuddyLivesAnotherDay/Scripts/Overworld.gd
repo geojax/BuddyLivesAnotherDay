@@ -31,6 +31,7 @@ func _ready():
 	musicPlayer = $Music
 	ambiencePlayer = $Ambience
 	
+	
 func start():
 	var _e = connect("load_room", self, "_on_Overworld_load_room")
 	emit_signal("load_room", initialRoom, true)

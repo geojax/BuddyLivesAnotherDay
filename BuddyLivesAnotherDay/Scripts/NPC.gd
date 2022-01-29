@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 export var timeline := "test-timeline"
-export var sprite_frames: SpriteFrames
+#export var sprite_frames: SpriteFrames
 
 var player
 var encounters
@@ -15,20 +15,14 @@ func _ready():
 	var manager = get_node("/root/Main/ViewportContainer2/Overworld/DialogManager")
 	_e = connect("dialog_entered", manager, "_on_NPC_dialog_entered")
 	_e = manager.connect("dialog_end", self, "dialog_end")
+	add_to_group("NPCs")
 	
-#	$AnimatedSprite.frames = sprite_frames
-
 func _process(_delta):
 	if !$NearPrompt.in_dialog && Input.is_action_just_pressed("ui_accept") && $NearPrompt.entered:
 		$NearPrompt.body_exit("Player")
 		$NearPrompt.in_dialog = true
 		$NearPrompt.entered = false
 		emit_signal("dialog_entered", timeline, self)
-		
-#		var dialog = Dialogic.start(timeline)
-#		dialog.connect("timeline_end", self, "_dialog_listener")
-#		dialog.connect("dialogic_signal", self, "_on_Dialogic_")
-#		add_child(dialog)
 
 func dialog_end(initiator):
 	if initiator == self:
@@ -58,3 +52,9 @@ func create_timer(time, function):
 func delete_timer():
 	if timer != null && is_instance_valid(timer):
 		timer.queue_free()
+
+# called by Room.gd and RoomParent.gd
+#disables NPC if not in the room
+func enableIfInRoom(roomName: String):
+	if !NPCs.isNPCInRoom(name, roomName):
+		queue_free()

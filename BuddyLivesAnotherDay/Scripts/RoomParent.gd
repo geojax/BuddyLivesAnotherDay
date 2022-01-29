@@ -16,6 +16,7 @@ func _ready():
 	left_limit=$Image/TopLeft.position.x
 	right_limit=$Image/BottomRight.position.x
 	UpdateLines()		
+	get_tree().call_group("NPCs", "enableIfInRoom", name.substr(0,len(name)-5))
 
 func UpdateLines():
 	if has_node("Debug"):
@@ -26,7 +27,7 @@ func UpdateLines():
 		debug.DrawLine(Vector2(left_limit, top_limit), Vector2(right_limit, top_limit), Color.red)
 		debug.DrawLine(Vector2(left_limit, bottom_limit), Vector2(right_limit, bottom_limit), Color.red)
 		debug.update()
-			
+
 func set_left(new_left):
 	print(new_left)
 	if left_limit != new_left:

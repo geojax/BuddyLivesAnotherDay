@@ -1,16 +1,5 @@
 extends Node2D
 
-enum FightState {
-	NORMAL,
-	SPECIAL_ATTACK,
-	BOSS_STUNNED,
-	PLAYER_STUNNED,
-	WIN,
-	LOSE,
-	IDLE
-}
-var state = FightState.NORMAL setget changeState
-
 const STUN_TIME = 2
 const MIN_EXPOSE_DELAY_TIME = 5 # Minimum length of NORMAL state.
 const MAX_EXPOSE_DELAY_TIME = 15 # Max length of NORMAL state.
@@ -25,8 +14,6 @@ var staminaRegen = .08
 var fightProgress = 50.0 
 var stamina = 100.0
 
-var timeElapsed = 0
-
 var fakeoutChance = 20
 
 var fightLengthModifier = 1
@@ -35,6 +22,33 @@ var specialAttackDelayTimer : Timer
 var specialAttackTimer : Timer
 var stunTimer : Timer
 var loseTimer : Timer
+
+enum FightState {
+	NORMAL,
+	SPECIAL_ATTACK,
+	BOSS_STUNNED,
+	PLAYER_STUNNED,
+	WIN,
+	LOSE,
+	IDLE
+}
+var state = FightState.NORMAL setget changeState
+
+class State:
+	class Normal:
+		pass
+	class SpecialAttack:
+		pass
+	class BossStunned:
+		pass
+	class PlayerStunned:
+		pass
+	class Win:
+		pass
+	class Lose:
+		pass
+	class Idle:
+		pass
 
 onready var fightProgressBar := get_node("ColorRect/FightProgressBar")
 onready var staminaProgressBar := get_node("ColorRect/StaminaProgressBar")

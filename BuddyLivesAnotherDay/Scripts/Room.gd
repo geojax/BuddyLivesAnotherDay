@@ -11,6 +11,7 @@ export var playerCanMoveVert := true
 #onready var camera = get_parent().get_parent().get_node("Player").get_node("Camera2D")
 func _ready():
 	UpdateLines()
+	get_tree().call_group("NPCs", "enableIfInRoom", name)
 	
 func UpdateLines():
 	if has_node("Debug"):

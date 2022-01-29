@@ -17,7 +17,6 @@ var velocity := Vector2()
 
 const MOVE_SPEED := 1000
 
-
 func _ready() -> void:
 	$AnimatedSprite.play("Idle");
 
