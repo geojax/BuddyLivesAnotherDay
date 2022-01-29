@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Push Start.wav-e3517eeb409e613f883190d6e599617e.sample"
+
+[deps]
+
+source_file="res://Audio/Push Start.wav"
+dest_files=[ "res://.import/Push Start.wav-e3517eeb409e613f883190d6e599617e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Enter Arena.wav-e9fd87814e5f60a7187f96736d2c2fb6.sample"
+
+[deps]
+
+source_file="res://Audio/Enter Arena.wav"
+dest_files=[ "res://.import/Enter Arena.wav-e9fd87814e5f60a7187f96736d2c2fb6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -29,7 +29,8 @@ func getEncounters() -> int:
 	return encounters
 	pass
 
-func _init(loc:PoolStringArray):
+func _init(var npcName:String, loc:PoolStringArray):
+	name = npcName
 	encounters = 0
 	locations = loc
 	pass

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/East1,2 Arena Sound.wav-3415fa2fbd6b947a8304e72f32d056dd.sample"
+
+[deps]
+
+source_file="res://Audio/East1,2 Arena Sound.wav"
+dest_files=[ "res://.import/East1,2 Arena Sound.wav-3415fa2fbd6b947a8304e72f32d056dd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

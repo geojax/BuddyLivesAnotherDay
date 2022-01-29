@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Bank, Bar Ambience.wav-58085e54db651d9cd83a3346a3b40c82.sample"
+
+[deps]
+
+source_file="res://Audio/Bank, Bar Ambience.wav"
+dest_files=[ "res://.import/Bank, Bar Ambience.wav-58085e54db651d9cd83a3346a3b40c82.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
