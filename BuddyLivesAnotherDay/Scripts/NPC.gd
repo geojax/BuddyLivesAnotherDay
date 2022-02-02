@@ -1,21 +1,38 @@
+class_name NPC
 extends StaticBody2D
 
 export var timeline := "test-timeline"
-#export var sprite_frames: SpriteFrames
 
 var player
 var encounters
+export var npcName := String()
 var cooldown = 0.25
 var timer
-
 signal dialog_entered(timeline)
 
+var rooms:= Array()
+
+# the following arrays just store initialization data.
+# set them in the editor.
+export var roomNames:=PoolStringArray()
+export var roomPos := PoolVector2Array()
+
+#func _init(newName: String, newRooms: Array):
+#	npcName = newName
+#	rooms = newRooms
+
 func _ready():
+	print_debug(name, " loaded")	
 	var _e
 	var manager = get_node("/root/Main/ViewportContainer2/Overworld/DialogManager")
 	_e = connect("dialog_entered", manager, "_on_NPC_dialog_entered")
 	_e = manager.connect("dialog_end", self, "dialog_end")
 	add_to_group("NPCs")
+	get_node("..").connect("load_room", self, "_on_Overworld_load_room")
+
+	# initialize all rooms this NPC is in
+	for i in range(roomNames.size()):
+		rooms.append(RoomData.new(roomNames[i], roomPos[i], true))
 	
 func _process(_delta):
 	if !$NearPrompt.in_dialog && Input.is_action_just_pressed("ui_accept") && $NearPrompt.entered:
@@ -53,8 +70,26 @@ func delete_timer():
 	if timer != null && is_instance_valid(timer):
 		timer.queue_free()
 
+func _on_Overworld_load_room(roomName:String, var _something):
+	print(roomName)
+	enableIfInRoom(roomName)
+	pass
+
 # called by Room.gd and RoomParent.gd
 #disables NPC if not in the room
+# enables if in the room
 func enableIfInRoom(roomName: String):
-	if !NPCs.isNPCInRoom(name, roomName):
-		queue_free()
+	var isOn = false
+	print(name, " checking ", roomName)
+	print(rooms)
+	for room in rooms:
+		print(name, " ", roomName, " ", room.present, " ", room.roomName)
+		if room.roomName == roomName and room.present:
+			print("setting isOn to true....")			
+			position = room.pos
+			isOn = true
+		break
+#	print(name, " ", roomName, " ", isOn)
+	$CharacterCollision.disabled = !isOn
+	$NearPrompt.visible = isOn
+	visible = isOn

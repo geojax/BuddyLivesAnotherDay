@@ -10,7 +10,8 @@
 [node name="West-Two" type="YSort"]
 script = ExtResource( 2 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 882.794 ]
+"_edit_horizontal_guides_": [ 466.097 ],
+"_edit_vertical_guides_": [ 928.368 ]
 }
 player_position = Vector2( 1000, 600 )
 left_limit = 67
@@ -71,8 +72,5 @@ position = Vector2( 67.5181, -211.127 )
 
 [node name="BottomRight" parent="CamBorders" index="1"]
 position = Vector2( 914.008, 938.875 )
-
-[node name="ferret" parent="." instance=ExtResource( 6 )]
-position = Vector2( 865.614, 396.801 )
 
 [editable path="CamBorders"]
