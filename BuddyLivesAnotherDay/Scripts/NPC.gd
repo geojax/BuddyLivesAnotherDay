@@ -4,7 +4,7 @@ extends StaticBody2D
 export var timeline := "test-timeline"
 
 var player
-var encounters
+var encounters = 0
 export var npcName := String()
 var cooldown = 0.25
 var timer
@@ -17,19 +17,31 @@ var rooms:= Array()
 export var roomNames:=PoolStringArray()
 export var roomPos := PoolVector2Array()
 
-#func _init(newName: String, newRooms: Array):
-#	npcName = newName
-#	rooms = newRooms
-
 func _ready():
 	print_debug(name, " loaded")	
 	var _e
-	var manager = get_node("/root/Main/ViewportContainer2/Overworld/DialogManager")
+	var manager = get_node("../DialogManager")
 	_e = connect("dialog_entered", manager, "_on_NPC_dialog_entered")
 	_e = manager.connect("dialog_end", self, "dialog_end")
 	add_to_group("NPCs")
 	get_node("..").connect("load_room", self, "_on_Overworld_load_room")
-
+	
+	# get Data from this NPC's data file.
+	var npcDataFile = File.new()
+	if npcDataFile.open("res://NPCData/" + name + ".json", File.READ) != OK:
+		print("Could not open ",name,".json")
+		return
+	var npcDataText = npcDataFile.get_as_text()
+	print(npcDataText)
+	npcDataFile.close()
+	var parsedData = JSON.parse(npcDataText)
+	if parsedData.error != OK:
+		print("trouble parsing data for ", name)
+		return
+	for r in parsedData.result["rooms"]:
+		roomNames.append(r["name"])
+		roomPos.append(Vector2(r["posx"],r["posy"]))
+		pass
 	# initialize all rooms this NPC is in
 	for i in range(roomNames.size()):
 		rooms.append(RoomData.new(roomNames[i], roomPos[i], true))
@@ -73,6 +85,7 @@ func delete_timer():
 func _on_Overworld_load_room(roomName:String, var _something):
 	print(roomName)
 	enableIfInRoom(roomName)
+	encounters+=1
 	pass
 
 # called by Room.gd and RoomParent.gd
@@ -93,3 +106,8 @@ func enableIfInRoom(roomName: String):
 	$CharacterCollision.disabled = !isOn
 	$NearPrompt.visible = isOn
 	visible = isOn
+
+func setStatusInRoom(roomName:String, present:bool):
+	for room in rooms:
+		if room.roomName == roomName:
+			room.present = present
