@@ -1,11 +1,12 @@
-extends Node2D
-
+extends Area2D
+#
 export var timeline := String()
 var hasTriggered = false
 
 signal dialog_entered(timeline)
 
 func _ready():
+	add_to_group("DialogImmediateTriggers")
 	var manager = get_node("/root/Main/ViewportContainer2/Overworld/DialogManager")
 	var _e = connect("dialog_entered", manager, "_on_NPC_dialog_entered")
 	_e = manager.connect("dialog_end", self, "dialog_end")

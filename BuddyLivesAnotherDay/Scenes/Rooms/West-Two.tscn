@@ -1,16 +1,16 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=2]
 [ext_resource path="res://Art/West2new.jpg" type="Texture" id=3]
 [ext_resource path="res://Scripts/Debug.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/NPCs/NPC.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Overworld Helpers/TransitionZone.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Overworld Helpers/CamBox.tscn" type="PackedScene" id=9]
 
 [node name="West-Two" type="YSort"]
 script = ExtResource( 2 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 882.794 ]
+"_edit_horizontal_guides_": [ 466.097 ],
+"_edit_vertical_guides_": [ 928.368 ]
 }
 player_position = Vector2( 1000, 600 )
 left_limit = 67
@@ -40,13 +40,6 @@ scale = Vector2( 2.1529, 2.1529 )
 build_mode = 1
 polygon = PoolVector2Array( 783.597, 736.226, 783.031, 386.876, 756.091, 374.799, 734.724, 344.142, 731.938, 316.273, 781.638, 313.022, 784.097, -23.5762, 893.351, -134.357, 897.474, 944.119, 131.63, 938.005, 249.876, 736.225 )
 
-[node name="NPC" parent="." instance=ExtResource( 6 )]
-visible = false
-position = Vector2( 854.597, 372.243 )
-scale = Vector2( 0.988076, 0.988076 )
-z_as_relative = false
-timeline = "Ferret1"
-
 [node name="TransitionZone" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1040.28, 769.69 )
 rotation = 1.5708
@@ -71,8 +64,5 @@ position = Vector2( 67.5181, -211.127 )
 
 [node name="BottomRight" parent="CamBorders" index="1"]
 position = Vector2( 914.008, 938.875 )
-
-[node name="ferret" parent="." instance=ExtResource( 6 )]
-position = Vector2( 865.614, 396.801 )
 
 [editable path="CamBorders"]

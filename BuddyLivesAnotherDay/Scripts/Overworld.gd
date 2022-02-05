@@ -21,8 +21,8 @@ export var rooms = []
 
 onready var effects = find_node("ScreenEffects")
 
-signal load_room (room)
-
+signal load_room (room) #idk what this is
+signal loaded_room (room) # emitted when a room is loaded
 func _ready():
 	randomize()
 	start()
@@ -35,7 +35,6 @@ func _ready():
 func start():
 	var _e = connect("load_room", self, "_on_Overworld_load_room")
 	emit_signal("load_room", initialRoom, true)
-	
 	create_timer(1.7, "_on_enter_timeout")
 	effects.PlayEnter()
 	$PlayContainer/Player.canMove = false
@@ -57,16 +56,23 @@ func _on_Overworld_load_room (room, start):
 		$PlayContainer/RoomContainer.remove_child(child)
 		
 	$PlayContainer/RoomContainer.add_child(new_room)
-	$PlayContainer/Player.canMoveVert = new_room.playerCanMoveVert
-
-func _on_TransitionZone_entered(pos, scene):
+#	$PlayContainer/Player.canMoveVert = new_room.playerCanMoveVert
+	emit_signal("loaded_room", new_room)
+	
+func _on_TransitionZone_entered(zone:TransitionZone):
 	effects.PlayExit()
 	$PlayContainer/Player.canMove = false
 	create_timer(1.7, "_on_exit_timeout")
 	
-	setpos = pos
-	setscene = scene
-
+	setpos = zone.toPosition
+	setscene = zone.room
+	if zone.changeMusic:
+		$AudioStreamPlayer.stream = zone.changeMusicTo
+		$AudioStreamPlayer.play()
+	if zone.changeAmbience:
+		$Ambience.stream = zone.changeAmbienceTo
+		$Ambience.play()
+		
 # Creates a timer with time `time`
 # that runs `function` when it times out.
 func create_timer(time, function):
@@ -120,21 +126,14 @@ func _on_exit_timeout():
 func _on_enter_timeout():
 	timer.queue_free()
 	$PlayContainer/Player.canMove = true
-
-func _on_TransitionZone_music_changed(music):
-	#How to fade music?
-	$AudioStreamPlayer.stream = music
-	$AudioStreamPlayer.play()
-	pass
 	
-func _on_TransitionZone_footsteps_changed(footsteps):
-	player.get_node("Footsteps").stream = footsteps
-
-func _on_TransitionZone_ambience_changed(ambience: AudioStream):
-	$Ambience.stream = ambience
-	$Ambience.play()
-
 # Stop the overworld sound when wrestling.
 func _on_DialogManager_wrestle():
 	musicPlayer.stop()
 	ambiencePlayer.stop()
+
+func _on_Player_player_collided(body):
+	if body is TransitionZone:
+		_on_TransitionZone_entered(body)
+		print_debug("time to transition...")
+	pass # Replace with function body.
