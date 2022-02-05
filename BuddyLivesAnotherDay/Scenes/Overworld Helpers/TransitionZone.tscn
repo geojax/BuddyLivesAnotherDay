@@ -6,7 +6,6 @@
 
 [node name="TransitionZone" type="Area2D"]
 scale = Vector2( 18.5339, 1.0069 )
-monitorable = false
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

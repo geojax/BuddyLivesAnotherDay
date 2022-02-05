@@ -56,17 +56,23 @@ func _on_Overworld_load_room (room, start):
 		$PlayContainer/RoomContainer.remove_child(child)
 		
 	$PlayContainer/RoomContainer.add_child(new_room)
-	$PlayContainer/Player.canMoveVert = new_room.playerCanMoveVert
+#	$PlayContainer/Player.canMoveVert = new_room.playerCanMoveVert
 	emit_signal("loaded_room", new_room)
 	
-func _on_TransitionZone_entered(pos, scene):
+func _on_TransitionZone_entered(zone:TransitionZone):
 	effects.PlayExit()
 	$PlayContainer/Player.canMove = false
 	create_timer(1.7, "_on_exit_timeout")
 	
-	setpos = pos
-	setscene = scene
-
+	setpos = zone.toPosition
+	setscene = zone.room
+	if zone.changeMusic:
+		$AudioStreamPlayer.stream = zone.changeMusicTo
+		$AudioStreamPlayer.play()
+	if zone.changeAmbience:
+		$Ambience.stream = zone.changeAmbienceTo
+		$Ambience.play()
+		
 # Creates a timer with time `time`
 # that runs `function` when it times out.
 func create_timer(time, function):
@@ -138,3 +144,10 @@ func _on_TransitionZone_ambience_changed(ambience: AudioStream):
 func _on_DialogManager_wrestle():
 	musicPlayer.stop()
 	ambiencePlayer.stop()
+
+
+func _on_Player_player_collided(body):
+	if body is TransitionZone:
+		_on_TransitionZone_entered(body)
+		print_debug("time to transition...")
+	pass # Replace with function body.
