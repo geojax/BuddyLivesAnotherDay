@@ -39,3 +39,15 @@ func _on_Timeline_End(timeline):
 func _on_ViewportContainer_wrestleEnd(state):
 	wrestling = false
 	emit_signal("dialog_end", initiator)
+
+func _on_DialogImmediateTrigger_dialog_entered(timeline):
+	var dialog = Dialogic.start(timeline)
+	dialog.connect("dialogic_signal", self, "_on_Dialog_dialogic_signal")
+	dialog.connect("timeline_end", self, "_on_Timeline_End")
+	add_child(dialog)
+
+func _on_Overworld_loaded_room(room):
+	var zones = get_tree().get_nodes_in_group("DialogImmediateTriggers")
+	for z in zones:
+		z.connect("dialog_entered", self, "_on_DialogImmediateTrigger_dialog_entered")
+	pass # Replace with function body.

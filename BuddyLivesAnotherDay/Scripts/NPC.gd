@@ -3,12 +3,11 @@ extends StaticBody2D
 
 export var timeline := "test-timeline"
 
-#var player
 var encounters = 0
 export var npcName := String()
 var cooldown = 0.25
 var timer
-signal dialog_entered(timeline) # called with two extra optional timelines
+signal dialog_entered(timeline)
 
 var rooms = {}
 
@@ -22,7 +21,6 @@ func _ready():
 	add_to_group("NPCs")	
 	var _e # this just helps avoid warning messages
 	var manager = get_tree().root.get_node("Main/ViewportContainer2/Overworld/DialogManager")
-#	_e = connect("dialog_entered", manager, "_on_NPC_dialog_entered")
 	_e = manager.connect("dialog_end", self, "dialog_end")
 	_e = get_node("..").connect("loaded_room", self, "_on_Overworld_load_room")
 	
@@ -49,7 +47,7 @@ func _ready():
 		i+=1
 	
 func _process(_delta):
-	if !$NearPrompt.in_dialog && Input.is_action_just_pressed("ui_accept") && $NearPrompt.entered:
+	if get_node_or_null("NearPrompt") != null and !$NearPrompt.in_dialog and Input.is_action_just_pressed("ui_accept") and $NearPrompt.entered:
 		$NearPrompt.body_exit("Player")
 		$NearPrompt.in_dialog = true
 		$NearPrompt.entered = false
@@ -61,10 +59,6 @@ func dialog_end(initiator):
 		$NearPrompt.get_node("PromptAnim").play("Enter")
 
 func _on_Timer_timeout():
-#	if player == null:
-#		player = find_parent("Overworld").find_node("Player")
-#	if player != null:
-#		player.canMove = true
 	$NearPrompt.in_dialog = false
 	$NearPrompt.entered = true
 	
