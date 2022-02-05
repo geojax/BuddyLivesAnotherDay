@@ -95,3 +95,13 @@ func _on_Area2D_area_entered(area):
 	if area is TransitionZone:
 		if area.changeFootsteps:
 			$Footsteps.stream = area.changeFootstepsTo
+
+
+func _on_DialogManager_dialog_entered():
+	canMove = false
+	pass # Replace with function body.
+
+
+func _on_DialogManager_dialog_end(_initiator):
+	canMove = true
+	pass # Replace with function body.

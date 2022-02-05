@@ -3,7 +3,7 @@ extends StaticBody2D
 
 export var timeline := "test-timeline"
 
-var player
+#var player
 var encounters = 0
 export var npcName := String()
 var cooldown = 0.25
@@ -20,11 +20,11 @@ export var roomPos := PoolVector2Array()
 func _ready():
 	print_debug(name, " loaded")	
 	add_to_group("NPCs")	
-	var _e
+	var _e # this just helps avoid warning messages
 	var manager = get_tree().root.get_node("Main/ViewportContainer2/Overworld/DialogManager")
 #	_e = connect("dialog_entered", manager, "_on_NPC_dialog_entered")
 	_e = manager.connect("dialog_end", self, "dialog_end")
-	get_node("..").connect("loaded_room", self, "_on_Overworld_load_room")
+	_e = get_node("..").connect("loaded_room", self, "_on_Overworld_load_room")
 	
 	# get Data from this NPC's data file.
 	var npcDataFile = File.new()
@@ -61,10 +61,10 @@ func dialog_end(initiator):
 		$NearPrompt.get_node("PromptAnim").play("Enter")
 
 func _on_Timer_timeout():
-	if player == null:
-		player = find_parent("Overworld").find_node("Player")
-	if player != null:
-		player.canMove = true
+#	if player == null:
+#		player = find_parent("Overworld").find_node("Player")
+#	if player != null:
+#		player.canMove = true
 	$NearPrompt.in_dialog = false
 	$NearPrompt.entered = true
 	

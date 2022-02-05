@@ -32,6 +32,8 @@ script = ExtResource( 3 )
 
 [connection signal="loaded_room" from="ViewportContainer2/Overworld" to="ViewportContainer2/Overworld/PlayContainer/Player" method="_on_Overworld_loaded_room"]
 [connection signal="player_collided" from="ViewportContainer2/Overworld/PlayContainer/Player" to="ViewportContainer2/Overworld" method="_on_Player_player_collided"]
+[connection signal="dialog_end" from="ViewportContainer2/Overworld/DialogManager" to="ViewportContainer2/Overworld/PlayContainer/Player" method="_on_DialogManager_dialog_end"]
+[connection signal="dialog_entered" from="ViewportContainer2/Overworld/DialogManager" to="ViewportContainer2/Overworld/PlayContainer/Player" method="_on_DialogManager_dialog_entered"]
 [connection signal="wrestle" from="ViewportContainer2/Overworld/DialogManager" to="ViewportContainer2/Overworld" method="_on_DialogManager_wrestle"]
 [connection signal="wrestle" from="ViewportContainer2/Overworld/DialogManager" to="ViewportContainer" method="_on_DialogManager_wrestle"]
 [connection signal="wrestleEnd" from="ViewportContainer" to="ViewportContainer2/Overworld/DialogManager" method="_on_ViewportContainer_wrestleEnd"]
