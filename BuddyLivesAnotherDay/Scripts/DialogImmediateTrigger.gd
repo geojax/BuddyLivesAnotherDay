@@ -1,9 +1,9 @@
-extends Node2D
-
-export var timeline := String()
+extends "res://Scripts/NPC.gd"
+#
+#export var timeline := String()
 var hasTriggered = false
 
-signal dialog_entered(timeline)
+#signal dialog_entered(timeline)
 
 func _ready():
 	var manager = get_node("/root/Main/ViewportContainer2/Overworld/DialogManager")

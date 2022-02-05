@@ -6,12 +6,13 @@ extends Node
 # I am stuck here, so...
 # this is the last I've got.
 
-var roomName: String
+#var roomName: String
 var present:bool = false
 var pos:Vector2
-func _init(newroomName:String, newPos:=Vector2(), isPresent=true):
-	roomName = newroomName
+func _init(newPos:=Vector2(), isPresent=true):
+#	roomName = newroomName
 	pos=newPos
 	present = isPresent
+	
 func _ready():
 	pass

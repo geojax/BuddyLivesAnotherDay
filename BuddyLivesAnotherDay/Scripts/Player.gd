@@ -84,3 +84,8 @@ func _process(_delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	if canMove:
 		velocity = move_and_slide(GetVelocity())
+
+
+func _on_Overworld_loaded_room(room):
+	canMoveVert = room.playerCanMoveVert
+	pass # Replace with function body.

@@ -21,8 +21,8 @@ export var rooms = []
 
 onready var effects = find_node("ScreenEffects")
 
-signal load_room (room)
-
+signal load_room (room) #idk what this is
+signal loaded_room (room) # emitted when a room is loaded
 func _ready():
 	randomize()
 	start()
@@ -35,7 +35,6 @@ func _ready():
 func start():
 	var _e = connect("load_room", self, "_on_Overworld_load_room")
 	emit_signal("load_room", initialRoom, true)
-	
 	create_timer(1.7, "_on_enter_timeout")
 	effects.PlayEnter()
 	$PlayContainer/Player.canMove = false
@@ -58,7 +57,8 @@ func _on_Overworld_load_room (room, start):
 		
 	$PlayContainer/RoomContainer.add_child(new_room)
 	$PlayContainer/Player.canMoveVert = new_room.playerCanMoveVert
-
+	emit_signal("loaded_room", new_room)
+	
 func _on_TransitionZone_entered(pos, scene):
 	effects.PlayExit()
 	$PlayContainer/Player.canMove = false

@@ -8,9 +8,9 @@ var encounters = 0
 export var npcName := String()
 var cooldown = 0.25
 var timer
-signal dialog_entered(timeline)
+signal dialog_entered(timeline) # called with two extra optional timelines
 
-var rooms:= Array()
+var rooms = {}
 
 # the following arrays just store initialization data.
 # set them in the editor.
@@ -19,12 +19,12 @@ export var roomPos := PoolVector2Array()
 
 func _ready():
 	print_debug(name, " loaded")	
+	add_to_group("NPCs")	
 	var _e
-	var manager = get_node("../DialogManager")
-	_e = connect("dialog_entered", manager, "_on_NPC_dialog_entered")
+	var manager = get_tree().root.get_node("Main/ViewportContainer2/Overworld/DialogManager")
+#	_e = connect("dialog_entered", manager, "_on_NPC_dialog_entered")
 	_e = manager.connect("dialog_end", self, "dialog_end")
-	add_to_group("NPCs")
-	get_node("..").connect("load_room", self, "_on_Overworld_load_room")
+	get_node("..").connect("loaded_room", self, "_on_Overworld_load_room")
 	
 	# get Data from this NPC's data file.
 	var npcDataFile = File.new()
@@ -43,8 +43,10 @@ func _ready():
 		roomPos.append(Vector2(r["posx"],r["posy"]))
 		pass
 	# initialize all rooms this NPC is in
-	for i in range(roomNames.size()):
-		rooms.append(RoomData.new(roomNames[i], roomPos[i], true))
+	var i = 0
+	for room in roomNames:
+		rooms[room]=RoomData.new(roomPos[i], true)
+		i+=1
 	
 func _process(_delta):
 	if !$NearPrompt.in_dialog && Input.is_action_just_pressed("ui_accept") && $NearPrompt.entered:
@@ -82,32 +84,25 @@ func delete_timer():
 	if timer != null && is_instance_valid(timer):
 		timer.queue_free()
 
-func _on_Overworld_load_room(roomName:String, var _something):
-	print(roomName)
-	enableIfInRoom(roomName)
+func _on_Overworld_load_room(room):
+	enableIfInRoom(room.name)
 	encounters+=1
+	print_debug(name, " encountered")
 	pass
 
-# called by Room.gd and RoomParent.gd
-#disables NPC if not in the room
+# called in the above functionon ready
+# disables NPC if not in the room
 # enables if in the room
 func enableIfInRoom(roomName: String):
 	var isOn = false
-	print(name, " checking ", roomName)
-	print(rooms)
-	for room in rooms:
-		print(name, " ", roomName, " ", room.present, " ", room.roomName)
-		if room.roomName == roomName and room.present:
-			print("setting isOn to true....")			
-			position = room.pos
-			isOn = true
-		break
-#	print(name, " ", roomName, " ", isOn)
+	if  rooms.has(roomName) and rooms[roomName].present:
+		position = rooms[roomName].pos
+		isOn = true
 	$CharacterCollision.disabled = !isOn
 	$NearPrompt.visible = isOn
 	visible = isOn
 
 func setStatusInRoom(roomName:String, present:bool):
-	for room in rooms:
-		if room.roomName == roomName:
-			room.present = present
+	if rooms[roomName].present:
+		rooms[roomName].present = present
+		print_debug(name, " no longer in ", roomName)

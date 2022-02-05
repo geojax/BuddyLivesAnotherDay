@@ -13,7 +13,7 @@ func _ready():
 	UpdateLines()
 #	print_debug("Room.gd calling NPCs for room " + name)
 # 	The name is right, the method is right... wtf?!
-	get_tree().call_group("NPCs", "enableIfInRoom", name)
+#	get_tree().call_group("NPCs", "enableIfInRoom", name)
 	
 func UpdateLines():
 	if has_node("Debug"):

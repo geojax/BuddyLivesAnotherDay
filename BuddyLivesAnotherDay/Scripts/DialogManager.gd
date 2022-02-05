@@ -9,8 +9,13 @@ signal dialog_end(init)
 
 func _ready():
 	player = find_parent("Overworld").find_node("Player")
-
+	#get_tree().call_group("NPCs", "connect", "dialog_entered", self, "_on_NPC_dialog_entered")
+	var npcs = get_tree().get_nodes_in_group("NPCs")
+	for npc in npcs:
+		npc.connect("dialog_entered", self, "_on_NPC_dialog_entered")
+	
 func _on_NPC_dialog_entered(timeline:String, init:Node):
+	print("dialog called: "+ timeline)
 	initiator = init
 	if player == null:
 		player = find_parent("Overworld").find_node("Player")

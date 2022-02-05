@@ -33,14 +33,14 @@ animations = [ {
 "name": "WalkLeft",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
-"name": "Idle",
+"name": "IdleDown",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
-"name": "IdleDown",
+"name": "Idle",
 "speed": 5.0
 } ]
 

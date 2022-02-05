@@ -11,7 +11,7 @@ export var vignette_blur := 0.293
 export var zoom = Vector2(1,1)
 
 onready var viewport := get_viewport()
-onready var player := find_node("Player")
+onready var player := get_node("../../..")
 onready var camera := get_node("../..")
 
 func UpdateFocus(visibleRect: Rect2) -> void:
