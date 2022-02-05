@@ -89,12 +89,9 @@ func _physics_process(_delta: float) -> void:
 
 func _on_Overworld_loaded_room(room):
 	canMoveVert = room.playerCanMoveVert
-	pass # Replace with function body.
 
 func _on_Area2D_area_entered(area):
 	emit_signal("player_collided", area)	
 	if area is TransitionZone:
 		if area.changeFootsteps:
 			$Footsteps.stream = area.changeFootstepsTo
-	print_debug(area.name)	
-	pass # Replace with function body.

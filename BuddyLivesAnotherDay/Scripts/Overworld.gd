@@ -126,25 +126,11 @@ func _on_exit_timeout():
 func _on_enter_timeout():
 	timer.queue_free()
 	$PlayContainer/Player.canMove = true
-
-func _on_TransitionZone_music_changed(music):
-	#How to fade music?
-	$AudioStreamPlayer.stream = music
-	$AudioStreamPlayer.play()
-	pass
 	
-func _on_TransitionZone_footsteps_changed(footsteps):
-	player.get_node("Footsteps").stream = footsteps
-
-func _on_TransitionZone_ambience_changed(ambience: AudioStream):
-	$Ambience.stream = ambience
-	$Ambience.play()
-
 # Stop the overworld sound when wrestling.
 func _on_DialogManager_wrestle():
 	musicPlayer.stop()
 	ambiencePlayer.stop()
-
 
 func _on_Player_player_collided(body):
 	if body is TransitionZone:
