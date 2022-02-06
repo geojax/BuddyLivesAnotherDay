@@ -84,6 +84,10 @@ config/name="ArmWrestling"
 run/main_scene="res://Scenes/Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+NPCs="*res://Scripts/NPCs.gd"
+
 [display]
 
 window/size/width=1920

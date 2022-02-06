@@ -19,11 +19,12 @@ export var roomPos := PoolVector2Array()
 func _ready():
 	print_debug(name, " loaded")	
 	add_to_group("NPCs")	
-	var _e # this just helps avoid warning messages
-	var manager = get_tree().root.get_node("Main/ViewportContainer2/Overworld/DialogManager")
-	_e = manager.connect("dialog_end", self, "dialog_end")
-	_e = get_node("..").connect("loaded_room", self, "_on_Overworld_load_room")
-	
+#	var _e # this just helps avoid warning messages
+#	var manager = get_node("../DialogManager")
+#	_e = manager.connect("dialog_end", self, "dialog_end")
+	var _e = get_node("..").connect("loaded_room", self, "_on_Overworld_load_room")
+	if get_parent().name != "Overworld":
+		free()
 	# get Data from this NPC's data file.
 	var npcDataFile = File.new()
 	if npcDataFile.open("res://NPCData/" + name + ".json", File.READ) != OK:
@@ -51,7 +52,7 @@ func _process(_delta):
 		$NearPrompt.body_exit("Player")
 		$NearPrompt.in_dialog = true
 		$NearPrompt.entered = false
-		emit_signal("dialog_entered", timeline, self)
+		emit_signal("dialog_entered", timeline)
 
 func dialog_end(initiator):
 	if initiator == self:
@@ -78,6 +79,7 @@ func delete_timer():
 	if timer != null && is_instance_valid(timer):
 		timer.queue_free()
 
+# Called on signal `loaded_room`, NOT `load_room`
 func _on_Overworld_load_room(room):
 	enableIfInRoom(room.name)
 	encounters+=1

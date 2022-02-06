@@ -20,7 +20,11 @@ const MOVE_SPEED := 1000
 signal player_collided
 
 func _ready() -> void:
-	$AnimatedSprite.play("Idle");
+	$AnimatedSprite.play("Idle")
+	var npcs = get_tree().get_nodes_in_group("NPCs")
+	for npc in npcs:
+		npc.connect("dialog_entered", self, "_on_NPC_dialog_entered")
+		npc.connect("dialog_exit", self, "_on_NPC_dialog_exit")
 
 func GetVelocity() -> Vector2:
 	var moveDirection := Vector2()
@@ -97,11 +101,11 @@ func _on_Area2D_area_entered(area):
 			$Footsteps.stream = area.changeFootstepsTo
 
 
-func _on_DialogManager_dialog_entered():
+func _on_NPC_dialog_entered():
 	canMove = false
 	pass # Replace with function body.
 
 
-func _on_DialogManager_dialog_end(_initiator):
+func _on_NPC_dialog_exit():
 	canMove = true
 	pass # Replace with function body.
