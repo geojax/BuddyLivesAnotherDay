@@ -281,6 +281,14 @@
 			"event_id": "dialogic_040"
 		},
 		{
+			"definition": "1647551353-713",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
+		},
+		{
 			"event_id": "dialogic_013"
 		},
 		{

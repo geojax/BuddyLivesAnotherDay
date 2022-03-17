@@ -45,6 +45,22 @@
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "Oh right, the door!\nGo right ahead. Take any boat ya like.  Jes' have 'er back afore sundown."
+		},
+		{
+			"definition": "1647551353-713",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
+		},
+		{
+			"definition": "1647552043-842",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
 		}
 	],
 	"metadata": {

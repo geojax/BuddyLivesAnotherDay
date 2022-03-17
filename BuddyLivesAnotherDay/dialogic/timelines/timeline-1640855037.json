@@ -121,6 +121,14 @@
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "THERE’S ANOTHER ROWBOAT IN THE BOATHOUSE BY MY SHOP! IT'S ON THE WEST END OF THE DOCKS! HURRY, BUDDY!"
+		},
+		{
+			"definition": "1647450684-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
 		}
 	],
 	"metadata": {

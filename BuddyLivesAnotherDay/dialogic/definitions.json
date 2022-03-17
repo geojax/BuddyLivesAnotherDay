@@ -17,12 +17,6 @@
 			"value": ""
 		},
 		{
-			"id": "1647450684-648",
-			"name": "HasTalkedOtter",
-			"type": 0,
-			"value": "0"
-		},
-		{
 			"id": "1647451027-366",
 			"name": "HasBribe",
 			"type": 0,
@@ -43,6 +37,30 @@
 		{
 			"id": "1647452580-970",
 			"name": "PiscesKeyTalk",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1647450684-648",
+			"name": "HasTalkedOtter",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1647551353-713",
+			"name": "BoathouseOpen",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1647551543-339",
+			"name": "OtterRescueTalk",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1647552043-842",
+			"name": "PiscesWin",
 			"type": 0,
 			"value": "0"
 		}

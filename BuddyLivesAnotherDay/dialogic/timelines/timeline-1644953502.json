@@ -29,6 +29,21 @@
 			}
 		},
 		{
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_012",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1647551543-339",
+			"event_id": "dialogic_012",
+			"value": "0"
+		},
+		{
 			"character": "character-1640855020.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
@@ -45,6 +60,32 @@
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "Never got around to learnin’. Anyhow, thanks for helpin’ me out there. \nI’m glad you didn’t skip town. Once in a while having a big lug like you around comes in handy."
+		},
+		{
+			"definition": "1647551543-339",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1647551543-339",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"character": "character-1637911062.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "What happened to your shop?"
+		},
+		{
+			"event_id": "dialogic_013"
 		}
 	],
 	"metadata": {
