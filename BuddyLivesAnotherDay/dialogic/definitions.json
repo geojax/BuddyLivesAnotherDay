@@ -10,6 +10,41 @@
 		}
 	],
 	"variables": [
-
+		{
+			"id": "1647451876-483",
+			"name": "New value",
+			"type": 0,
+			"value": ""
+		},
+		{
+			"id": "1647450684-648",
+			"name": "HasTalkedOtter",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1647451027-366",
+			"name": "HasBribe",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1647451102-146",
+			"name": "HasKey",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1647451630-918",
+			"name": "HasTalkedPisces",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1647452580-970",
+			"name": "PiscesKeyTalk",
+			"type": 0,
+			"value": "0"
+		}
 	]
 }

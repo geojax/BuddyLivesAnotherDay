@@ -1,0 +1,59 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1645116491.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Challenge Polecat?"
+		},
+		{
+			"choice": "I'm ready.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"emit_signal": "wrestle",
+			"event_id": "dialogic_040"
+		},
+		{
+			"choice": "Not yet.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1645116491.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I'll be waiting here."
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.3",
+		"file": "timeline-1645117041.json",
+		"name": "Polecat2"
+	}
+}

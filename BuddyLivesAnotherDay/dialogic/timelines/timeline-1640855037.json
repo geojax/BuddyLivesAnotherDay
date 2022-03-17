@@ -120,11 +120,7 @@
 			"character": "character-1640855020.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "THERE’S ANOTHER ROWBOAT OVER YONDER! HURRY, BUDDY!"
-		},
-		{
-			"emit_signal": "wrestle",
-			"event_id": "dialogic_040"
+			"text": "THERE’S ANOTHER ROWBOAT IN THE BOATHOUSE BY MY SHOP! IT'S ON THE WEST END OF THE DOCKS! HURRY, BUDDY!"
 		}
 	],
 	"metadata": {

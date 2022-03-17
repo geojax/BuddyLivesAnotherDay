@@ -4,13 +4,13 @@
 			"character": "character-1637910913.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Fine! You win this one, Buddy. But your precious weasel can sleep tight knowing it’ll be a half dozen Stars coming for him next time."
+			"text": "Fine! You win this one, Buddy. But your precious weasel can sleep tight knowing it’ll be the Dippers coming for him next time."
 		},
 		{
 			"character": "character-1637910659.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Oh dear, Buddy, what can I do? Those goons will be back sooner or later. And it’s not just me! They’re rounding up all of us! The Stars are planning some kind of big takeover. "
+			"text": "Oh dear, Buddy, what can I do? Those goons will be back sooner or later. \nAnd it’s not just me! They’re coming after all of us! Ever since you won the big match."
 		},
 		{
 			"character": "character-1637911062.json",
@@ -22,13 +22,13 @@
 			"character": "character-1637910659.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Badger, too! And Otter! The last time I saw Otter she wouldn’t leave the docks for fear of being caught. And Badger’s probably still holed up underground, muttering about taking the fight to them! It’s awful, Buddy, simply awful! "
+			"text": "Badger, too! And Otter! \nThe last time I saw Otter she wouldn’t leave the docks for fear of being caught. \nAnd Badger’s probably still holed up underground, muttering about taking the fight to them! \nIt’s awful, Buddy, simply awful! "
 		},
 		{
 			"character": "character-1637911062.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Kicking me out of the arena, I can take. But nobody messes with my friends. Big Star’s had his way long enough. Now I’ve got skin in the game, Ferret. Now it’s personal. "
+			"text": "Kicking me out of the arena, I can take. But nobody messes with my friends. \nBig Star’s had his way long enough. Now I’ve got skin in the game, Ferret. Now it’s personal. "
 		},
 		{
 			"character": "character-1637910659.json",
@@ -40,12 +40,12 @@
 			"character": "character-1637911062.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "I won’t be alone, Ferret. I’ll have my friends there with me. Otter at the docks, you said, and Badger holed up somewhere underground. Polecat will be sneaking around here somewhere, probably stealing something right from under Big Star’s nose. Let’s go find the others."
+			"text": "I won’t be alone, Ferret. I’ll have my friends there with me. \nOtter at the docks, you said, and Badger holed up somewhere underground. Polecat will be sneaking around somewhere, probably right under Big Star’s nose. Let’s go find the others."
 		}
 	],
 	"metadata": {
 		"dialogic-version": "1.3",
 		"file": "timeline-1637911209.json",
-		"name": "Ferret2"
+		"name": "FerretRescue"
 	}
 }

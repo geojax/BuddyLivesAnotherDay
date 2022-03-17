@@ -1,0 +1,93 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1645116491.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"action": "join",
+			"character": "character-1637911062.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1645116491.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Buddy. It's almost time for the match. "
+		},
+		{
+			"character": "character-1645116491.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Are you sure you want to go through with this now?"
+		},
+		{
+			"choice": "Yes",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1637911062.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I'm ready."
+		},
+		{
+			"character": "character-1645116491.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Good. Pull your hat low over your eyes and keep your head down.\nNow follow me and talk to the guard by the"
+		},
+		{
+			"choice": "No",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1637911062.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Not yet. I need more time to prepare."
+		},
+		{
+			"character": "character-1645116491.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Okay, Buddy. But hurry. "
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.3",
+		"file": "timeline-1645117268.json",
+		"name": "PolecatArena1"
+	}
+}

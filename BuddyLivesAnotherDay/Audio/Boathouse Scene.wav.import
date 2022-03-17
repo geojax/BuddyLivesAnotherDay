@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Boathouse Scene.wav-c97074a6a7be6cf3b92797da4619b063.sample"
+
+[deps]
+
+source_file="res://Audio/Boathouse Scene.wav"
+dest_files=[ "res://.import/Boathouse Scene.wav-c97074a6a7be6cf3b92797da4619b063.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -56,7 +56,57 @@
 			"character": "character-1642611118.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Yer right. Yer always right. Buddy the Wolv’rine. What a guy. Say, wasn’t the boss talking about’cha today? An’ the Dippers, too. Sumthin’ we was all supposed’a do if we saw youse…"
+			"text": "Yer right. Yer always right. Buddy the Wolv’rine. What a guy. \nSay, wasn’t the boss talking about’cha today? An’ the Dippers, too. Sumthin’ we was all supposed’a do if we saw youse…"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Quickly buy Saggy T a drink?"
+		},
+		{
+			"choice": "Yes",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1637911062.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Have a beer, Saggy. On me."
+		},
+		{
+			"character": "character-1642611118.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Say! Buddy th’ Wolv’rine. Yer a helluva guy. Wolf. Whatever.\n Wha’ was I talkin’ bout? Ah, fuggedaboutit. Jus’ one more drink an’ I’ll head down t’ th’ arena. \nThey’re gonna need a bouncer at th’ back door wid th’ big match comin’ up an’ all, y’know. "
+		},
+		{
+			"choice": "No",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1637911062.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Would you look at the time! Gotta run. See you around, Saggy."
+		},
+		{
+			"character": "character-1642611118.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ah, fuggedaboutit. See ya ‘round….what was yer name, again?"
+		},
+		{
+			"event_id": "dialogic_013"
 		}
 	],
 	"metadata": {

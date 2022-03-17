@@ -1,0 +1,298 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1647450339.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"action": "join",
+			"character": "character-1637911062.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			}
+		},
+		{
+			"condition": "",
+			"definition": "1647451630-918",
+			"event_id": "dialogic_012",
+			"value": "0"
+		},
+		{
+			"condition": "",
+			"definition": "1647450684-648",
+			"event_id": "dialogic_012",
+			"value": "0"
+		},
+		{
+			"character": "character-1647450339.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "What c'n I do ya fer?"
+		},
+		{
+			"definition": "1647451630-918",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1647450684-648",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"character": "character-1647450339.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "What c'n I do ya fer?"
+		},
+		{
+			"character": "character-1637911062.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I need a rowboat, and I need it fast."
+		},
+		{
+			"character": "character-1647450339.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Well I wouldn't wanna git in the way of a man in such a powerful hurry. \nThe boathouse is right 'cross the way, an' I've got a key sittin' in m'shop here. \nWhy don't'cha head on in there 'n' grab it, an' I'll git that pesky door unlocked fer ya."
+		},
+		{
+			"definition": "1647451630-918",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
+		},
+		{
+			"definition": "1647452580-970",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1647451630-918",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"condition": "",
+			"definition": "1647452580-970",
+			"event_id": "dialogic_012",
+			"value": "0"
+		},
+		{
+			"condition": "",
+			"definition": "1647450684-648",
+			"event_id": "dialogic_012",
+			"value": "0"
+		},
+		{
+			"character": "character-1647450339.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hullo agin. "
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1647450684-648",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"character": "character-1647450339.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hullo agin. "
+		},
+		{
+			"character": "character-1637911062.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I need a rowboat, and I need it fast."
+		},
+		{
+			"character": "character-1647450339.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Well I wouldn't wanna git in the way of a man in such a powerful hurry. \nThe boathouse is right 'cross the way, an' I've got a key sittin' in m'shop here. \nWhy don't'cha head on in there 'n' grab it, an' I'll git that pesky door unlocked fer ya."
+		},
+		{
+			"definition": "1647452580-970",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1647452580-970",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"condition": "",
+			"definition": "1647451102-146",
+			"event_id": "dialogic_012",
+			"value": "0"
+		},
+		{
+			"character": "character-1647450339.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Couldn't find it? 'S right there on the counter. Give 'er another look-see."
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1647451102-146",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"character": "character-1647450339.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Got it? Good. Now let's mosey on over t' that there door, an' ol' Pisces'll gitcha yer boat."
+		},
+		{
+			"character": "character-1637911062.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Listen, mister, I'm grateful and all, but the clock's ticking. "
+		},
+		{
+			"character": "character-1647450339.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "A'right, a'right. Shouldn't blame a man fer takin' it slow, but I'm happy t'oblige. "
+		},
+		{
+			"character": "character-1647450339.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Say, do I know ya from somewhere? "
+		},
+		{
+			"character": "character-1637911062.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Let's walk and talk, friend, walk and talk."
+		},
+		{
+			"character": "character-1647450339.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Yer the champion! Buddy the Wolverine!\nBoy, I used ta watch yer matches every time I sold 'nuff tackle 'n' bait 'n' such  t'afferd a ticket. Yer great! Jes' great!"
+		},
+		{
+			"character": "character-1637911062.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Look, mister––"
+		},
+		{
+			"character": "character-1647450339.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Y'know, ol' Pisces used ta throw down in his day. An' I wasn't half bad, neither. "
+		},
+		{
+			"character": "character-1637911062.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "That's great. Now––"
+		},
+		{
+			"character": "character-1647450339.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Say, how 'bout humorin' me with a match, eh?"
+		},
+		{
+			"character": "character-1637911062.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Look, I really have to go––"
+		},
+		{
+			"character": "character-1647450339.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "C'mon! Whaddaya say?"
+		},
+		{
+			"character": "character-1637911062.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Will you open the goddamn door if I say yes?"
+		},
+		{
+			"character": "character-1647450339.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "'Course I will! \nOh boy! A match wif Buddy th' Wolverine! It's ol' Pisces's lucky day!\nJes' lemme do some stretchin', an'––"
+		},
+		{
+			"emit_signal": "wrestle",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.3",
+		"file": "timeline-1647450372.json",
+		"name": "Pisces"
+	}
+}

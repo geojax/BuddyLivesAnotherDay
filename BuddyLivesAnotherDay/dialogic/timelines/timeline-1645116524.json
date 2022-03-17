@@ -1,0 +1,69 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1640855020.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"action": "join",
+			"character": "character-1641491097.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"action": "join",
+			"character": "character-1641491044.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1640855020.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I’LL BE FINE, BUDDY! GET OUT OF HERE BEFORE MORE STARS SHOW UP!"
+		},
+		{
+			"character": "character-1641491044.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You heard the lady. Beat it!"
+		},
+		{
+			"character": "character-1641491097.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Yeah! Beat it!"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.3",
+		"file": "timeline-1645116524.json",
+		"name": "OtterFail"
+	}
+}

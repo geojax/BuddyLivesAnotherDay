@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/End Stun.wav-990ee2b8e6d910cd51cfabc49528594a.sample"
+
+[deps]
+
+source_file="res://Audio/End Stun.wav"
+dest_files=[ "res://.import/End Stun.wav-990ee2b8e6d910cd51cfabc49528594a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,69 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1637910913.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"action": "join",
+			"character": "character-1637911062.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"action": "join",
+			"character": "character-1637910659.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1637910913.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ha! Buddy the Wolverine isn't so tough after all."
+		},
+		{
+			"character": "character-1637910659.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Don't worry about me, Buddy! Find the others before the Stars get to them!\nOtter's at the docks, and I'm certain Badger is holed up somewhere underground. And Polecat–––"
+		},
+		{
+			"character": "character-1637910913.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Save your talking for Big Star, weasel.  \nAnd as for you, you haven't seen the last of the Stars. Now make tracks!"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.3",
+		"file": "timeline-1647448972.json",
+		"name": "FerretLose"
+	}
+}
