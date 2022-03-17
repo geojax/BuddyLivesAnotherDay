@@ -17,8 +17,14 @@ var velocity := Vector2()
 
 const MOVE_SPEED := 1000
 
+signal player_collided
+
 func _ready() -> void:
-	$AnimatedSprite.play("Idle");
+	$AnimatedSprite.play("Idle")
+	var npcs = get_tree().get_nodes_in_group("NPCs")
+	for npc in npcs:
+		npc.connect("dialog_entered", self, "_on_NPC_dialog_entered")
+		npc.connect("dialog_exit", self, "_on_NPC_dialog_exit")
 
 func GetVelocity() -> Vector2:
 	var moveDirection := Vector2()
@@ -84,3 +90,22 @@ func _process(_delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	if canMove:
 		velocity = move_and_slide(GetVelocity())
+
+func _on_Overworld_loaded_room(room):
+	canMoveVert = room.playerCanMoveVert
+
+func _on_Area2D_area_entered(area):
+	emit_signal("player_collided", area)	
+	if area is TransitionZone:
+		if area.changeFootsteps:
+			$Footsteps.stream = area.changeFootstepsTo
+
+
+func _on_NPC_dialog_entered():
+	canMove = false
+	pass # Replace with function body.
+
+
+func _on_NPC_dialog_exit():
+	canMove = true
+	pass # Replace with function body.

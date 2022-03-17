@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Art/Main2background.jpg" type="Texture" id=1]
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=2]
 [ext_resource path="res://Art/Main2foreground.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Debug.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Overworld Helpers/CamBox.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Audio/Docks Ambience.wav" type="AudioStream" id=6]
 [ext_resource path="res://Scenes/Overworld Helpers/TransitionZone.tscn" type="PackedScene" id=7]
 
 [node name="West-One" type="YSort"]
@@ -66,7 +65,7 @@ room = "Main-Four"
 position = Vector2( 497.793, -88.4655 )
 rotation = 3.14159
 scale = Vector2( 1314.48, -0.709646 )
-toPosition = Vector2( 2666, 1750 )
+toPosition = Vector2( 2666, 1720 )
 room = "Main-One"
 
 [node name="TransitionZone4" parent="." instance=ExtResource( 7 )]
@@ -76,7 +75,6 @@ scale = Vector2( 1314.48, -0.709646 )
 toPosition = Vector2( 1300, 130 )
 room = "Docks-Two"
 changeAmbience = true
-changeAmbeinceTo = ExtResource( 6 )
 
 [node name="FogOfWar" type="Node2D" parent="."]
 

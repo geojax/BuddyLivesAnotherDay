@@ -1,4 +1,3 @@
-#tool
 extends Node
 
 export var player_position := Vector2(0,0)
@@ -16,8 +15,10 @@ func _ready():
 	left_limit=$Image/TopLeft.position.x
 	right_limit=$Image/BottomRight.position.x
 	UpdateLines()		
-	get_tree().call_group("NPCs", "enableIfInRoom", name.substr(0,len(name)-5))
-
+	print_debug("RoomParent Calling the NPCs now...!!!")
+#	get_tree().call_group("NPCs", "enableIfInRoom", name.substr(0,len(name)-5))
+	
+	
 func UpdateLines():
 	if has_node("Debug"):
 		var debug = get_node("Debug")

@@ -33,14 +33,14 @@ animations = [ {
 "name": "WalkLeft",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
-"name": "Idle",
+"name": "IdleDown",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
-"name": "IdleDown",
+"name": "Idle",
 "speed": 5.0
 } ]
 
@@ -71,3 +71,12 @@ position = Vector2( 0, 35.7446 )
 shape = SubResource( 10 )
 
 [node name="Listener2D" type="Listener2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, 35.7446 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 10 )
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

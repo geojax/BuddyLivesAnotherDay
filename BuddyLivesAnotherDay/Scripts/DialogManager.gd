@@ -1,20 +1,16 @@
 extends Node
 
-var player
-var initiator
+#var player
+#var initiator
 var wrestling := false
 
 signal wrestle
-signal dialog_end(init)
-
-func _ready():
-	player = find_parent("Overworld").find_node("Player")
-
-func _on_NPC_dialog_entered(timeline:String, init:Node):
-	initiator = init
-	if player == null:
-		player = find_parent("Overworld").find_node("Player")
-	player.canMove = false
+signal dialog_end
+signal dialog_entered
+	
+func _on_NPC_dialog_entered(timeline:String):
+	emit_signal("dialog_entered")
+	print("dialog called: "+ timeline)
 	var dialog = Dialogic.start(timeline)
 	dialog.connect("dialogic_signal", self, "_on_Dialog_dialogic_signal")
 	dialog.connect("timeline_end", self, "_on_Timeline_End")
@@ -28,8 +24,12 @@ func _on_Dialog_dialogic_signal(string:String):
 
 func _on_Timeline_End(timeline):
 	if wrestling == false:
-		emit_signal("dialog_end", initiator)
+		emit_signal("dialog_end")
 	
 func _on_ViewportContainer_wrestleEnd(state):
 	wrestling = false
-	emit_signal("dialog_end", initiator)
+	emit_signal("dialog_end")
+
+
+func _on_DialogImmediateTrigger_dialog_entered(timeline):
+	_on_NPC_dialog_entered(timeline)
