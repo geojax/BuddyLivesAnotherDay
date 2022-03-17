@@ -17,6 +17,14 @@
 			"value": ""
 		},
 		{
+			"audio": "play",
+			"audio_bus": "Master",
+			"event_id": "dialogic_030",
+			"event_name": "AudioEvent",
+			"file": "res://Audio/Bank_Withdraw.wav",
+			"volume": 0
+		},
+		{
 			"definition": "1647451027-366",
 			"event_id": "dialogic_014",
 			"operation": "=",
