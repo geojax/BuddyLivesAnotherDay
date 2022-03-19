@@ -1,0 +1,125 @@
+<<<<<<< Updated upstream
+=======
+{
+	"glossary": [
+		{
+			"extra": "",
+			"id": "1640218252-339",
+			"name": "New glossary entry",
+			"text": "",
+			"title": "",
+			"type": 1
+		}
+	],
+	"variables": [
+		{
+			"id": "1647451876-483",
+			"name": "New value",
+			"type": 0,
+			"value": ""
+		},
+		{
+			"id": "1647451027-366",
+			"name": "HasBribe",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1647451102-146",
+			"name": "HasKey",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1647451630-918",
+			"name": "HasTalkedPisces",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1647452580-970",
+			"name": "PiscesKeyTalk",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1647450684-648",
+			"name": "HasTalkedOtter",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1647551353-713",
+			"name": "BoathouseOpen",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1647551543-339",
+			"name": "OtterRescueTalk",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1647552043-842",
+			"name": "PiscesWin",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1647643008-648",
+			"name": "SaggyBarTalk",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1647643371-787",
+			"name": "PolecatWinTalk",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1647643438-366",
+			"name": "PolecatLoseTalk",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1647643663-146",
+			"name": "PolecatArenaTalk",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1647644013-918",
+			"name": "DippersTunnelTalk",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1647644304-483",
+			"name": "BadgerTalk",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1647646696-785",
+			"name": "SaggyDrink",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1647646071-339",
+			"name": "PolecatLater",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1647648560-842",
+			"name": "SaggyYesBribeTalk",
+			"type": 0,
+			"value": "0"
+		}
+	]
+}
+>>>>>>> Stashed changes

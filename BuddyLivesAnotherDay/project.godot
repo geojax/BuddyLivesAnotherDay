@@ -38,6 +38,34 @@ _global_script_classes=[ {
 "class": "DialogicUtil",
 "language": "GDScript",
 "path": "res://addons/dialogic/Other/DialogicUtil.gd"
+<<<<<<< Updated upstream
+=======
+}, {
+"base": "StaticBody2D",
+"class": "NPC",
+"language": "GDScript",
+"path": "res://Scripts/NPC.gd"
+}, {
+"base": "Node",
+"class": "NPCData",
+"language": "GDScript",
+"path": "res://Scripts/NPCData.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Scripts/Player.gd"
+}, {
+"base": "Node",
+"class": "RoomData",
+"language": "GDScript",
+"path": "res://Scripts/RoomData.gd"
+}, {
+"base": "Area2D",
+"class": "TransitionZone",
+"language": "GDScript",
+"path": "res://Scripts/TransitionZone.gd"
+>>>>>>> Stashed changes
 } ]
 _global_script_class_icons={
 "DTS": "",
@@ -45,7 +73,16 @@ _global_script_class_icons={
 "DialogicBackgroundMusic": "",
 "DialogicDefinitionsUtil": "",
 "DialogicResources": "",
+<<<<<<< Updated upstream
 "DialogicUtil": ""
+=======
+"DialogicUtil": "",
+"NPC": "",
+"NPCData": "",
+"Player": "",
+"RoomData": "",
+"TransitionZone": ""
+>>>>>>> Stashed changes
 }
 
 [application]

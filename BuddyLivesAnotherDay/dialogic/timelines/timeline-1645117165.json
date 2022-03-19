@@ -1,0 +1,61 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1645116491.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"condition": "",
+			"definition": "1647643371-787",
+			"event_id": "dialogic_012",
+			"value": "0"
+		},
+		{
+			"character": "character-1645116491.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Lil’ Star’s tough. Tougher than I am. But I think you have a shot at beating her. \nWhen you’re ready, meet me outside the arena. \nAnd, Buddy? \nDon’t waste my chance at revenge."
+		},
+		{
+			"definition": "1647643371-787",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1647643371-787",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"character": "character-1645116491.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "When you’re ready, meet me outside the arena."
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.3",
+		"file": "timeline-1645117165.json",
+		"name": "PolecatWin"
+	}
+}
